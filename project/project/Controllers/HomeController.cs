@@ -31,5 +31,10 @@ namespace project.Controllers
         {
             return View();
         }
+        public ActionResult CreatingComplaint()
+        {
+
+            return View();
+        }
     }
 }
