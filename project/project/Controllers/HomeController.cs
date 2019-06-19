@@ -38,11 +38,19 @@ namespace project.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreatingComplaint(Complaint complaint)
+        public ActionResult CreatingComplaint([Bind(Exclude = "id,comNumber,comDate,comStatus")]Complaint complaint)
         {
-            db.Complaints.Add(complaint);
-            db.SaveChanges();
-            return RedirectToAction("kk");
+            if (ModelState.IsValid)
+            {
+                db.Complaints.Add(complaint);
+                db.SaveChanges();
+                return RedirectToAction("kk");
+            }
+            else
+            {
+                return View(complaint);
+            }
+            
         }
     }
 }
