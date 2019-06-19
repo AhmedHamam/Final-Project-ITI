@@ -26,5 +26,10 @@ namespace project.Controllers
 
             return View();
         }
+
+        public ActionResult kk()
+        {
+            return View();
+        }
     }
 }
