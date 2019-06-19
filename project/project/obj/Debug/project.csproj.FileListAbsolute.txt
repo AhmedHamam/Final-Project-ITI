@@ -186,3 +186,7 @@ E:\mina\Final-Project-ITI\project\project\bin\Microsoft.CodeDom.Providers.DotNet
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.dll
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.pdb
+E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.dll
+E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.SqlServer.dll
+E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.xml
+E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.SqlServer.xml
