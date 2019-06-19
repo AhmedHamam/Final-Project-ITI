@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\ITI\Final Project\Final-Project-ITI\project\project\bin\ApplicationInsights.config
 D:\ITI\Final Project\Final-Project-ITI\project\project\bin\project.dll.config
 D:\ITI\Final Project\Final-Project-ITI\project\project\bin\project.dll
@@ -96,7 +95,6 @@ D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.csproj.
 D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.csproj.CopyComplete
 D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.dll
 D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.pdb
-=======
 E:\mina\Final-Project-ITI\project\project\bin\ApplicationInsights.config
 E:\mina\Final-Project-ITI\project\project\bin\project.dll.config
 E:\mina\Final-Project-ITI\project\project\bin\project.dll
@@ -188,4 +186,3 @@ E:\mina\Final-Project-ITI\project\project\bin\Microsoft.CodeDom.Providers.DotNet
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.dll
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.pdb
->>>>>>> fe9913810815dcdb1ec1429e2d07fc7e96c4e318

@@ -214,15 +214,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\kk.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Admins\Create.cshtml" />
     <Content Include="Views\Admins\Delete.cshtml" />
     <Content Include="Views\Admins\Details.cshtml" />
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
-=======
     <Content Include="Views\Home\CreatingComplaint.cshtml" />
->>>>>>> fe9913810815dcdb1ec1429e2d07fc7e96c4e318
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
