@@ -189,3 +189,6 @@ E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.dll
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.SqlServer.dll
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.xml
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.SqlServer.xml
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache

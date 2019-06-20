@@ -18,11 +18,11 @@ namespace project.Models
         public string comTitle { get; set; }
         [Required(ErrorMessage = "*")]
         public string comDescription { get; set; }
-        [Required(ErrorMessage = "*")]
+
         public int? comEntitybranch_id { get; set; }
-        [Required(ErrorMessage = "*")]
+
         public int? comEntity_id { get; set; }
-        [Required(ErrorMessage = "*")]
+
         [StringLength(500)]
         public string comFile { get; set; }
 
@@ -30,9 +30,8 @@ namespace project.Models
         public DateTime? comDate { get; set; }
 
         public bool? comStatus { get; set; }
-        [Required]
+
         public int? comCity { get; set; }
-        [Required(ErrorMessage = "*")]
         public virtual city city { get; set; }
 
         public virtual Entity_Branchs Entity_Branchs { get; set; }
