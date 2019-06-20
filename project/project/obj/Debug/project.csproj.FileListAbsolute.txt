@@ -183,7 +183,6 @@ E:\mina\Final-Project-ITI\project\project\bin\Microsoft.AI.DependencyCollector.x
 E:\mina\Final-Project-ITI\project\project\bin\Microsoft.AI.WindowsServer.xml
 E:\mina\Final-Project-ITI\project\project\bin\Microsoft.AI.Web.xml
 E:\mina\Final-Project-ITI\project\project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.dll
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.pdb
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.dll
