@@ -9,14 +9,13 @@ namespace project.Models
     [Table("Complaint")]
     public partial class Complaint
     {
-        
         public int id { get; set; }
 
         public long? comNumber { get; set; }
-        [Required(ErrorMessage = "*")]
+
         [StringLength(500)]
         public string comTitle { get; set; }
-        [Required(ErrorMessage = "*")]
+
         public string comDescription { get; set; }
 
         public int? comEntitybranch_id { get; set; }
@@ -32,7 +31,10 @@ namespace project.Models
         public bool? comStatus { get; set; }
 
         public int? comCity { get; set; }
+
         public virtual city city { get; set; }
+
+        public virtual Entity Entity { get; set; }
 
         public virtual Entity_Branchs Entity_Branchs { get; set; }
     }

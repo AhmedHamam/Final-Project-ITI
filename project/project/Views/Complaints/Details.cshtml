@@ -1,0 +1,98 @@
+﻿@model project.Models.Complaint
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Complaint</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.city.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.city.name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Entity.Title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Entity.Title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Entity_Branchs.title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comNumber)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comDescription)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comFile)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comFile)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comStatus)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

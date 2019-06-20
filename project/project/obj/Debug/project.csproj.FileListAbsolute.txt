@@ -189,9 +189,6 @@ E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.dll
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.SqlServer.dll
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.xml
 E:\mina\Final-Project-ITI\project\project\bin\EntityFramework.SqlServer.xml
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache
 G:\Finalproject\Final-Project-ITI\project\project\bin\ApplicationInsights.config
 G:\Finalproject\Final-Project-ITI\project\project\bin\project.dll.config
 G:\Finalproject\Final-Project-ITI\project\project\bin\project.dll
@@ -291,3 +288,5 @@ G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CoreC
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CopyComplete
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.dll
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.pdb
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.Upgrading.resources
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache

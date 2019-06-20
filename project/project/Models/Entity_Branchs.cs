@@ -16,12 +16,13 @@ namespace project.Models
 
         public int id { get; set; }
 
+        [Required]
         [StringLength(500)]
         public string title { get; set; }
 
-        public int? entity_id { get; set; }
+        public int entity_id { get; set; }
 
-        public bool? is_deleted { get; set; }
+        public bool is_deleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Complaint> Complaints { get; set; }

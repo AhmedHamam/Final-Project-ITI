@@ -1,0 +1,90 @@
+﻿@model IEnumerable<project.Models.Complaint>
+
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.city.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entity.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comFile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comStatus)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entity.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entity_Branchs.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comDescription)
+                </td>
+                <td>
+                    <img src="/images/@item.comFile" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comStatus)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

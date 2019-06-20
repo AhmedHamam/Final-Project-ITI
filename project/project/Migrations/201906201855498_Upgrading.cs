@@ -3,7 +3,7 @@ namespace project.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class mina : DbMigration
+    public partial class Upgrading : DbMigration
     {
         public override void Up()
         {
@@ -83,8 +83,8 @@ namespace project.Migrations
                     {
                         id = c.Int(nullable: false, identity: true),
                         comNumber = c.Long(),
-                        comTitle = c.String(nullable: false, maxLength: 500),
-                        comDescription = c.String(nullable: false),
+                        comTitle = c.String(maxLength: 500),
+                        comDescription = c.String(),
                         comEntitybranch_id = c.Int(),
                         comEntity_id = c.Int(),
                         comFile = c.String(maxLength: 500),
@@ -93,23 +93,12 @@ namespace project.Migrations
                         comCity = c.Int(),
                     })
                 .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.Entity_Branchs", t => t.comEntity_id, cascadeDelete: true)
+                .ForeignKey("dbo.Entity", t => t.comEntity_id)
+                .ForeignKey("dbo.Entity_Branchs", t => t.comEntitybranch_id)
                 .ForeignKey("dbo.cities", t => t.comCity)
+                .Index(t => t.comEntitybranch_id)
                 .Index(t => t.comEntity_id)
                 .Index(t => t.comCity);
-            
-            CreateTable(
-                "dbo.Entity_Branchs",
-                c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        title = c.String(maxLength: 500),
-                        entity_id = c.Int(),
-                        is_deleted = c.Boolean(),
-                    })
-                .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.Entity", t => t.entity_id, cascadeDelete: true)
-                .Index(t => t.entity_id);
             
             CreateTable(
                 "dbo.Entity",
@@ -126,6 +115,19 @@ namespace project.Migrations
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.Officials", t => t.mangerId)
                 .Index(t => t.mangerId);
+            
+            CreateTable(
+                "dbo.Entity_Branchs",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        title = c.String(nullable: false, maxLength: 500),
+                        entity_id = c.Int(nullable: false),
+                        is_deleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.Entity", t => t.entity_id, cascadeDelete: true)
+                .Index(t => t.entity_id);
             
             CreateTable(
                 "dbo.Officials",
@@ -184,15 +186,17 @@ namespace project.Migrations
             DropForeignKey("dbo.Officials", "leaderId", "dbo.Officials");
             DropForeignKey("dbo.Entity", "mangerId", "dbo.Officials");
             DropForeignKey("dbo.Entity_Branchs", "entity_id", "dbo.Entity");
-            DropForeignKey("dbo.Complaint", "comEntity_id", "dbo.Entity_Branchs");
+            DropForeignKey("dbo.Complaint", "comEntitybranch_id", "dbo.Entity_Branchs");
+            DropForeignKey("dbo.Complaint", "comEntity_id", "dbo.Entity");
             DropForeignKey("dbo.Citzen", "cityId", "dbo.cities");
             DropForeignKey("dbo.Admin_Roles", "adminId", "dbo.Admin");
             DropIndex("dbo.Officials", new[] { "entityId" });
             DropIndex("dbo.Officials", new[] { "leaderId" });
-            DropIndex("dbo.Entity", new[] { "mangerId" });
             DropIndex("dbo.Entity_Branchs", new[] { "entity_id" });
+            DropIndex("dbo.Entity", new[] { "mangerId" });
             DropIndex("dbo.Complaint", new[] { "comCity" });
             DropIndex("dbo.Complaint", new[] { "comEntity_id" });
+            DropIndex("dbo.Complaint", new[] { "comEntitybranch_id" });
             DropIndex("dbo.cities", new[] { "gov_id" });
             DropIndex("dbo.Citzen", new[] { "accptedBy" });
             DropIndex("dbo.Citzen", new[] { "cityId" });
@@ -200,8 +204,8 @@ namespace project.Migrations
             DropTable("dbo.sysdiagrams");
             DropTable("dbo.Governments");
             DropTable("dbo.Officials");
-            DropTable("dbo.Entity");
             DropTable("dbo.Entity_Branchs");
+            DropTable("dbo.Entity");
             DropTable("dbo.Complaint");
             DropTable("dbo.cities");
             DropTable("dbo.Citzen");
