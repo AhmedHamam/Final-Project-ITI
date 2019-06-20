@@ -160,14 +160,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\CitzenController.cs" />
-    <Compile Include="Controllers\ComplaintsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906201855498_Upgrading.cs" />
-    <Compile Include="Migrations\201906201855498_Upgrading.Designer.cs">
-      <DependentUpon>201906201855498_Upgrading.cs</DependentUpon>
+    <Compile Include="Migrations\201906201215154_mina.cs" />
+    <Compile Include="Migrations\201906201215154_mina.Designer.cs">
+      <DependentUpon>201906201215154_mina.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -190,8 +189,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\login.css" />
+    <Content Include="Content\logo.png" />
     <Content Include="Content\registeration.css" />
     <Content Include="Content\user.png" />
+    <Content Include="Content\_user.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -232,18 +233,13 @@
     <Content Include="Views\Admins\Details.cshtml" />
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Home\CreatingComplaint.cshtml" />
     <Content Include="Views\Shared\_Citzen.cshtml" />
     <Content Include="Views\Citzen\login.cshtml" />
     <Content Include="Views\Citzen\signup.cshtml" />
-    <Content Include="Views\Complaints\Create.cshtml" />
-    <Content Include="Views\Complaints\Delete.cshtml" />
-    <Content Include="Views\Complaints\Details.cshtml" />
-    <Content Include="Views\Complaints\Edit.cshtml" />
-    <Content Include="Views\Complaints\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -259,8 +255,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906201855498_Upgrading.resx">
-      <DependentUpon>201906201855498_Upgrading.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906201215154_mina.resx">
+      <DependentUpon>201906201215154_mina.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
