@@ -1,7 +1,7 @@
 ﻿@model project.Models.Complaint
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,86 +13,110 @@
 </head>
 <body>
     <div>
-        <h4>Complaint</h4>
+        <h4>تفاصيل الشكوى</h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.city.name)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.city.name)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Entity.Title)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Entity.Title)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Entity_Branchs.title)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Entity_Branchs.title)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.comNumber)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.comNumber)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.comTitle)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.comTitle)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.comDescription)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.comDescription)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.comFile)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.comFile)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.comDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.comDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.comStatus)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.comStatus)
-            </dd>
-    
-        </dl>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.city.name)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.Entity.Title)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comNumber)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comTitle)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comDescription)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comFile)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.city.name)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.Entity.Title)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.Entity_Branchs.title)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comNumber)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comTitle)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comDescription)
+                    </td>
+
+
+
+                    <td>
+                        <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:50%" />
+
+                    </td>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.comDate)
+                    </th>
+
+                    <td>
+                        @Html.DisplayFor(model => model.comDate)
+                    </td>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.comStatus)
+                    </th>
+
+                    <td>
+                        @Html.DisplayFor(model => model.comStatus)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id },new { @class="btn btn-danger"}) 
+        @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-danger" })
+    </p> 
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline;
+        }
+    </style>   
 </body>
 </html>

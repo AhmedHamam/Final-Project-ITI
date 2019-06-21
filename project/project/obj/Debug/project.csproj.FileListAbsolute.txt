@@ -288,5 +288,6 @@ G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CoreC
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CopyComplete
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.dll
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.pdb
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.Upgrading.resources
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.ss.resources
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache

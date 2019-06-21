@@ -160,13 +160,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\CitzenController.cs" />
+    <Compile Include="Controllers\ComplaintsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906201215154_mina.cs" />
-    <Compile Include="Migrations\201906201215154_mina.Designer.cs">
-      <DependentUpon>201906201215154_mina.cs</DependentUpon>
+    <Compile Include="Migrations\201906211035238_ss.cs" />
+    <Compile Include="Migrations\201906211035238_ss.Designer.cs">
+      <DependentUpon>201906211035238_ss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -197,6 +198,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\bann1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -233,10 +235,14 @@
     <Content Include="Views\Admins\Details.cshtml" />
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
-    <Content Include="Views\Home\CreatingComplaint.cshtml" />
     <Content Include="Views\Shared\_Citzen.cshtml" />
     <Content Include="Views\Citzen\login.cshtml" />
     <Content Include="Views\Citzen\signup.cshtml" />
+    <Content Include="Views\Complaints\Create.cshtml" />
+    <Content Include="Views\Complaints\Delete.cshtml" />
+    <Content Include="Views\Complaints\Details.cshtml" />
+    <Content Include="Views\Complaints\Edit.cshtml" />
+    <Content Include="Views\Complaints\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,8 +261,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906201215154_mina.resx">
-      <DependentUpon>201906201215154_mina.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906211035238_ss.resx">
+      <DependentUpon>201906211035238_ss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

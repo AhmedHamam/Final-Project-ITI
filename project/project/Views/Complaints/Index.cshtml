@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<project.Models.Complaint>
 
 @{
-
+    Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
 <!DOCTYPE html>
@@ -78,13 +78,22 @@
                     @Html.DisplayFor(modelItem => item.comStatus)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    @Html.ActionLink("Edit", "Edit", new {image=@item.comFile, id = item.id },new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "Details", new { image = @item.comFile, id = item.id },new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { image = @item.comFile, id = item.id },new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
 
     </table>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline;
+        }
+    </style>
 </body>
 </html>

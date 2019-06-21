@@ -33,6 +33,7 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
+          
             return View(complaint);
         }
 
@@ -77,6 +78,7 @@ namespace project.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Complaint complaint = db.Complaints.Find(id);
+          
             if (complaint == null)
             {
                 return HttpNotFound();

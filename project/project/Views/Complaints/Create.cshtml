@@ -1,7 +1,7 @@
 ﻿@model project.Models.Complaint
 
 @{
-
+    Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
 <!DOCTYPE html>
@@ -16,14 +16,14 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div id="main-div"class="form-horizontal">
 
-            <fieldset style="font-weight:bold;font-size:20px;border:1px solid #d43f3a">
-                <legend class="text-center btn btn-danger" style="margin-top:10px;font-weight:bold;font-size:25px;cursor:default">الشكوى</legend>
+            <fieldset style="font-weight:bold;font-size:20px;border:1px solid rgb(37,163,153)">
+                <legend class="text-center btn btn-danger" style="font-weight:bold;font-size:25px;cursor:default;background-color:rgb(37,163,153)">الشكوى</legend>
 
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
+                <div class="row form-group">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
                         @Html.EditorFor(model => model.comTitle, new { htmlAttributes = new { @class = "form-control" } })
@@ -35,10 +35,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="row form-group">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
-                        @Html.TextAreaFor(model => model.comDescription, 7, 30, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.comDescription, 7, 45, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.comDescription, "", new { @class = "text-danger" })
                     </div>
 
@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="row form-group">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
                         @Html.DropDownList("comEntity_id", null, htmlAttributes: new { @class = "form-control" })
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="row form-group">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
                         @Html.DropDownList("comEntitybranch_id", null, htmlAttributes: new { @class = "form-control" })
@@ -73,7 +73,7 @@
                 </div>
 
 
-                <div class="form-group">
+                <div class="row form-group">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
                         @Html.DropDownList("comCity", null, htmlAttributes: new { @class = "form-control" })
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="row form-group">
                     <div class="col-md-3"></div>
                     <div class="col-md-3">
                         <input type="file" name="comFile" class="form-control" />
@@ -99,8 +99,8 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        @Html.ActionLink("الغاء", "Index", "", new { @class = "btn btn-danger", @style = "font-size:20px;font-weight:bold;margin-top:10px;" })
-                        <input type="submit" value="ادخال" class="btn btn-danger" style="margin-top:10px;font-weight:bold;font-size:20px" />
+                        @Html.ActionLink("الغاء", "Index", "", new {  @style = "font-size:20px;font-weight:bold;margin-top:10px;background-color:rgb(37,163,153)",@class = "btn btn-success" })
+                        <input type="submit" value="ادخال" class="btn btn-success" style="margin-top:10px;font-weight:bold;font-size:20px" />
 
                     </div>
                 </div>
@@ -113,8 +113,9 @@
 
 
     <style>
-        body {
-            font-size: 20px;
+
+        input[type="submit"]{
+            background-color:rgb(37,163,153);text-align:center;
         }
     </style>
 </body>
