@@ -51,10 +51,13 @@ namespace project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,comNumber,comTitle,comDescription,comEntitybranch_id,comEntity_id,comDate,comStatus,comCity")] Complaint complaint, HttpPostedFileBase comFile)
+        public ActionResult Create([Bind(Include = "comTitle,comDescription,comEntitybranch_id,comEntity_id,comCity")] Complaint complaint, HttpPostedFileBase comFile)
         {
             if (ModelState.IsValid)
             {
+                complaint.comDate = DateTime.Now;
+                complaint.comNumber = DateTime.Now.Year.ToString() + complaint.id;
+                complaint.comStatus = "فعالة";
                 string image = System.IO.Path.GetFileName(comFile.FileName);
                 string myPath = Server.MapPath("~/images/" + image);
                 comFile.SaveAs(myPath);
