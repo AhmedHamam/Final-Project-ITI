@@ -78,9 +78,9 @@
                     @Html.DisplayFor(modelItem => item.comStatus)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {image=@item.comFile, id = item.id },new { @class = "btn btn-success" }) |
-                    @Html.ActionLink("Details", "Details", new { image = @item.comFile, id = item.id },new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Delete", "Delete", new { image = @item.comFile, id = item.id },new { @class = "btn btn-danger" })
+                    @Html.ActionLink("تعديل", "Edit", new {image=@item.comFile, id = item.id },new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("تفاصيل", "Details", new { image = @item.comFile, id = item.id },new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("حذف", "Delete", new { image = @item.comFile, id = item.id },new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
