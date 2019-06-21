@@ -18,6 +18,10 @@ namespace project.Controllers
         {
             return View();
         }
+        public ActionResult aboutus()
+        {
+            return View();
+        }
 
     }
 }

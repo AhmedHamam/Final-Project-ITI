@@ -282,7 +282,6 @@ G:\Finalproject\Final-Project-ITI\project\project\bin\Microsoft.AI.WindowsServer
 G:\Finalproject\Final-Project-ITI\project\project\bin\Microsoft.AI.Web.xml
 G:\Finalproject\Final-Project-ITI\project\project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csprojAssemblyReference.cache
-G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.cache
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CoreCompileInputs.cache
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CopyComplete
@@ -291,3 +290,4 @@ G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.pdb
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.ss.resources
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache
+G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.ss.resources
