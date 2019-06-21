@@ -251,6 +251,8 @@
     <Content Include="Views\Admins\addofficail.cshtml" />
     <Content Include="Views\Admins\viewallofficial.cshtml" />
     <Content Include="Views\Shared\_adminLayout.cshtml" />
+    <Content Include="Views\Admins\errno404.cshtml" />
+    <Content Include="Views\Admins\errno500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

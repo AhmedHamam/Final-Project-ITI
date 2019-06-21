@@ -19,6 +19,14 @@ namespace project.Controllers
         {
             return View();
         }
+        public ActionResult errno404()
+        {
+            return View();
+        }
+        public ActionResult errno500()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult addofficail()
         {

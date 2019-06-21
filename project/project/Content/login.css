@@ -4,9 +4,8 @@
     box-shadow: 3px 3px 3px 3px gray;
 }
 
-nav a{
-color:white !important ;
-
+nav a {
+    color: white !important;
 }
 .con ,.confl{
     background-color: rgb(37, 163, 153);
