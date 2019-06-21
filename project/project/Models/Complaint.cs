@@ -11,8 +11,6 @@ namespace project.Models
     {
         public int id { get; set; }
 
-        public long? comNumber { get; set; }
-
         [StringLength(500)]
         public string comTitle { get; set; }
 
@@ -28,9 +26,14 @@ namespace project.Models
         [Column(TypeName = "date")]
         public DateTime? comDate { get; set; }
 
-        public bool? comStatus { get; set; }
+        [StringLength(50)]
+        public string comStatus { get; set; }
 
         public int? comCity { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [StringLength(14)]
+        public string comNumber { get; set; }
 
         public virtual city city { get; set; }
 

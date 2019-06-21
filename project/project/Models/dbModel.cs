@@ -12,6 +12,7 @@ namespace project.Models
         {
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Admin_Roles> Admin_Roles { get; set; }
         public virtual DbSet<city> cities { get; set; }
