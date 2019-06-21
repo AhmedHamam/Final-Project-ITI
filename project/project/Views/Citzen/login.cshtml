@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/login.css">
+    <link href="~/Content/bootstrap-rtl.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <form action="/action_page.php">
+        <h1>تسجيل الدخول </h1>
+        <div class="imgcontainer">
+            <img src="~/Content/user.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>اسم المستخدم </b></label>
+            <input type="text" placeholder="ادخل اسم المستخدم .." name="uname" required>
+
+            <label for="psw"><b>الرقم السري </b></label>
+            <input type="password" placeholder="ادخل الرقم السري .." name="psw" required>
+
+            <button type="submit">الدخول</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> تذكرني
+            </label>
+        </div>
+
+
+    </form>
+
+</body>
+</html>

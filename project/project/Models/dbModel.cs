@@ -42,10 +42,14 @@ namespace project.Models
                 .HasForeignKey(e => e.comCity);
 
             modelBuilder.Entity<Entity>()
-                .HasMany(e => e.Entity_Branchs)
+                .HasMany(e => e.Complaints)
                 .WithOptional(e => e.Entity)
-                .HasForeignKey(e => e.entity_id)
-                .WillCascadeOnDelete();
+                .HasForeignKey(e => e.comEntity_id);
+
+            modelBuilder.Entity<Entity>()
+                .HasMany(e => e.Entity_Branchs)
+                .WithRequired(e => e.Entity)
+                .HasForeignKey(e => e.entity_id);
 
             modelBuilder.Entity<Entity>()
                 .HasMany(e => e.Officials)
@@ -55,8 +59,7 @@ namespace project.Models
             modelBuilder.Entity<Entity_Branchs>()
                 .HasMany(e => e.Complaints)
                 .WithOptional(e => e.Entity_Branchs)
-                .HasForeignKey(e => e.comEntity_id)
-                .WillCascadeOnDelete();
+                .HasForeignKey(e => e.comEntitybranch_id);
 
             modelBuilder.Entity<Government>()
                 .HasMany(e => e.cities)

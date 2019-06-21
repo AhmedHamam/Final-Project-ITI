@@ -1,0 +1,122 @@
+﻿@model project.Models.Complaint
+
+@{
+    Layout = "~/Views/Shared/_Citzen.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>تفاصيل الشكوى</h4>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.city.name)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.Entity.Title)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comNumber)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comTitle)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comDescription)
+                    </th>
+                    <th class="col">
+                        @Html.DisplayNameFor(model => model.comFile)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.city.name)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.Entity.Title)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.Entity_Branchs.title)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comNumber)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comTitle)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comDescription)
+                    </td>
+
+
+
+                    <td>
+                        <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:50%" />
+
+                    </td>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.comDate)
+                    </th>
+
+                    <td>
+                        @Html.DisplayFor(model => model.comDate)
+                    </td>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.comStatus)
+                    </th>
+
+                    <td>
+                        @Html.DisplayFor(model => model.comStatus)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id },new { @class="btn btn-danger"}) 
+        @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-danger" })
+    </p> 
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline;
+        }
+    </style>   
+</body>
+</html>

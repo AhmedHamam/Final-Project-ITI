@@ -8,7 +8,7 @@ namespace project.Controllers
 {
     public class HomeController : Controller
     {
-        private dbModel db = new dbModel();
+        //private dbModel db = new dbModel();
         public ActionResult Index()
         {
             return View();
@@ -42,8 +42,8 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Complaints.Add(complaint);
-                db.SaveChanges();
+                //db.Complaints.Add(complaint);
+                //db.SaveChanges();
                 return RedirectToAction("kk");
             }
             else
