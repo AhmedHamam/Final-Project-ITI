@@ -165,9 +165,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906211035238_ss.cs" />
-    <Compile Include="Migrations\201906211035238_ss.Designer.cs">
-      <DependentUpon>201906211035238_ss.cs</DependentUpon>
+    <Compile Include="Migrations\201906211255329_mina.cs" />
+    <Compile Include="Migrations\201906211255329_mina.Designer.cs">
+      <DependentUpon>201906211255329_mina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906211352328_mina1.cs" />
+    <Compile Include="Migrations\201906211352328_mina1.Designer.cs">
+      <DependentUpon>201906211352328_mina1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -175,6 +179,7 @@
     <Compile Include="Models\city.cs" />
     <Compile Include="Models\Citzen.cs" />
     <Compile Include="Models\Complaint.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
     <Compile Include="Models\dbModel.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Entity_Branchs.cs" />
@@ -245,6 +250,9 @@
     <Content Include="Views\Complaints\Edit.cshtml" />
     <Content Include="Views\Complaints\Index.cshtml" />
     <Content Include="Views\Citzen\aboutus.cshtml" />
+    <Content Include="Views\Admins\addofficail.cshtml" />
+    <Content Include="Views\Admins\viewallofficial.cshtml" />
+    <Content Include="Views\Shared\_adminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -263,8 +271,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906211035238_ss.resx">
-      <DependentUpon>201906211035238_ss.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906211255329_mina.resx">
+      <DependentUpon>201906211255329_mina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906211352328_mina1.resx">
+      <DependentUpon>201906211352328_mina1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

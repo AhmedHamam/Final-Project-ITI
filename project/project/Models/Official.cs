@@ -18,24 +18,35 @@ namespace project.Models
         public int id { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string fName { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string mName { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string lName { get; set; }
 
         [StringLength(50)]
+        [Required]
+
         public string userName { get; set; }
 
         [StringLength(500)]
+        [Required]
+
         public string passWord { get; set; }
 
         [StringLength(50)]
+        [Required]
+
         public string email { get; set; }
 
         [StringLength(11)]
+        [Required]
+
         public string phone { get; set; }
 
         [Required]
@@ -43,9 +54,13 @@ namespace project.Models
         public string mobile { get; set; }
 
         [StringLength(50)]
+        [Required]
+
         public string job { get; set; }
 
         [StringLength(500)]
+        [Required]
+
         public string jobDesciption { get; set; }
 
         public bool? isLeader { get; set; }
