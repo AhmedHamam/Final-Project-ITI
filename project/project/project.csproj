@@ -194,6 +194,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dataAboutwebsite.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\registeration.css" />
@@ -248,6 +249,7 @@
     <Content Include="Views\Complaints\Details.cshtml" />
     <Content Include="Views\Complaints\Edit.cshtml" />
     <Content Include="Views\Complaints\Index.cshtml" />
+    <Content Include="Views\Citzen\aboutus.cshtml" />
     <Content Include="Views\Admins\addofficail.cshtml" />
     <Content Include="Views\Admins\viewallofficial.cshtml" />
     <Content Include="Views\Shared\_adminLayout.cshtml" />
