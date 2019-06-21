@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    
+
+    <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome-all.css" rel="stylesheet" />
+
+
+
+    <title>الصفحه الرئيسيه </title>
+    <body>
+        <div class="container-fluid confl">
+
+            <nav class="  navbar navbar-expand-lg navbar-light con">
+                <a class="navbar-brand" href="#">
+                    <img src="~/images/monofia.png" width="60" height="60" class=" rounded-circle" alt="">
+                   البوابةالالكترونية للشكاوي الحكومية
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-right">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="main.cshtml">الصفحه الرئيسيه <span class="sr-only">(current)</span></a>
+                        </li>
+
+
+                    </ul>
+                    <ul class=" navbar-nav navbar-left">
+                        <li class=" dropdown ">
+                            <a class="nav-link dropdown-toggle mr-le" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                الاداره
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-dark" href="#">اضافه مسئول جديد</a>
+                                <a class="dropdown-item text-dark" href="#"> عرض المسئولين</a>
+                                <a class="dropdown-item text-dark" href="#">اضافه قسم جديد</a>
+
+
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul class=" navbar-nav navbar-left">
+                        <li class=" dropdown ">
+                            <a class="nav-link dropdown-toggle mr-le" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                الاعدادات
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-dark" href="#">تسجيل الخروج</a>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="col-sm-2  bg-light">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action bg-light ">
+                            <span>الوزارات</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة التجارة والصناعة</span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة التربية والتعليم.</span></a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <span>
+                                وزارة التعليم العالي
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action "><span>وزارة المالية  </span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة السياحة</span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة الصحة والسكان  </span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة الزراعه</span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة الكهرباء والطاقة.</span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة النقل</span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة الإستثمار</span></a>
+                        <a href="#" class="list-group-item list-group-item-action"><span>وزارة العدل                                                    .</span></a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <span>
+                                وزارة الإتصالات
+                            </span>
+                        </a>
+
+                    </div>
+                </aside>
+                <article class="col-sm-10 bg-light">
+                    @RenderBody()
+                </article>
+
+            </div>
+
+
+
+
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="~/Scripts/popper.js"></script>
+            <script src="~/Scripts/jquery-3.3.1.js"></script>
+            <script src="~/Scripts/bootstrap.js"></script>
+    </body>
+</html>

@@ -17,7 +17,21 @@ namespace project.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            return View(db.Admins.ToList());
+            return View();
+        }
+        [HttpGet]
+        public ActionResult addofficail()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult addofficail(Official ofic)
+        {
+            return View();
+        }
+        public ActionResult viewallofficial()
+        {
+            return View();
         }
 
         // GET: Admins/Details/5

@@ -1,0 +1,13 @@
+.mycont {
+    background-color: rgb(250, 250, 250);
+    opacity: .9;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+
+nav a{
+color:white !important ;
+
+}
+.con ,.confl{
+    background-color: rgb(37, 163, 153);
+}
