@@ -1,0 +1,98 @@
+﻿
+@model project.Models.Official
+@{
+    ViewBag.Title = "addofficail";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @*<div class="col-md-1"></div>*@
+        <div class="col-md-8 mycont ">
+
+            <p class="text-center mt-5 ">اضافه مسئول</p>
+            <div class="text-center mt-3">
+                <i class="fas fa-user-tie  fa-5x "></i>
+            </div>
+            <form method="post">
+                <div class="form-row mt-3">
+
+                    <div class="col">
+                        <label >الاسم الاول</label>
+                        <input type="text" class="form-control" placeholder="الاسم الاول">
+                    </div>
+                    <div class="col">
+                        <label>الاسم الاوسط</label>
+                        <input type="text" class="form-control" placeholder="الاسم الاوسط">
+                    </div>
+                    <div class="col">
+                        <label>الاسم الاخير</label>
+                        <input type="text" class="form-control" placeholder="الاسم الاخير">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-md-12">
+                        <label>اسم المستخدم</label>
+                        <input type="text" class="form-control" id="inputusname" placeholder="اسم المستخدم">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-md-12">
+                        <label>الايميل</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="ادخل الايميل">
+                    </div>
+                </div>
+
+                <div class="form-group row mt-3">
+                    <div class="col-md-12">
+                       
+                        <input type="password" class="form-control" id="inputPassword" placeholder="الرقم السري">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-md-12">
+                        <label>تاكيد الرقم السري</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="تاكيد الرقم السري">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-md-12">
+                        <label>رقم التليفون الارضي</label>
+                        <input type="text" class="form-control mt-3" id="inputphone" placeholder="ادخل رقم التليفون">
+                    </div>
+                </div>
+
+                <div class="form-group row mt-3">
+
+                    <div class="col-md-12">
+                        <label>رقم الموبايل</label>
+                        <input type="text" class="form-control mt-3" id="inputphone" placeholder="ادخل رقم الموبايل">
+                    </div>
+                </div>
+
+                <div class="form-group row mt-3">
+                    <div class="col-md-12">
+                        <label>الوظيفه</label>
+                        <input type="text" class="form-control mt-3" id="inputjob" placeholder="ادخل الوظيفه">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-sm-12">
+                        <label>تفاصيل الوظيفه</label>
+                        <textarea name="message" rows="10" cols="72" placeholder="ادخل تفاصيل الوظيفه"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <a href="#"><div class=" col-md-12 mt-3 btn btn-info text-center " id="btnSingup"> اضافه</div></a>
+                    </div>
+                    <div class="col-md-4"></div>
+
+                </div>
+        </div>
+
+
+    </div>
+</div>
+
