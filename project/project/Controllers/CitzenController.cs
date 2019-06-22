@@ -27,6 +27,11 @@ namespace project.Controllers
         {
             return View();
         }
+        public ActionResult forget()
+        {
+            return View();
+        }
+
 
 
     }
