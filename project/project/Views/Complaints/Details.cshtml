@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>تفاصيل</title>
 </head>
 <body>
     <div>
@@ -19,25 +19,31 @@
             <thead>
                 <tr>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.city.name)
+                        مدينة
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.Entity.Title)
+                       وزارة
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+                        محافظة
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comNumber)
+                        رقم الشكوى
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comTitle)
+                        عنوان الشكوى
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comDescription)
+                        تفاصيل الشكوى
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comFile)
+                        مرفقات الشكوى
+                    </th>
+                    <th class="col">
+                       تاريخ الشكوى
+                    </th>
+                    <th class="col">
+                        حالة الشكوى 
                     </th>
                 </tr>
             </thead>
@@ -86,17 +92,13 @@
 
                     </td>
 
-                    <th>
-                        @Html.DisplayNameFor(model => model.comDate)
-                    </th>
+
 
                     <td>
                         @Html.DisplayFor(model => model.comDate)
                     </td>
 
-                    <th>
-                        @Html.DisplayNameFor(model => model.comStatus)
-                    </th>
+
 
                     <td>
                         @Html.DisplayFor(model => model.comStatus)
@@ -106,8 +108,8 @@
         </table>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id },new { @class="btn btn-danger"}) 
-        @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("تعديل", "Edit", new { id = Model.id },new { @class="btn btn-danger"}) 
+        @Html.ActionLink("الرجوع", "Index",null, new { @class = "btn btn-danger" })
     </p> 
     <style>
         body {

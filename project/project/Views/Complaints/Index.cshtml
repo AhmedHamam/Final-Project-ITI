@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<project.Models.Complaint>
 
 @{
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -9,40 +9,40 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>الشكاوى</title>
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("ارسال شكوى", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.city.name)
+               المدينة
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Entity.Title)
+                الوزارة
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+                المحافظة
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comNumber)
+                رقم الشكوى
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comTitle)
+                عنوان الشكوى
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comDescription)
+                تفاصيل الشكوى
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comFile)
+                مرفقات الشكوى
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comDate)
+                تاريخ الشكوى
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comStatus)
+                حاله الشكوى
             </th>
             <th></th>
         </tr>
@@ -69,7 +69,7 @@
                     @Html.DisplayFor(modelItem => item.comDescription)
                 </td>
                 <td>
-                    <img src="/images/@item.comFile" />
+                    <img src="/images/@item.comFile"style="width:30%;" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.comDate)
@@ -78,8 +78,8 @@
                     @Html.DisplayFor(modelItem => item.comStatus)
                 </td>
                 <td>
-                    @Html.ActionLink("تعديل", "Edit", new {image=@item.comFile, id = item.id },new { @class = "btn btn-success" }) |
-                    @Html.ActionLink("تفاصيل", "Details", new { image = @item.comFile, id = item.id },new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("تعديل", "Edit", new {image=@item.comFile, id = item.id },new { @class = "btn btn-success" }) 
+                    @Html.ActionLink("تفاصيل", "Details", new { image = @item.comFile, id = item.id },new { @class = "btn btn-primary" }) 
                     @Html.ActionLink("حذف", "Delete", new { image = @item.comFile, id = item.id },new { @class = "btn btn-danger" })
                 </td>
             </tr>
@@ -93,7 +93,12 @@
 
         .btn {
             display: inline;
+           
         }
+        .table th, .table td{
+            padding: 0.25rem;
+        }
+        
     </style>
 </body>
 </html>

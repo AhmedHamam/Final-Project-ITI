@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>حذف</title>
 </head>
 <body>
     <h3>متأكد انك ترغب فى حذف الشكوى ؟</h3>
@@ -20,25 +20,31 @@
             <thead>
                 <tr>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.city.name)
+                        مدينة
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.Entity.Title)
+                        وزارة
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+                        محافظة
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comNumber)
+                        رقم الشكوى
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comTitle)
+                        عنوان الشكوى
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comDescription)
+                        تفاصيل الشكوى
                     </th>
                     <th class="col">
-                        @Html.DisplayNameFor(model => model.comFile)
+                        مرفقات الشكوى
+                    </th>
+                    <th class="col">
+                        تاريخ الشكوى
+                    </th>
+                    <th class="col">
+                        حالة الشكوى
                     </th>
                 </tr>
             </thead>
@@ -87,17 +93,13 @@
 
                     </td>
 
-                    <th>
-                        @Html.DisplayNameFor(model => model.comDate)
-                    </th>
+
 
                     <td>
                         @Html.DisplayFor(model => model.comDate)
                     </td>
 
-                    <th>
-                        @Html.DisplayNameFor(model => model.comStatus)
-                    </th>
+
 
                     <td>
                         @Html.DisplayFor(model => model.comStatus)

@@ -23,5 +23,16 @@ namespace project.Controllers
             return View();
         }
 
+        public ActionResult safety()
+        {
+            return View();
+        }
+        public ActionResult forget()
+        {
+            return View();
+        }
+
+
+
     }
 }
