@@ -23,6 +23,18 @@ namespace project.Controllers
         {
             return View();
         }
+        public ActionResult confirmuser()
+        {
+            return View();
+        }
+        public ActionResult deleteofficial()
+        {
+            return View();
+        }
+        public ActionResult blockuser()
+        {
+            return View();
+        }
         public ActionResult errno500()
         {
             return View();
