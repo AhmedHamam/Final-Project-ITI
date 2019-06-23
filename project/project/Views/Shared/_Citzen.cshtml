@@ -1,17 +1,11 @@
-﻿
-@{
-    
-}
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-
 <head>
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Main Stylesheet File -->
-    <link href="~/Content/styledina.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/styleaya.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
@@ -19,187 +13,97 @@
 
 
 
-
-
-
-
-
-
+    <title> @ViewBag.Title </title>
 </head>
-
 <body>
-
-    <div class="container-fluid confl">
-
-        <nav class="  navbar navbar-expand-lg navbar-light con">
-            <a class="navbar-brand" href="#">
-                <img src="~/images/monofia.png" width="60" height="60" class=" rounded-circle" alt="">
-                البوابةالالكترونية للشكاوي الحكومية
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="main.cshtml">الصفحه الرئيسيه <span class="sr-only">(current)</span></a>
-                    </li>
-
-
-                </ul>
-                <ul class="navbar-nav mr-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="main.cshtml">عن البوابه <span class="sr-only">(current)</span></a>
-                    </li>
-
-
-                </ul>
-                <ul class="navbar-nav mr-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="main.cshtml">تسجيل الدخول <span class="sr-only">(current)</span></a>
-                    </li>
+    <nav class="navbar navbar-expand-lg navbar-light con">
+        <a class="navbar-brand" href="#">
+            <img src="~/images/monofia.png" width="40" height="40" alt="">
+        </a>        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">تسجيل البيانات<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">تسجيل الدخول<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">حماية السريه<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">عن البوابه<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">تسجيل الخروج</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
-                </ul>
-                <ul class="navbar-nav mr-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="main.cshtml">تسجيل البيانات<span class="sr-only">(current)</span></a>
-                    </li>
+    <div class="container">
 
+        @RenderBody()
 
-                </ul>
-                <ul class="navbar-nav mr-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="main.cshtml">حماية السريه <span class="sr-only">(current)</span></a>
-                    </li>
-
-
-                </ul>
-
-
-
-            </div>
-
-        </nav>
     </div>
- 
 
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-
-
-                @RenderBody()
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-               
-
-
-
-
-        <!--==========================
-      Footer
-    ============================-->
-        <footer id="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-4 col-md-7 footer-info">
-                            <h3> اهم ارقام الطوارئ</h3>
-                            <br />
-                            <br />
-                            <p>
-                                طوارئ المحافظات 114 - النجدة 122 - الكهرباء 121 - المياة 125 - الصرف الصحى 175 - الغاز
-                                129/149 - الصحة 137 - الاسعاف 123 - المطافئ 180 - الامن العام 115 - السياحة 126 - السكة
-                                الحديد 147
-                            </p>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-7 footer-contact">
-                            <h4>تواصل معنا - إتصل بنا </h4>
-                            <br />
-                            <p>
-                                يمكنكم إرسال جميع الآراء والمقترحات الخاصة بتطوير منظومة الشكاوى الحكومية على البريد
-                                الإليكتروني التالى
-                                shakwa@idsc.net.eg
-
-                            </p>
-
-                            <div class="social-links">
-                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-4 col-md-7 footer-newsletter">
-                            <h4>صدور قرارين بإنشاء منظومة الشكاوى الحكومية الموحدة</h4>
-                            <br />
-                            <p>
-                                صدر قرار السيد رئيس الجمهورية رقم 314 لسنة 2017 بشأن إنشاء منظومة الشكاوى الحكومية الموحدة،
-                                وقرارالسيد رئيس مجلس الوزراء رقم 1855 لسنة 2017 بتاريخ 17 أغسطس 2017 بشأن منظومة الشكاوى
-                                الحكومية الموحدة وإعادة تنظيم مكاتب خدمة المواطنين
-                                اهم
-                            </p>
-
-                        </div>
-
+    <footer class="section footer-classic context-dark bg-image" style="background: rgb(37, 163, 153);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xl-5">
+                    <div class="pr-xl-4">
+                        <a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                        <p class="text-right">اللاقابب سيبتلااسليبت ببتسيبلاتب تابيمسش تسيلابم</p>
+                        <!-- Rights-->
+                        <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="container">
-                <div class="copyright">
-                    &copy;حقوق النشر <strong>2017 مجلس الوزراء المصرى</strong>. جميع الحقوق محفوظة
+                <div class="col-md-4">
+                    <h5>Contacts</h5>
+                    <dl class="contact-list">
+                        <dt>Address:</dt>
+                        <dd>798 South Park Avenue, Jaipur, Raj</dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>email:</dt>
+                        <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>phones:</dt>
+                        <dd>
+                            <a href="tel:#">+91 7568543012</a> <span>or</span> <a href="tel:#">+91 9571195353</a>
+                        </dd>
+                    </dl>
                 </div>
-                <div class="credits">
-
-                    صمم بواسطة <a href="https://bootstrapmade.com/">ItI team</a>
+                <div class="col-md-4 col-xl-3">
+                    <h5>Links</h5>
+                    <ul class="nav-list">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-        <!-- #footer -->
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="~/Scripts/popper.js"></script>
-        <script src="~/Scripts/jquery-3.3.1.js"></script>
-        <script src="~/Scripts/bootstrap.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+        <div class="row no-gutters social-container">
+            <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+            <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+            <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+            <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
 </body>
-
 </html>

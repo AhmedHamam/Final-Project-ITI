@@ -15,9 +15,24 @@
     width: 88% !important;
 }
 a:hover{
-
-color: rgb(78, 3, 175) !important ;
+    color:green !important;
+/*color: rgb(78, 3, 175) !important ;*/
 }
 button.btn {
     background-color: rgb(37, 163, 153);
+}
+/*footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}*/
+#are {
+    font-size: 135%;
+    color: black;
+}
+#inp{
+    width:50%;
+}
+.loginDiv {
+    padding: 95px 0px;
 }

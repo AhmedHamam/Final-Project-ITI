@@ -5,30 +5,42 @@
 }
 
 
+    <div class="container mt-4 loginDiv">
 
-<!DOCTYPE html>
-
-
-    <form action="/action_page.php">
-        <h1 style="margin-left:2% ;width:100%;">تسجيل الدخول </h1>
-        <br/>
-        <br/>
-        <div class="imgcontainer">
-            <img src="~/Content/user.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>اسم المستخدم </b></label>
-            <input type="text" placeholder="ادخل اسم المستخدم .." name="uname" required>
-
-            <label for="psw"><b>الرقم السري </b></label>
-            <input type="password" placeholder="ادخل الرقم السري .." name="psw" required>
-
-            <button type="submit">الدخول</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> تذكرني
-            </label>
-        </div>
+        <div class="card bg-light" style="width:70%; position:center; margin-right:15%;">
+            <article class="card-body">
+                <h4 class="card-title mt-3 text-center">تسجيل دخول </h4>
 
 
-    </form>
+                <form>
+                   
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="" class="form-control" placeholder="الايميل " type="email">
+                    </div> <!-- form-group// -->
+
+                    
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" placeholder="الرقم السري " type="password">
+                    </div> <!-- form-group// -->
+                  
+
+
+
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> تسجيل الدخول  </button>
+                    </div> <!-- form-group// -->
+                </form>
+            </article>
+        </div> <!-- card.// -->
+
+    </div>
