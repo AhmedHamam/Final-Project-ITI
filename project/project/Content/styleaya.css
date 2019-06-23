@@ -7,8 +7,12 @@
 
 
 }
-.con, .confl {
-    background-color: rgb(37, 163, 153);
+
+.con {
+    background-color: rgb(37, 163, 153) !important;
+}
+.card-body {
+    width: 88% !important;
 }
 a:hover{
 
