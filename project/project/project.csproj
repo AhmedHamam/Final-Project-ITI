@@ -258,6 +258,8 @@
     <Content Include="Views\Admins\deleteofficial.cshtml" />
     <Content Include="Views\Citzen\safety.cshtml" />
     <Content Include="Views\Citzen\forget.cshtml" />
+    <Content Include="Views\Citzen\common.cshtml" />
+    <Content Include="Views\Citzen\home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
