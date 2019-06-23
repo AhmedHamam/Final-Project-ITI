@@ -21,15 +21,18 @@ a:hover{
 button.btn {
     background-color: rgb(37, 163, 153);
 }
-footer {
+/*footer {
     position: absolute;
     bottom: 0px;
     width: 100%;
-}
+}*/
 #are {
     font-size: 135%;
     color: black;
 }
 #inp{
     width:50%;
+}
+.loginDiv {
+    padding: 95px 0px;
 }
