@@ -1,0 +1,572 @@
+.mycont{
+    background-color: rgb(250, 250, 250);
+    margin-top: 40px;
+   
+    opacity: .9;
+    box-shadow: 3px 3px 3px 3px #dfdddd;
+
+
+}
+.con, .confl {
+    background-color: rgb(37, 163, 153);
+}
+a:hover{
+
+color: rgb(78, 3, 175) !important ;
+}
+button.btn {
+    background-color: rgb(37, 163, 153);
+}
+
+
+
+/*--------------------------------------------------------------
+# forget
+--------------------------------------------------------------*/
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    height: 30%;
+    margin-right: 25%;
+    width: 43%;
+    margin-top: 1%;
+    background: rgb(228, 225, 225);
+    padding: 4%;
+    border-radius: 3%;
+    font-family: 'Mirza', cursive;
+    opacity: 2%;
+}
+
+#are {
+    font-size: 250%;
+    color: rgb(37, 163, 153);
+    font-family: 'Mirza', cursive;
+    margin-left: 20%;
+    margin-top: 8%;
+}
+
+#to {
+    font-size: 150%;
+    color: black;
+    font-family: 'Mirza', cursive;
+   
+}
+
+#formz {
+    width: 100%;
+    margin-right: -9%;
+}
+
+#bar {
+    width: 50%;
+    display: contents;
+    margin-right: 5%;
+    font-size: 120%;
+}
+
+#inp {
+    width: 50%;
+}
+
+#send {
+    width: 40%;
+    height: 20%;
+    font-size: 120%;
+    background: rgb(37, 163, 153);
+    color: white;
+    border-radius: 7%;
+   
+}
+#forgetsend {
+    height: 50%;
+    width: 100%;
+    /* margin-left: -41%; */
+    margin-right: -29%;
+}
+
+
+/*--------------------------------------------------------------
+# login
+--------------------------------------------------------------*/
+
+
+.mycont {
+    background-color: rgb(250, 250, 250);
+    opacity: .9;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+
+nav a {
+    color: white !important;
+}
+
+.con, .confl {
+    background-color: rgb(37, 163, 153);
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+form {
+    border: 3px solid #f1f1f1;
+    width: 50%;
+    margin-right: 25%
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+button {
+    background-color: rgb(37, 163, 153);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5%;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    margin-right: 30%;
+}
+
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 10%;
+    border-radius: 50%;
+    margin-right: -5%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# signup
+--------------------------------------------------------------*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+#regForm {
+    background-color: #ffffff;
+    margin-right: 18%;
+    font-family: Raleway;
+    padding: 10px;
+    width: 70%;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
+
+    /* Mark input boxes that gets an error on validation: */
+    input.invalid {
+        background-color: #ffdddd;
+    }
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+button {
+    background-color: rgb(37, 163, 153);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+}
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+#prevBtn {
+    background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+    .step.active {
+        opacity: 1;
+        margin-right: 45%;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+        background-color: rgb(37, 163, 153);
+    }
+
+
+#nextBtn {
+    width: 100%;
+    margin-right: 290%;
+}
+#prevBtn {
+    width: 50%;
+    margin-right: 290%;
+}
+.labs {
+    margin-left: 90%;
+    font-size: 120%;
+}
+
+/*--------------------------------------------------------------
+# aboutus
+--------------------------------------------------------------*/
+p {
+    margin-left: 50%;
+    width: 100%;
+}
+
+body {
+    background: rgb(231, 236, 236);
+}
+
+.paragraph {
+    padding: 3%;
+    color: white;
+}
+
+#defination {
+    background: rgb(125, 126, 126);
+    width: 90%;
+    height: 50%;
+    border-radius: 4%;
+}
+
+.tan {
+    font-size: 150%;
+    padding-top: 1%;
+    padding-right: 4%;
+    color: white;
+    margin-left: 50%;
+}
+
+#main {
+    background: rgb(252, 252, 252);
+    width: 90%;
+    height: 150%;
+    border-radius: 2%;
+    border-style: groove;
+}
+
+.paragraphs {
+    padding: 3%;
+    color: rgb(26, 25, 25);
+}
+
+.bob {
+    font-size: 180%;
+    padding-top: 1%;
+    padding-right: 4%;
+    color: rgb(26, 25, 25);
+    ;
+}
+
+li {
+    padding-right: 2%;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# safety
+--------------------------------------------------------------*/
+
+body {
+    background: rgb(231, 236, 236);
+}
+
+.paragraph {
+    padding: 3%;
+    color: white;
+}
+
+#defination {
+    background: rgb(125, 126, 126);
+    width: 90%;
+    height: 50%;
+    ;
+    border-radius: 4%;
+}
+
+.tan {
+    font-size: 150%;
+    padding-top: 1%;
+    padding-right: 4%;
+    color: white;
+}
+
+#main {
+    background: rgb(252, 252, 252);
+    width: 90%;
+    height: 150%;
+    ;
+    border-radius: 2%;
+    border-style: groove;
+}
+
+.paragraphs {
+    padding: 3%;
+    color: rgb(26, 25, 25);
+}
+
+.bob {
+    font-size: 180%;
+    padding-top: 1%;
+    padding-right: 4%;
+    color: rgb(26, 25, 25);
+    ;
+}
+
+li {
+    padding-right: 2%;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+    background: rgb(37, 163, 153);
+    padding: 0 0 30px 0;
+    color: #eee;
+    font-size: 14px;
+}
+  
+  #footer .footer-top {
+    background: rgb(37, 163, 153);
+    padding: 60px 0 30px 0;
+  }
+  
+  #footer .footer-top .footer-info {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-info h3 {
+    font-size: 34px;
+    margin: 0 0 20px 0;
+    padding: 2px 0 2px 10px;
+    line-height: 1;
+    font-family: 'Mirza', cursive;
+
+    font-weight: 700;
+    letter-spacing: 3px;
+    border-left: 4px solid #18d26e;
+  }
+  
+  #footer .footer-top .footer-info p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+    font-family: 'Mirza', cursive;
+
+    color: #eee;
+  }
+  
+  #footer .footer-top .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: rgb(37, 163, 153);
+    color: #eee;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+  
+  #footer .footer-top .social-links a:hover {
+    background: #18d26e;
+    color: #fff;
+  }
+  
+  #footer .footer-top h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+  }
+  
+  #footer .footer-top h4::before,
+  #footer .footer-top h4::after {
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 2px;
+  }
+  
+  #footer .footer-top h4::before {
+    right: 0;
+    background: rgb(37, 163, 153);
+  }
+  
+  #footer .footer-top h4::after {
+    background: #18d26e;
+    width: 60px;
+  }
+  
+  #footer .footer-top .footer-links {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #footer .footer-top .footer-links ul i {
+    padding-right: 8px;
+    color: #ddd;
+  }
+  
+  #footer .footer-top .footer-links ul li {
+    border-bottom: 1px solid rgb(37, 163, 153);
+    padding: 10px 0;
+  }
+  
+  #footer .footer-top .footer-links ul li:first-child {
+    padding-top: 0;
+  }
+  
+  #footer .footer-top .footer-links ul a {
+    color: #eee;
+  }
+  
+  #footer .footer-top .footer-links ul a:hover {
+    color: #18d26e;
+  }
+  
+  #footer .footer-top .footer-contact {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-contact p {
+    line-height: 26px;
+  }
+  
+  #footer .footer-top .footer-newsletter {
+    margin-bottom: 30px;
+  }
+  
+  #footer .footer-top .footer-newsletter input[type="email"] {
+    border: 0;
+    padding: 6px 8px;
+    width: 65%;
+  }
+  
+  #footer .footer-top .footer-newsletter input[type="submit"] {
+    background: #18d26e;
+    border: 0;
+    width: 35%;
+    padding: 6px 0;
+    text-align: center;
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  #footer .footer-top .footer-newsletter input[type="submit"]:hover {
+    background: #13a456;
+  }
+  
+  #footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+  }
+  
+  #footer .credits {
+    text-align: center;
+    font-size: 13px;
+    color: #ddd;
+  }
+  
+  

@@ -6,189 +6,190 @@
 <html lang="en">
 
 <head>
+
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-
-    <!-- Bootstrap CSS File -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
-
-    <link href="bootstrap-rtl.css" rel="stylesheet">
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Main Stylesheet File -->
-    <link href="~/Content/_user.css" rel="stylesheet">
+    <link href="~/Content/styledina.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/fontawesome-all.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
 
 </head>
 
 <body>
 
-    <!--==========================
-      Header
-    ============================-->
-    <header id="header">
-        <div class="container-fluid">
+    <div class="container-fluid confl">
 
-            <div id="logo" class="pull-left">
-                <div class="container-fluid " style="display: inline-flex">
+        <nav class="  navbar navbar-expand-lg navbar-light con">
+            <a class="navbar-brand" href="#">
+                <img src="~/images/monofia.png" width="60" height="60" class=" rounded-circle" alt="">
+                البوابةالالكترونية للشكاوي الحكومية
+            </a>
 
-                    <h1><a href="#intro" class="scrollto">البوابه الاليكترونيه لمنظومة الشكاوي الحكوميه </a></h1>
-                    <img src="~/Content/logo.png" />
-                </div>
-            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <nav id="nav-menu-container" class="  navbar navbar-expand-lg navbar-light ">
-                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-right">
-                    <ul class="navbar-nav mr-right">
-                        <li class="nav-item active">
-                            <a href="#intro">الرئيسسه</a>
-
-                        </li>
-
-                    </ul>
-
-                    <ul class="navbar-nav mr-right">
-                        <li class="nav-item active">
-                            <a href="#about">عن البوابه </a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav mr-right">
-                        <li class="nav-item active">
-                            <a href="#services">تسجيل الدخول </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mr-right">
-                        <li class="nav-item active">
-                            <a href="#portfolio">تسجيل البيانات</a>
-                        </li>
-                    </ul>
-
-                    <ul class="navbar-nav mr-right">
-                        <li class="nav-item active">
-                            <a href="#team">حماية السريه</a>
-                        </li>
-                    </ul>
-
-
-
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.cshtml">الصفحه الرئيسيه <span class="sr-only">(current)</span></a>
+                    </li>
 
 
                 </ul>
-            </nav><!-- #nav-menu-container -->
-        </div>
-    </header><!-- #header -->
+                <ul class="navbar-nav mr-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.cshtml">عن البوابه <span class="sr-only">(current)</span></a>
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav mr-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.cshtml">تسجيل الدخول <span class="sr-only">(current)</span></a>
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav mr-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.cshtml">تسجيل البيانات<span class="sr-only">(current)</span></a>
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav mr-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main.cshtml">حماية السريه <span class="sr-only">(current)</span></a>
+                    </li>
+
+
+                </ul>
+
+
+
+            </div>
+
+        </nav>
+    </div>
+ 
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+
+                @RenderBody()
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+               
 
 
 
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-
-
-
-    @RenderBody()
-
-
-
-
-
-
-    <br />
-    <br />
-
-
-
-
-
-
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <!--==========================
+        <!--==========================
       Footer
     ============================-->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
 
-                    <div class="col-lg-4 col-md-7 footer-info">
-                        <h3> اهم ارقام الطوارئ</h3>
-                        <p>
-                            طوارئ المحافظات 114 - النجدة 122 - الكهرباء 121 - المياة 125 - الصرف الصحى 175 - الغاز
-                            129/149 - الصحة 137 - الاسعاف 123 - المطافئ 180 - الامن العام 115 - السياحة 126 - السكة
-                            الحديد 147
-                        </p>
-                    </div>
+                        <div class="col-lg-4 col-md-7 footer-info">
+                            <h3> اهم ارقام الطوارئ</h3>
+                            <br />
+                            <br />
+                            <p>
+                                طوارئ المحافظات 114 - النجدة 122 - الكهرباء 121 - المياة 125 - الصرف الصحى 175 - الغاز
+                                129/149 - الصحة 137 - الاسعاف 123 - المطافئ 180 - الامن العام 115 - السياحة 126 - السكة
+                                الحديد 147
+                            </p>
+                        </div>
 
 
-                    <div class="col-lg-4 col-md-7 footer-contact">
-                        <h4>تواصل معنا - إتصل بنا </h4>
-                        <p>
-                            يمكنكم إرسال جميع الآراء والمقترحات الخاصة بتطوير منظومة الشكاوى الحكومية على البريد
-                            الإليكتروني التالى
-                            shakwa@idsc.net.eg
+                        <div class="col-lg-4 col-md-7 footer-contact">
+                            <h4>تواصل معنا - إتصل بنا </h4>
+                            <br />
+                            <p>
+                                يمكنكم إرسال جميع الآراء والمقترحات الخاصة بتطوير منظومة الشكاوى الحكومية على البريد
+                                الإليكتروني التالى
+                                shakwa@idsc.net.eg
 
-                        </p>
+                            </p>
 
-                        <div class="social-links">
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            <div class="social-links">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 col-md-7 footer-newsletter">
+                            <h4>صدور قرارين بإنشاء منظومة الشكاوى الحكومية الموحدة</h4>
+                            <br />
+                            <p>
+                                صدر قرار السيد رئيس الجمهورية رقم 314 لسنة 2017 بشأن إنشاء منظومة الشكاوى الحكومية الموحدة،
+                                وقرارالسيد رئيس مجلس الوزراء رقم 1855 لسنة 2017 بتاريخ 17 أغسطس 2017 بشأن منظومة الشكاوى
+                                الحكومية الموحدة وإعادة تنظيم مكاتب خدمة المواطنين
+                                اهم
+                            </p>
+
                         </div>
 
                     </div>
-
-                    <div class="col-lg-4 col-md-7 footer-newsletter">
-                        <h4>صدور قرارين بإنشاء منظومة الشكاوى الحكومية الموحدة</h4>
-                        <p>
-                            صدر قرار السيد رئيس الجمهورية رقم 314 لسنة 2017 بشأن إنشاء منظومة الشكاوى الحكومية الموحدة،
-                            وقرارالسيد رئيس مجلس الوزراء رقم 1855 لسنة 2017 بتاريخ 17 أغسطس 2017 بشأن منظومة الشكاوى
-                            الحكومية الموحدة وإعادة تنظيم مكاتب خدمة المواطنين
-                            اهم
-                        </p>
-
-                    </div>
-
                 </div>
             </div>
-        </div>
 
 
-        <div class="container">
-            <div class="copyright">
-                &copy;حقوق النشر <strong>2017 مجلس الوزراء المصرى</strong>. جميع الحقوق محفوظة
+            <div class="container">
+                <div class="copyright">
+                    &copy;حقوق النشر <strong>2017 مجلس الوزراء المصرى</strong>. جميع الحقوق محفوظة
+                </div>
+                <div class="credits">
+
+                    صمم بواسطة <a href="https://bootstrapmade.com/">ItI team</a>
+                </div>
             </div>
-            <div class="credits">
+        </footer>
+        <!-- #footer -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="~/Scripts/popper.js"></script>
+        <script src="~/Scripts/jquery-3.3.1.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
 
-                صمم بواسطة <a href="https://bootstrapmade.com/">ItI team</a>
-            </div>
-        </div>
-    </footer>
-    <!-- #footer -->
+
+
+
+
+
+
 
 
 
