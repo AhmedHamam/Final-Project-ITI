@@ -40,6 +40,10 @@ namespace project.Controllers
         {
             return View();
         }
+        public ActionResult edit()
+        {
+            return View();
+        }
 
 
 
