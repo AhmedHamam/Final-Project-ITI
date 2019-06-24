@@ -17,41 +17,7 @@ namespace project.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            return View();
-        }
-        public ActionResult errno404()
-        {
-            return View();
-        }
-        public ActionResult confirmuser()
-        {
-            return View();
-        }
-        public ActionResult deleteofficial()
-        {
-            return View();
-        }
-        public ActionResult blockuser()
-        {
-            return View();
-        }
-        public ActionResult errno500()
-        {
-            return View();
-        }
-        [HttpGet]
-        public ActionResult addofficail()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult addofficail(Official ofic)
-        {
-            return View();
-        }
-        public ActionResult viewallofficial()
-        {
-            return View();
+            return View(db.Admins.ToList());
         }
 
         // GET: Admins/Details/5
@@ -80,7 +46,7 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fName,mName,lName,email,userName,password,phone")] Admin admin)
+        public ActionResult Create([Bind(Include = "id,fName,mName,lName,email,userName,password,phone,isdeleted")] Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +78,7 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,fName,mName,lName,email,userName,password,phone")] Admin admin)
+        public ActionResult Edit([Bind(Include = "id,fName,mName,lName,email,userName,password,phone,isdeleted")] Admin admin)
         {
             if (ModelState.IsValid)
             {

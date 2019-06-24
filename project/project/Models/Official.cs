@@ -44,11 +44,7 @@ namespace project.Models
         [StringLength(11)]
         public string mobile { get; set; }
 
-        [StringLength(50)]
-        public string job { get; set; }
-
-        [StringLength(500)]
-        public string jobDesciption { get; set; }
+        public int? job_id { get; set; }
 
         public bool? isLeader { get; set; }
 
@@ -68,6 +64,8 @@ namespace project.Models
         public virtual ICollection<Entity> Entities { get; set; }
 
         public virtual Entity Entity { get; set; }
+
+        public virtual OfficialJob OfficialJob { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Official> Officials1 { get; set; }

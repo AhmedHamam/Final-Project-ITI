@@ -159,10 +159,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\CitzenController.cs" />
-    <Compile Include="Controllers\ComplaintsController.cs" />
+    <Compile Include="Controllers\citiesController.cs" />
+    <Compile Include="Controllers\CitzensController.cs" />
     <Compile Include="Controllers\GovernmentsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +178,7 @@
     <Compile Include="Models\Entity_Branchs.cs" />
     <Compile Include="Models\Government.cs" />
     <Compile Include="Models\Official.cs" />
+    <Compile Include="Models\OfficialJob.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -224,43 +224,28 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\kk.cshtml" />
-    <Content Include="Views\Admins\Create.cshtml" />
-    <Content Include="Views\Admins\Delete.cshtml" />
-    <Content Include="Views\Admins\Details.cshtml" />
-    <Content Include="Views\Admins\Edit.cshtml" />
-    <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Shared\_Citzen.cshtml" />
-    <Content Include="Views\Citzen\login.cshtml" />
-    <Content Include="Views\Citzen\signup.cshtml" />
-    <Content Include="Views\Complaints\Create.cshtml" />
-    <Content Include="Views\Complaints\Delete.cshtml" />
-    <Content Include="Views\Complaints\Details.cshtml" />
-    <Content Include="Views\Complaints\Edit.cshtml" />
-    <Content Include="Views\Complaints\Index.cshtml" />
-    <Content Include="Views\Citzen\aboutus.cshtml" />
-    <Content Include="Views\Admins\addofficail.cshtml" />
-    <Content Include="Views\Admins\viewallofficial.cshtml" />
     <Content Include="Views\Shared\_adminLayout.cshtml" />
-    <Content Include="Views\Admins\errno404.cshtml" />
-    <Content Include="Views\Admins\errno500.cshtml" />
-    <Content Include="Views\Admins\confirmuser.cshtml" />
-    <Content Include="Views\Admins\blockuser.cshtml" />
-    <Content Include="Views\Admins\deleteofficial.cshtml" />
-    <Content Include="Views\Citzen\safety.cshtml" />
-    <Content Include="Views\Citzen\forget.cshtml" />
     <Content Include="Views\Governments\Create.cshtml" />
     <Content Include="Views\Governments\Delete.cshtml" />
     <Content Include="Views\Governments\Details.cshtml" />
     <Content Include="Views\Governments\Edit.cshtml" />
     <Content Include="Views\Governments\Index.cshtml" />
-    <Content Include="Views\Citzen\common.cshtml" />
-    <Content Include="Views\Citzen\home.cshtml" />
-    <Content Include="Views\Citzen\edit.cshtml" />
+    <Content Include="Views\Citzens\Create.cshtml" />
+    <Content Include="Views\Citzens\Delete.cshtml" />
+    <Content Include="Views\Citzens\Details.cshtml" />
+    <Content Include="Views\Citzens\Edit.cshtml" />
+    <Content Include="Views\Citzens\Index.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\cities\Create.cshtml" />
+    <Content Include="Views\cities\Delete.cshtml" />
+    <Content Include="Views\cities\Details.cshtml" />
+    <Content Include="Views\cities\Edit.cshtml" />
+    <Content Include="Views\cities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

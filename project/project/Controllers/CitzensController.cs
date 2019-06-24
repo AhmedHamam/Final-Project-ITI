@@ -10,107 +10,116 @@ using project.Models;
 
 namespace project.Controllers
 {
-    public class GovernmentsController : Controller
+    public class CitzensController : Controller
     {
         private dbProject db = new dbProject();
 
-        // GET: Governments
+        // GET: Citzens
         public ActionResult Index()
         {
-            return View(db.Governments.ToList());
+            var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
+            return View(citzens.ToList());
         }
 
-        // GET: Governments/Details/5
+        // GET: Citzens/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            Citzen citzen = db.Citzens.Find(id);
+            if (citzen == null)
             {
                 return HttpNotFound();
             }
-            return View(government);
+            return View(citzen);
         }
 
-        // GET: Governments/Create
+        // GET: Citzens/Create
         public ActionResult Create()
         {
+            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName");
+            ViewBag.cityId = new SelectList(db.cities, "id", "name");
             return View();
         }
 
-        // POST: Governments/Create
+        // POST: Citzens/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,isdeleted")] Government government)
+        public ActionResult Create([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
             if (ModelState.IsValid)
             {
-                db.Governments.Add(government);
+                db.Citzens.Add(citzen);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(government);
+            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
+            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
+            return View(citzen);
         }
 
-        // GET: Governments/Edit/5
+        // GET: Citzens/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            Citzen citzen = db.Citzens.Find(id);
+            if (citzen == null)
             {
                 return HttpNotFound();
             }
-            return View(government);
+            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
+            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
+            return View(citzen);
         }
 
-        // POST: Governments/Edit/5
+        // POST: Citzens/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,isdeleted")] Government government)
+        public ActionResult Edit([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(government).State = EntityState.Modified;
+                db.Entry(citzen).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(government);
+            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
+            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
+            return View(citzen);
         }
 
-        // GET: Governments/Delete/5
+        // GET: Citzens/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            Citzen citzen = db.Citzens.Find(id);
+            if (citzen == null)
             {
                 return HttpNotFound();
             }
-            return View(government);
+            return View(citzen);
         }
 
-        // POST: Governments/Delete/5
+        // POST: Citzens/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Government government = db.Governments.Find(id);
-            db.Governments.Remove(government);
+            Citzen citzen = db.Citzens.Find(id);
+            db.Citzens.Remove(citzen);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

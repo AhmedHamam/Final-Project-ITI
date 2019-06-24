@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
 <h2>Details</h2>
@@ -17,6 +17,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isdeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isdeleted)
         </dd>
 
     </dl>

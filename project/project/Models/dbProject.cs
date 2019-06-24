@@ -8,7 +8,7 @@ namespace project.Models
     public partial class dbProject : DbContext
     {
         public dbProject()
-            : base("name=dbProject")
+            : base("name=dbProject1")
         {
         }
 
@@ -23,6 +23,7 @@ namespace project.Models
         public virtual DbSet<Entity> Entities { get; set; }
         public virtual DbSet<Entity_Branchs> Entity_Branchs { get; set; }
         public virtual DbSet<Government> Governments { get; set; }
+        public virtual DbSet<OfficialJob> OfficialJobs { get; set; }
         public virtual DbSet<Official> Officials { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
@@ -73,6 +74,11 @@ namespace project.Models
                 .HasMany(e => e.cities)
                 .WithRequired(e => e.Government)
                 .HasForeignKey(e => e.gov_id);
+
+            modelBuilder.Entity<OfficialJob>()
+                .HasMany(e => e.Officials)
+                .WithOptional(e => e.OfficialJob)
+                .HasForeignKey(e => e.job_id);
 
             modelBuilder.Entity<Official>()
                 .HasMany(e => e.Complaints)

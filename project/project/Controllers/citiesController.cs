@@ -10,107 +10,112 @@ using project.Models;
 
 namespace project.Controllers
 {
-    public class GovernmentsController : Controller
+    public class citiesController : Controller
     {
         private dbProject db = new dbProject();
 
-        // GET: Governments
+        // GET: cities
         public ActionResult Index()
         {
-            return View(db.Governments.ToList());
+            var cities = db.cities.Include(c => c.Government);
+            return View(cities.ToList());
         }
 
-        // GET: Governments/Details/5
+        // GET: cities/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            city city = db.cities.Find(id);
+            if (city == null)
             {
                 return HttpNotFound();
             }
-            return View(government);
+            return View(city);
         }
 
-        // GET: Governments/Create
+        // GET: cities/Create
         public ActionResult Create()
         {
+            ViewBag.gov_id = new SelectList(db.Governments, "id", "name");
             return View();
         }
 
-        // POST: Governments/Create
+        // POST: cities/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,name,isdeleted")] Government government)
+        public ActionResult Create([Bind(Include = "id,name,gov_id,isdeleted")] city city)
         {
             if (ModelState.IsValid)
             {
-                db.Governments.Add(government);
+                db.cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(government);
+            ViewBag.gov_id = new SelectList(db.Governments, "id", "name", city.gov_id);
+            return View(city);
         }
 
-        // GET: Governments/Edit/5
+        // GET: cities/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            city city = db.cities.Find(id);
+            if (city == null)
             {
                 return HttpNotFound();
             }
-            return View(government);
+            ViewBag.gov_id = new SelectList(db.Governments, "id", "name", city.gov_id);
+            return View(city);
         }
 
-        // POST: Governments/Edit/5
+        // POST: cities/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,name,isdeleted")] Government government)
+        public ActionResult Edit([Bind(Include = "id,name,gov_id,isdeleted")] city city)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(government).State = EntityState.Modified;
+                db.Entry(city).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(government);
+            ViewBag.gov_id = new SelectList(db.Governments, "id", "name", city.gov_id);
+            return View(city);
         }
 
-        // GET: Governments/Delete/5
+        // GET: cities/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            city city = db.cities.Find(id);
+            if (city == null)
             {
                 return HttpNotFound();
             }
-            return View(government);
+            return View(city);
         }
 
-        // POST: Governments/Delete/5
+        // POST: cities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Government government = db.Governments.Find(id);
-            db.Governments.Remove(government);
+            city city = db.cities.Find(id);
+            db.cities.Remove(city);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
