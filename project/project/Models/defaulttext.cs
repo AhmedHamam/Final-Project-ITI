@@ -6,22 +6,13 @@ namespace project.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Admin_Roles
+    [Table("defaulttext")]
+    public partial class defaulttext
     {
-        [Key]
-        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int adminId { get; set; }
-
         [Required]
-        [StringLength(50)]
-        public string Role_name { get; set; }
-
-        public virtual Admin Admin { get; set; }
+        public string Text { get; set; }
     }
 }

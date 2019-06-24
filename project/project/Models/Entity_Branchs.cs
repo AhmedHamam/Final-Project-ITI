@@ -14,6 +14,7 @@ namespace project.Models
             Complaints = new HashSet<Complaint>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
         [Required]

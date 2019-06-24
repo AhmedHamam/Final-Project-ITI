@@ -12,12 +12,12 @@ namespace project.Controllers
 {
     public class ComplaintsController : Controller
     {
-        private dbModel db = new dbModel();
+        private dbProject db = new dbProject();
 
         // GET: Complaints
         public ActionResult Index()
         {
-            var complaints = db.Complaints.Include(c => c.city).Include(c => c.Entity).Include(c => c.Entity_Branchs);
+            var complaints = "";//db.Complaints.Include(c => c.city).Include(c => c.Entity).Include(c => c.Entity_Branchs);
             return View(complaints.ToList());
         }
 
@@ -56,8 +56,8 @@ namespace project.Controllers
             if (ModelState.IsValid)
             {
                 complaint.comDate = DateTime.Now;
-                complaint.comNumber = DateTime.Now.Year.ToString() + complaint.id;
-                complaint.comStatus = "فعالة";
+              //  complaint.comNumber = DateTime.Now.Year.ToString() + complaint.id;
+              //  complaint.comStatus = "فعالة";
                 string image = System.IO.Path.GetFileName(comFile.FileName);
                 string myPath = Server.MapPath("~/images/" + image);
                 comFile.SaveAs(myPath);
@@ -68,8 +68,8 @@ namespace project.Controllers
             }
 
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
+           // ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
+            //ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
             return View(complaint);
         }
 
@@ -87,8 +87,8 @@ namespace project.Controllers
                 return HttpNotFound();
             }
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
+          //  ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
+            //ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
             return View(complaint);
         }
 
@@ -106,8 +106,8 @@ namespace project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
+            //ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
+            //ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
             return View(complaint);
         }
 

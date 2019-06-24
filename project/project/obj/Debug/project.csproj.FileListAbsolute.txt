@@ -387,9 +387,6 @@ E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.reso
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
 E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
-D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
-D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
-D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.cache
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.cache

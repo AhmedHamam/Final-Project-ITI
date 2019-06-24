@@ -10,141 +10,107 @@ using project.Models;
 
 namespace project.Controllers
 {
-    public class AdminsController : Controller
+    public class GovernmentsController : Controller
     {
         private dbProject db = new dbProject();
 
-        // GET: Admins
+        // GET: Governments
         public ActionResult Index()
         {
-            return View();
-        }
-        public ActionResult errno404()
-        {
-            return View();
-        }
-        public ActionResult confirmuser()
-        {
-            return View();
-        }
-        public ActionResult deleteofficial()
-        {
-            return View();
-        }
-        public ActionResult blockuser()
-        {
-            return View();
-        }
-        public ActionResult errno500()
-        {
-            return View();
-        }
-        [HttpGet]
-        public ActionResult addofficail()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult addofficail(Official ofic)
-        {
-            return View();
-        }
-        public ActionResult viewallofficial()
-        {
-            return View();
+            return View(db.Governments.ToList());
         }
 
-        // GET: Admins/Details/5
+        // GET: Governments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Government government = db.Governments.Find(id);
+            if (government == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(government);
         }
 
-        // GET: Admins/Create
+        // GET: Governments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admins/Create
+        // POST: Governments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fName,mName,lName,email,userName,password,phone")] Admin admin)
+        public ActionResult Create([Bind(Include = "id,name")] Government government)
         {
             if (ModelState.IsValid)
             {
-                db.Admins.Add(admin);
+                db.Governments.Add(government);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(admin);
+            return View(government);
         }
 
-        // GET: Admins/Edit/5
+        // GET: Governments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Government government = db.Governments.Find(id);
+            if (government == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(government);
         }
 
-        // POST: Admins/Edit/5
+        // POST: Governments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,fName,mName,lName,email,userName,password,phone")] Admin admin)
+        public ActionResult Edit([Bind(Include = "id,name")] Government government)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(admin).State = EntityState.Modified;
+                db.Entry(government).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(admin);
+            return View(government);
         }
 
-        // GET: Admins/Delete/5
+        // GET: Governments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Government government = db.Governments.Find(id);
+            if (government == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(government);
         }
 
-        // POST: Admins/Delete/5
+        // POST: Governments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            Government government = db.Governments.Find(id);
+            db.Governments.Remove(government);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

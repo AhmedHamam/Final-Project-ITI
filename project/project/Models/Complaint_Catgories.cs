@@ -6,12 +6,11 @@ namespace project.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class city
+    public partial class Complaint_Catgories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public city()
+        public Complaint_Catgories()
         {
-            Citzens = new HashSet<Citzen>();
             Complaints = new HashSet<Complaint>();
         }
 
@@ -19,16 +18,7 @@ namespace project.Models
 
         [Required]
         [StringLength(500)]
-        public string name { get; set; }
-
-        public int gov_id { get; set; }
-
-        public bool? isdeleted { get; set; }
-
-        public virtual Government Government { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Citzen> Citzens { get; set; }
+        public string Cat_Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Complaint> Complaints { get; set; }
