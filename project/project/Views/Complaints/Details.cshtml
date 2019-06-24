@@ -1,0 +1,147 @@
+﻿@model project.Models.Complaint
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Complaint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.city.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Citzen.fName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Citzen.fName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complaint_Catgories.Cat_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entity_Branchs.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Official.fName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Official.fName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Official1.fName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Official1.fName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comFile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comFile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comFile2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comFile2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isreaded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isreaded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isSolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isSolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solveDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solveDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

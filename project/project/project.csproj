@@ -159,9 +159,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\Admin_RolesController.cs" />
     <Compile Include="Controllers\citiesController.cs" />
     <Compile Include="Controllers\CitzensController.cs" />
+    <Compile Include="Controllers\Common_QustionController.cs" />
+    <Compile Include="Controllers\ComplaintsController.cs" />
+    <Compile Include="Controllers\Complaint_CatgoriesController.cs" />
+    <Compile Include="Controllers\EntitiesController.cs" />
+    <Compile Include="Controllers\Entity_BranchsController.cs" />
     <Compile Include="Controllers\GovernmentsController.cs" />
+    <Compile Include="Controllers\OfficialJobsController.cs" />
+    <Compile Include="Controllers\OfficialsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +254,46 @@
     <Content Include="Views\cities\Details.cshtml" />
     <Content Include="Views\cities\Edit.cshtml" />
     <Content Include="Views\cities\Index.cshtml" />
+    <Content Include="Views\Entities\Create.cshtml" />
+    <Content Include="Views\Entities\Delete.cshtml" />
+    <Content Include="Views\Entities\Details.cshtml" />
+    <Content Include="Views\Entities\Edit.cshtml" />
+    <Content Include="Views\Entities\Index.cshtml" />
+    <Content Include="Views\Admin_Roles\Create.cshtml" />
+    <Content Include="Views\Admin_Roles\Delete.cshtml" />
+    <Content Include="Views\Admin_Roles\Details.cshtml" />
+    <Content Include="Views\Admin_Roles\Edit.cshtml" />
+    <Content Include="Views\Admin_Roles\Index.cshtml" />
+    <Content Include="Views\Common_Qustion\Create.cshtml" />
+    <Content Include="Views\Common_Qustion\Delete.cshtml" />
+    <Content Include="Views\Common_Qustion\Details.cshtml" />
+    <Content Include="Views\Common_Qustion\Edit.cshtml" />
+    <Content Include="Views\Common_Qustion\Index.cshtml" />
+    <Content Include="Views\Complaints\Create.cshtml" />
+    <Content Include="Views\Complaints\Delete.cshtml" />
+    <Content Include="Views\Complaints\Details.cshtml" />
+    <Content Include="Views\Complaints\Edit.cshtml" />
+    <Content Include="Views\Complaints\Index.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Create.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Delete.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Details.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Edit.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Index.cshtml" />
+    <Content Include="Views\Entity_Branchs\Create.cshtml" />
+    <Content Include="Views\Entity_Branchs\Delete.cshtml" />
+    <Content Include="Views\Entity_Branchs\Details.cshtml" />
+    <Content Include="Views\Entity_Branchs\Edit.cshtml" />
+    <Content Include="Views\Entity_Branchs\Index.cshtml" />
+    <Content Include="Views\Officials\Create.cshtml" />
+    <Content Include="Views\Officials\Delete.cshtml" />
+    <Content Include="Views\Officials\Details.cshtml" />
+    <Content Include="Views\Officials\Edit.cshtml" />
+    <Content Include="Views\Officials\Index.cshtml" />
+    <Content Include="Views\OfficialJobs\Create.cshtml" />
+    <Content Include="Views\OfficialJobs\Delete.cshtml" />
+    <Content Include="Views\OfficialJobs\Details.cshtml" />
+    <Content Include="Views\OfficialJobs\Edit.cshtml" />
+    <Content Include="Views\OfficialJobs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
