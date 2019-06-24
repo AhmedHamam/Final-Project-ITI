@@ -187,6 +187,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\pic1.png" />
+    <Content Include="Content\pic2.jpg" />
+    <Content Include="Content\pic3.png" />
     <Content Include="Content\styleaya.css" />
     <Content Include="Content\user.png" />
     <Content Include="favicon.ico" />
@@ -255,6 +258,9 @@
     <Content Include="Views\Governments\Details.cshtml" />
     <Content Include="Views\Governments\Edit.cshtml" />
     <Content Include="Views\Governments\Index.cshtml" />
+    <Content Include="Views\Citzen\common.cshtml" />
+    <Content Include="Views\Citzen\home.cshtml" />
+    <Content Include="Views\Citzen\edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

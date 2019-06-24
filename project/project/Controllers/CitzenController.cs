@@ -32,6 +32,19 @@ namespace project.Controllers
             return View();
         }
 
+        public ActionResult common()
+        {
+            return View();
+        }
+        public ActionResult home()
+        {
+            return View();
+        }
+        public ActionResult edit()
+        {
+            return View();
+        }
+
 
 
     }

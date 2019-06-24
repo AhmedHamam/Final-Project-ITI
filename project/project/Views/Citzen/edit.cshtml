@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
+}
+
+
+
+<div class="container mt-4">
+
+    <div class="card bg-light" style="width:70%; position:center; margin-right:15%;">
+        <article class="card-body">
+            <h4 class="card-title mt-3 text-center">تعديل بياناتي  </h4>
+
+
+            <form>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <label for="firstName" class="col-sm-2 col-form-label">الإسم الأول</label>
+                    <input name="" class="form-control" id="firstName" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <label for="middleName" class="col-sm-2 col-form-label">الإسم الأوسط</label>
+                    <input name="" class="form-control" id="middleName" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <label for="lastName" class="col-sm-2 col-form-label">الإسم الأخير</label>
+                    <input name="" class="form-control" id="lastName" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <label for="userName" class="col-sm-2 col-form-label">اسم المستخدم</label>
+                    <input name="" class="form-control" id="userName" type="text">
+
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <label for="email" class="col-sm-2 col-form-label">الإيميل</label>
+                    <input name="" class="form-control" id="email" type="email">
+                </div> <!-- form-group// -->
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    </div>
+                    <label for="nationalId" class="col-sm-2 col-form-label">الرقم القومي</label>
+                    <input name="" class="form-control" id="nationalId" type="text">
+                </div> <!-- form-group// -->
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <label for="mobileNumber" class="col-sm-2 col-form-label">رقم المحمول</label>
+                    <input name="" class="form-control" id="mobileNumber" type="text">
+                </div> <!-- form-group// -->
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <label for="phoneNumber" class="col-sm-2 col-form-label">رقم الهاتف</label>
+                    <input name="" class="form-control" id="phoneNumber" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                    </div>
+                    <label for="workplace" class="col-sm-2 col-form-label">جهة العمل</label>
+                    <input name="" class="form-control" id="workplace" type="text">
+
+                </div> <!-- form-group end.// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <label for="password" class="col-sm-2 col-form-label">الرقم السري</label>
+                    <input class="form-control" id="password" type="password">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <label for="confirmPassword" class="col-sm-2 col-form-label">تاكيد الرقم السري</label>
+                    <input class="form-control" id="confirmPassword" type="password">
+                </div> <!-- form-group// -->
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <label for="address" class="col-sm-2 col-form-label">العنوان</label>
+                    <input class="form-control" id="address" type="text">
+                </div> <!-- form-group// -->
+
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input type="radio" name="gender" />
+                    ذكر
+                    <input type="radio" name="gender" />
+                    أنثي
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> حفظ  </button>
+                    <button type="submit" class="btn btn-danger btn-block"> إغلاق  </button>
+                </div> <!-- form-group// -->
+            </form>
+        </article>
+    </div> <!-- card.// -->
+
+</div>
