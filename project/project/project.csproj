@@ -159,42 +159,45 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
-    <Compile Include="Controllers\CitzenController.cs" />
+    <Compile Include="Controllers\Admin_RolesController.cs" />
+    <Compile Include="Controllers\citiesController.cs" />
+    <Compile Include="Controllers\CitzensController.cs" />
+    <Compile Include="Controllers\Common_QustionController.cs" />
     <Compile Include="Controllers\ComplaintsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Complaint_CatgoriesController.cs" />
+    <Compile Include="Controllers\EntitiesController.cs" />
+    <Compile Include="Controllers\Entity_BranchsController.cs" />
+    <Compile Include="Controllers\GovernmentsController.cs" />
+    <Compile Include="Controllers\OfficialJobsController.cs" />
+    <Compile Include="Controllers\OfficialsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906211255329_mina.cs" />
-    <Compile Include="Migrations\201906211255329_mina.Designer.cs">
-      <DependentUpon>201906211255329_mina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906211352328_mina1.cs" />
-    <Compile Include="Migrations\201906211352328_mina1.Designer.cs">
-      <DependentUpon>201906211352328_mina1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Admin_Roles.cs" />
     <Compile Include="Models\city.cs" />
     <Compile Include="Models\Citzen.cs" />
+    <Compile Include="Models\Common_Qustion.cs" />
     <Compile Include="Models\Complaint.cs" />
-    <Compile Include="Models\C__MigrationHistory.cs" />
-    <Compile Include="Models\dbModel.cs" />
+    <Compile Include="Models\Complaint_Catgories.cs" />
+    <Compile Include="Models\dbProject.cs" />
+    <Compile Include="Models\defaulttext.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Entity_Branchs.cs" />
     <Compile Include="Models\Government.cs" />
     <Compile Include="Models\Official.cs" />
+    <Compile Include="Models\OfficialJob.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-rtl.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\pic1.png" />
+    <Content Include="Content\pic2.jpg" />
+    <Content Include="Content\pic3.png" />
     <Content Include="Content\styleaya.css" />
     <Content Include="Content\user.png" />
     <Content Include="favicon.ico" />
@@ -229,35 +232,68 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\kk.cshtml" />
+    <Content Include="Views\Shared\_Citzen.cshtml" />
+    <Content Include="Views\Shared\_adminLayout.cshtml" />
+    <Content Include="Views\Governments\Create.cshtml" />
+    <Content Include="Views\Governments\Delete.cshtml" />
+    <Content Include="Views\Governments\Details.cshtml" />
+    <Content Include="Views\Governments\Edit.cshtml" />
+    <Content Include="Views\Governments\Index.cshtml" />
+    <Content Include="Views\Citzens\Create.cshtml" />
+    <Content Include="Views\Citzens\Delete.cshtml" />
+    <Content Include="Views\Citzens\Details.cshtml" />
+    <Content Include="Views\Citzens\Edit.cshtml" />
+    <Content Include="Views\Citzens\Index.cshtml" />
     <Content Include="Views\Admins\Create.cshtml" />
     <Content Include="Views\Admins\Delete.cshtml" />
     <Content Include="Views\Admins\Details.cshtml" />
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
-    <Content Include="Views\Shared\_Citzen.cshtml" />
-    <Content Include="Views\Citzen\login.cshtml" />
-    <Content Include="Views\Citzen\signup.cshtml" />
+    <Content Include="Views\cities\Create.cshtml" />
+    <Content Include="Views\cities\Delete.cshtml" />
+    <Content Include="Views\cities\Details.cshtml" />
+    <Content Include="Views\cities\Edit.cshtml" />
+    <Content Include="Views\cities\Index.cshtml" />
+    <Content Include="Views\Entities\Create.cshtml" />
+    <Content Include="Views\Entities\Delete.cshtml" />
+    <Content Include="Views\Entities\Details.cshtml" />
+    <Content Include="Views\Entities\Edit.cshtml" />
+    <Content Include="Views\Entities\Index.cshtml" />
+    <Content Include="Views\Admin_Roles\Create.cshtml" />
+    <Content Include="Views\Admin_Roles\Delete.cshtml" />
+    <Content Include="Views\Admin_Roles\Details.cshtml" />
+    <Content Include="Views\Admin_Roles\Edit.cshtml" />
+    <Content Include="Views\Admin_Roles\Index.cshtml" />
+    <Content Include="Views\Common_Qustion\Create.cshtml" />
+    <Content Include="Views\Common_Qustion\Delete.cshtml" />
+    <Content Include="Views\Common_Qustion\Details.cshtml" />
+    <Content Include="Views\Common_Qustion\Edit.cshtml" />
+    <Content Include="Views\Common_Qustion\Index.cshtml" />
     <Content Include="Views\Complaints\Create.cshtml" />
     <Content Include="Views\Complaints\Delete.cshtml" />
     <Content Include="Views\Complaints\Details.cshtml" />
     <Content Include="Views\Complaints\Edit.cshtml" />
     <Content Include="Views\Complaints\Index.cshtml" />
-    <Content Include="Views\Citzen\aboutus.cshtml" />
-    <Content Include="Views\Admins\addofficail.cshtml" />
-    <Content Include="Views\Admins\viewallofficial.cshtml" />
-    <Content Include="Views\Shared\_adminLayout.cshtml" />
-    <Content Include="Views\Admins\errno404.cshtml" />
-    <Content Include="Views\Admins\errno500.cshtml" />
-    <Content Include="Views\Admins\confirmuser.cshtml" />
-    <Content Include="Views\Admins\blockuser.cshtml" />
-    <Content Include="Views\Admins\deleteofficial.cshtml" />
-    <Content Include="Views\Citzen\safety.cshtml" />
-    <Content Include="Views\Citzen\forget.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Create.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Delete.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Details.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Edit.cshtml" />
+    <Content Include="Views\Complaint_Catgories\Index.cshtml" />
+    <Content Include="Views\Entity_Branchs\Create.cshtml" />
+    <Content Include="Views\Entity_Branchs\Delete.cshtml" />
+    <Content Include="Views\Entity_Branchs\Details.cshtml" />
+    <Content Include="Views\Entity_Branchs\Edit.cshtml" />
+    <Content Include="Views\Entity_Branchs\Index.cshtml" />
+    <Content Include="Views\Officials\Create.cshtml" />
+    <Content Include="Views\Officials\Delete.cshtml" />
+    <Content Include="Views\Officials\Details.cshtml" />
+    <Content Include="Views\Officials\Edit.cshtml" />
+    <Content Include="Views\Officials\Index.cshtml" />
+    <Content Include="Views\OfficialJobs\Create.cshtml" />
+    <Content Include="Views\OfficialJobs\Delete.cshtml" />
+    <Content Include="Views\OfficialJobs\Details.cshtml" />
+    <Content Include="Views\OfficialJobs\Edit.cshtml" />
+    <Content Include="Views\OfficialJobs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,19 +305,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906211255329_mina.resx">
-      <DependentUpon>201906211255329_mina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906211352328_mina1.resx">
-      <DependentUpon>201906211352328_mina1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

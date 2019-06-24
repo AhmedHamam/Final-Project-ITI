@@ -1,104 +1,124 @@
 ﻿@model IEnumerable<project.Models.Complaint>
 
 @{
-    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Index</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>الشكاوى</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("ارسال شكوى", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-               المدينة
-            </th>
-            <th>
-                الوزارة
-            </th>
-            <th>
-                المحافظة
-            </th>
-            <th>
-                رقم الشكوى
-            </th>
-            <th>
-                عنوان الشكوى
-            </th>
-            <th>
-                تفاصيل الشكوى
-            </th>
-            <th>
-                مرفقات الشكوى
-            </th>
-            <th>
-                تاريخ الشكوى
-            </th>
-            <th>
-                حاله الشكوى
-            </th>
-            <th></th>
-        </tr>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.city.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Citzen.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complaint_Catgories.Cat_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Official.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Official1.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comFile2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isreaded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isSolved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.solveDescription)
+        </th>
+        <th></th>
+    </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.city.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Entity.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Entity_Branchs.title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.comNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.comTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.comDescription)
-                </td>
-                <td>
-                    <img src="/images/@item.comFile"style="width:30%;" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.comDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.comStatus)
-                </td>
-                <td>
-                    @Html.ActionLink("تعديل", "Edit", new {image=@item.comFile, id = item.id },new { @class = "btn btn-success" }) 
-                    @Html.ActionLink("تفاصيل", "Details", new { image = @item.comFile, id = item.id },new { @class = "btn btn-primary" }) 
-                    @Html.ActionLink("حذف", "Delete", new { image = @item.comFile, id = item.id },new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.city.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Citzen.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Complaint_Catgories.Cat_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Entity_Branchs.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Official.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Official1.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comFile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comFile2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isreaded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isSolved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.solveDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
 
-    </table>
-    <style>
-        body {
-            text-align: center;
-        }
-
-        .btn {
-            display: inline;
-           
-        }
-        .table th, .table td{
-            padding: 0.25rem;
-        }
-        
-    </style>
-</body>
-</html>
+</table>

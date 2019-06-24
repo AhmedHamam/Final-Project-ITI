@@ -12,12 +12,12 @@ namespace project.Controllers
 {
     public class ComplaintsController : Controller
     {
-        private dbModel db = new dbModel();
+        private dbProject db = new dbProject();
 
         // GET: Complaints
         public ActionResult Index()
         {
-            var complaints = db.Complaints.Include(c => c.city).Include(c => c.Entity).Include(c => c.Entity_Branchs);
+            var complaints = db.Complaints.Include(c => c.city).Include(c => c.Citzen).Include(c => c.Complaint_Catgories).Include(c => c.Entity_Branchs).Include(c => c.Official).Include(c => c.Official1);
             return View(complaints.ToList());
         }
 
@@ -33,7 +33,6 @@ namespace project.Controllers
             {
                 return HttpNotFound();
             }
-          
             return View(complaint);
         }
 
@@ -41,35 +40,34 @@ namespace project.Controllers
         public ActionResult Create()
         {
             ViewBag.comCity = new SelectList(db.cities, "id", "name");
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title");
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title");
+            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName");
+            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name");
+            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title");
+            ViewBag.solveby = new SelectList(db.Officials, "id", "fName");
+            ViewBag.readby = new SelectList(db.Officials, "id", "fName");
             return View();
         }
 
         // POST: Complaints/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "comTitle,comDescription,comEntitybranch_id,comEntity_id,comCity")] Complaint complaint, HttpPostedFileBase comFile)
+        public ActionResult Create([Bind(Include = "id,comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint)
         {
             if (ModelState.IsValid)
             {
-                complaint.comDate = DateTime.Now;
-                complaint.comNumber = DateTime.Now.Year.ToString() + complaint.id;
-                complaint.comStatus = "فعالة";
-                string image = System.IO.Path.GetFileName(comFile.FileName);
-                string myPath = Server.MapPath("~/images/" + image);
-                comFile.SaveAs(myPath);
-                complaint.comFile = image;
                 db.Complaints.Add(complaint);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
+            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
+            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
+            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
+            ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
+            ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
             return View(complaint);
         }
 
@@ -81,23 +79,25 @@ namespace project.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Complaint complaint = db.Complaints.Find(id);
-          
             if (complaint == null)
             {
                 return HttpNotFound();
             }
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
+            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
+            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
+            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
+            ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
+            ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
             return View(complaint);
         }
 
         // POST: Complaints/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,comNumber,comTitle,comDescription,comEntitybranch_id,comEntity_id,comFile,comDate,comStatus,comCity")] Complaint complaint)
+        public ActionResult Edit([Bind(Include = "id,comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint)
         {
             if (ModelState.IsValid)
             {
@@ -106,8 +106,11 @@ namespace project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comEntity_id = new SelectList(db.Entities, "id", "Title", complaint.comEntity_id);
-            ViewBag.comEntitybranch_id = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch_id);
+            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
+            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
+            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
+            ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
+            ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
             return View(complaint);
         }
 

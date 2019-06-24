@@ -12,31 +12,31 @@ namespace project.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Entity()
         {
-            Complaints = new HashSet<Complaint>();
             Entity_Branchs = new HashSet<Entity_Branchs>();
             Officials = new HashSet<Official>();
         }
 
         public int id { get; set; }
 
+        [Required]
         [StringLength(500)]
         public string Title { get; set; }
 
+        [Required]
         [StringLength(500)]
         public string address { get; set; }
 
+        [Required]
         [StringLength(11)]
         public string phone { get; set; }
 
+        [Required]
         [StringLength(11)]
         public string fax { get; set; }
 
-        public bool? is_deleted { get; set; }
+        public bool is_deleted { get; set; }
 
-        public int? mangerId { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Complaint> Complaints { get; set; }
+        public int mangerId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Entity_Branchs> Entity_Branchs { get; set; }

@@ -42,8 +42,11 @@ namespace project.Models
         [StringLength(50)]
         public string password { get; set; }
 
+        [Required]
         [StringLength(11)]
         public string phone { get; set; }
+
+        public bool isdeleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Admin_Roles> Admin_Roles { get; set; }

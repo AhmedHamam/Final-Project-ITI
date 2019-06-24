@@ -23,6 +23,8 @@ namespace project.Models
 
         public int gov_id { get; set; }
 
+        public bool? isdeleted { get; set; }
+
         public virtual Government Government { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

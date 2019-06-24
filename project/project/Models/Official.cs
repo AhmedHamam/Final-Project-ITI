@@ -11,6 +11,8 @@ namespace project.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Official()
         {
+            Complaints = new HashSet<Complaint>();
+            Complaints1 = new HashSet<Complaint>();
             Entities = new HashSet<Entity>();
             Officials1 = new HashSet<Official>();
         }
@@ -18,50 +20,31 @@ namespace project.Models
         public int id { get; set; }
 
         [StringLength(50)]
-        [Required]
         public string fName { get; set; }
 
         [StringLength(50)]
-        [Required]
         public string mName { get; set; }
 
         [StringLength(50)]
-        [Required]
         public string lName { get; set; }
 
         [StringLength(50)]
-        [Required]
-
         public string userName { get; set; }
 
         [StringLength(500)]
-        [Required]
-
         public string passWord { get; set; }
 
         [StringLength(50)]
-        [Required]
-
         public string email { get; set; }
 
         [StringLength(11)]
-        [Required]
-
         public string phone { get; set; }
 
         [Required]
         [StringLength(11)]
         public string mobile { get; set; }
 
-        [StringLength(50)]
-        [Required]
-
-        public string job { get; set; }
-
-        [StringLength(500)]
-        [Required]
-
-        public string jobDesciption { get; set; }
+        public int? job_id { get; set; }
 
         public bool? isLeader { get; set; }
 
@@ -69,10 +52,20 @@ namespace project.Models
 
         public int? entityId { get; set; }
 
+        public bool isdeleted { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Complaint> Complaints { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Complaint> Complaints1 { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Entity> Entities { get; set; }
 
         public virtual Entity Entity { get; set; }
+
+        public virtual OfficialJob OfficialJob { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Official> Officials1 { get; set; }

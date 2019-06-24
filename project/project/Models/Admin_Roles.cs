@@ -18,6 +18,7 @@ namespace project.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int adminId { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Role_name { get; set; }
 

@@ -1,124 +1,147 @@
 ﻿@model project.Models.Complaint
 
 @{
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Details</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>تفاصيل</title>
-</head>
-<body>
-    <div>
-        <h4>تفاصيل الشكوى</h4>
-        <hr />
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="col">
-                        مدينة
-                    </th>
-                    <th class="col">
-                       وزارة
-                    </th>
-                    <th class="col">
-                        محافظة
-                    </th>
-                    <th class="col">
-                        رقم الشكوى
-                    </th>
-                    <th class="col">
-                        عنوان الشكوى
-                    </th>
-                    <th class="col">
-                        تفاصيل الشكوى
-                    </th>
-                    <th class="col">
-                        مرفقات الشكوى
-                    </th>
-                    <th class="col">
-                       تاريخ الشكوى
-                    </th>
-                    <th class="col">
-                        حالة الشكوى 
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
+<div>
+    <h4>Complaint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.city.name)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.city.name)
+        </dd>
 
-                    <td>
-                        @Html.DisplayFor(model => model.city.name)
-                    </td>
+        <dt>
+            @Html.DisplayNameFor(model => model.Citzen.fName)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Citzen.fName)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Complaint_Catgories.Cat_Name)
+        </dt>
 
-                    <td>
-                        @Html.DisplayFor(model => model.Entity.Title)
-                    </td>
+        <dd>
+            @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Entity_Branchs.title)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Entity_Branchs.title)
+        </dd>
 
-                    <td>
-                        @Html.DisplayFor(model => model.Entity_Branchs.title)
-                    </td>
+        <dt>
+            @Html.DisplayNameFor(model => model.Official.fName)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Official.fName)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Official1.fName)
+        </dt>
 
-                    <td>
-                        @Html.DisplayFor(model => model.comNumber)
-                    </td>
+        <dd>
+            @Html.DisplayFor(model => model.Official1.fName)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.comNumber)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.comNumber)
+        </dd>
 
-                    <td>
-                        @Html.DisplayFor(model => model.comTitle)
-                    </td>
+        <dt>
+            @Html.DisplayNameFor(model => model.comTitle)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.comTitle)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.comDescription)
+        </dt>
 
-                    <td>
-                        @Html.DisplayFor(model => model.comDescription)
-                    </td>
+        <dd>
+            @Html.DisplayFor(model => model.comDescription)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.comFile)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.comFile)
+        </dd>
 
-                    <td>
-                        <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:50%" />
+        <dt>
+            @Html.DisplayNameFor(model => model.comFile2)
+        </dt>
 
-                    </td>
+        <dd>
+            @Html.DisplayFor(model => model.comFile2)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.comDate)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.comDate)
+        </dd>
 
-                    <td>
-                        @Html.DisplayFor(model => model.comDate)
-                    </td>
+        <dt>
+            @Html.DisplayNameFor(model => model.comType)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.comType)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.isreaded)
+        </dt>
 
-                    <td>
-                        @Html.DisplayFor(model => model.comStatus)
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <p>
-        @Html.ActionLink("تعديل", "Edit", new { id = Model.id },new { @class="btn btn-danger"}) 
-        @Html.ActionLink("الرجوع", "Index",null, new { @class = "btn btn-danger" })
-    </p> 
-    <style>
-        body {
-            text-align: center;
-        }
+        <dd>
+            @Html.DisplayFor(model => model.isreaded)
+        </dd>
 
-        .btn {
-            display: inline;
-        }
-    </style>   
-</body>
-</html>
+        <dt>
+            @Html.DisplayNameFor(model => model.isSolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isSolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solveDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solveDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

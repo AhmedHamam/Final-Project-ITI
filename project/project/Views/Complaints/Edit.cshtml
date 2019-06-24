@@ -1,120 +1,162 @@
 ﻿@model project.Models.Complaint
 
 @{
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Edit</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>تعديل</title>
-</head>
-<body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>الشكوى</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.id)
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
     
-            <div class="form-group">
-                <label class = "control-label col-md-2">رقم الشكوى</label>
-           
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.comNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.comNumber, "", new { @class = "text-danger" })
-                </div>
+    <div class="form-horizontal">
+        <h4>Complaint</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comNumber, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">عنوان الشكوى</label>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.comTitle, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.comTitle, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comTitle, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">تفاصيل الشكوى</label>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.comDescription, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.comDescription, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comDescription, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">المحافظة</label>
-                <div class="col-md-10">
-                    @Html.DropDownList("comEntitybranch_id", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.comEntitybranch_id, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comFile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comFile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comFile, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">الوزارة</label>
-                <div class="col-md-10">
-                    @Html.DropDownList("comEntity_id", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.comEntity_id, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comFile2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comFile2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comFile2, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">مرفقات الشكوى</label>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.comFile, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.comFile, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comDate, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">تاريخ الشكوى</label>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.comDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.comDate, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.comType, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">حالة الشكوى</label>
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.comStatus)
-                        @Html.ValidationMessageFor(model => model.comStatus, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comCategory, "comCategory", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("comCategory", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.comCategory, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <label class="control-label col-md-2">المدينة</label>
-                <div class="col-md-10">
-                    @Html.DropDownList("comCity", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.comCity, "", new { @class = "text-danger" })
-                </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comCity, "comCity", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("comCity", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.comCity, "", new { @class = "text-danger" })
             </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    @Html.ActionLink("الرجوع", "Index",null,new { @class="btn btn-primary"})
-                    <input type="submit" value="حفظ" class="btn btn-success" />
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comEntitybranch, "comEntitybranch", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("comEntitybranch", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.comEntitybranch, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comCitzen, "comCitzen", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("comCitzen", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.comCitzen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isreaded, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.isreaded)
+                    @Html.ValidationMessageFor(model => model.isreaded, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-    }
-    
 
-    <style>
-        body {
-            text-align: center;
-        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.readby, "readby", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("readby", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.readby, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-        .btn {
-            display: inline;
-        }
-    </style>
-</body>
-</html>
+        <div class="form-group">
+            @Html.LabelFor(model => model.solveby, "solveby", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("solveby", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.solveby, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isSolved, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.isSolved)
+                    @Html.ValidationMessageFor(model => model.isSolved, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.solveDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.solveDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.solveDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
