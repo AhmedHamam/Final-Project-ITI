@@ -5,6 +5,8 @@ namespace project.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
+    using project.MyValidation;
 
     public partial class Official
     {
@@ -19,22 +21,29 @@ namespace project.Models
 
         public int id { get; set; }
 
-        [StringLength(50)]
-        public string fName { get; set; }
+        [Required(ErrorMessage = "*")]
+        [StringLength(25, MinimumLength = 3, ErrorMessage = " length between 3 and 25 character")] public string fName { get; set; }
 
-        [StringLength(50)]
+        [Required(ErrorMessage = "*")]
+        [StringLength(25, MinimumLength = 3, ErrorMessage = " length between 3 and 25 character")]
         public string mName { get; set; }
 
-        [StringLength(50)]
+        [Required(ErrorMessage = "*")]
+        [StringLength(25, MinimumLength = 3, ErrorMessage = " length between 3 and 25 character")]
         public string lName { get; set; }
 
-        [StringLength(50)]
-        public string userName { get; set; }
+        [Required(ErrorMessage = "*")]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = " length between 5 and 25 character")]
 
-        [StringLength(500)]
+        public string userName { get; set; }
+        
+        [Required]
+        [StringLength(15, MinimumLength = 3)]
+        [MyValidation.PasswordValidation(ErrorMessage = "Password not valid againest to custome validation")]
         public string passWord { get; set; }
 
-        [StringLength(50)]
+        [Required]
+        [RegularExpression(@"[a-zA-Z0-9]+@[A-Za-z]+.[a-zA-Z]{2,4}")]
         public string email { get; set; }
 
         [StringLength(11)]

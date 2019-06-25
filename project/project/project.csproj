@@ -188,6 +188,7 @@
     <Compile Include="Models\Official.cs" />
     <Compile Include="Models\OfficialJob.cs" />
     <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="MyValidation\PasswordValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

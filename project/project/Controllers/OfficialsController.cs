@@ -105,6 +105,7 @@ namespace project.Controllers
         // GET: Officials/Delete/5
         public ActionResult Delete(int? id)
         {
+            Official offi = db.Officials.FirstOrDefault(a => a.id==id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -127,6 +128,7 @@ namespace project.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {
