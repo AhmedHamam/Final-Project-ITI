@@ -53,7 +53,7 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint)
+        public ActionResult Create([Bind(Include = "comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint, HttpPostedFileBase comFile1, HttpPostedFileBase comFile2)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +65,22 @@ namespace project.Controllers
                     return RedirectToAction("Index");
                 }
                 
+                complaint.comDate = DateTime.Now;
+                complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
+
+                string image = System.IO.Path.GetFileName(comFile1.FileName);
+                string myPath = Server.MapPath("~/images/" + image);
+                comFile1.SaveAs(myPath);
+                complaint.comFile = image;
+
+                string image2 = System.IO.Path.GetFileName(comFile2.FileName);
+                string myPath2 = Server.MapPath("~/images/" + image2);
+                comFile2.SaveAs(myPath2);
+                complaint.comFile2 = image2;
+
+                db.Complaints.Add(complaint);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
