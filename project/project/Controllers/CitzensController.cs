@@ -19,7 +19,10 @@ namespace project.Controllers
 
 
 
-
+        public ActionResult safety()
+        {
+            return View();
+        }
 
 
 
@@ -41,18 +44,10 @@ namespace project.Controllers
         }
 
         // GET: Citzens/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Citzen citzen = db.Citzens.Find(id);
-            if (citzen == null)
-            {
-                return HttpNotFound();
-            }
-            return View(citzen);
+          
+            return View();
         }
 
         // GET: Citzens/Create
