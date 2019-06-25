@@ -67,7 +67,7 @@ namespace project.Controllers
                if (ModelState.IsValid)
             {
                     complaint.comDate = DateTime.Now;
-                    complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
+                    complaint.comNumber = int.Parse(DateTime.Now.Year.ToString()+complaint.comCitzen);
                     complaint.isreaded = false;
                     complaint.isreaded = false;
                     complaint.comCitzen = int.Parse(Session["id"].ToString());
