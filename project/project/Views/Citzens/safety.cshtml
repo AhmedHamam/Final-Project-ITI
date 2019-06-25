@@ -1,14 +1,8 @@
-﻿@model IEnumerable<project.Models.Common_Qustion>
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "safety";
     Layout = "~/Views/Shared/_Citzen.cshtml";
 }
-
-
-
-
-
 
 <div class=" mt-4" style="display:inline-flex ; margin: 95px 0px;">
 
@@ -88,28 +82,33 @@
 
             <div class="text-right container">
                 <p style="font-size:150%">
-                    اسأله متكرره
+                    حماية السريه
                 </p>
             </div>
 
             <hr />
             <div>
-                @foreach (var item in Model)
-                {
-
-                    <div class="container">
-                        <p class="text-right" style="font-size:150%;">
-                            @Html.DisplayFor(modelItem => item.Questation)
-                        </p>
-                        <p class="text-right">
-                            @Html.DisplayFor(modelItem => item.answer)
-                        </p>
-                    </div>
 
 
-                }
+                <div class=" text-right container">
+                    <li class="container">
+                        تتخذ الجهة الحكومية المعنية كافة التدابير والاحتياطات اللازمة لضمان سرية الشكاوى المقدمة، وكذلك سرية الوثائق والمعلومات المتعلقة بها (الورقية والإلكترونية والصوتية المسجلة).
+                    </li>
+
+                    <br />
+
+                    <li class="container">
+                        تُحدد صلاحيات متعددة المستويات تتيح اطلاع المجاز لهم دخول النظام الإلكتروني فقط على بيانات المستخدم التي قبل هو اطلاع الجهة الحكومية عليها.
+
+                    </li>
+                    <br />
+                    <li class="container">
+                        يتم ضمان سرية معلومات الشاكى والجهة المقصودة بالشكوى وبيانات كل منهما من خلال عدم السماح بالاطلاع عليها إلا من قبل الموظفين المختصين والمخولين الذين تقتضي طبيعة عملهم ذلك الاطلاع.
+
+                    </li>
 
                 </div>
+            </div>
 
 
         </div>
@@ -138,77 +137,3 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*--------------------------------------------------------------------------------------------------------------------------------------------------*@
-<@*p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Questation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.answer)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Questation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.answer)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
-            </td>
-        </tr>
-    }
-
-</table>*@

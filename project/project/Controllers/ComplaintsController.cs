@@ -61,8 +61,21 @@ namespace project.Controllers
         {
             if (Session["id"] != null)
             {
+<<<<<<< HEAD
                 if (ModelState.IsValid)
                 {
+=======
+                if (Session["id"] != null)
+                {
+                    complaint.comCitzen = int.Parse(Session["id"].ToString());
+                    db.Complaints.Add(complaint);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
+                complaint.comDate = DateTime.Now;
+                complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
+>>>>>>> 226adfd587b1548597fe5faa934dfff940c3b809
 
                     complaint.comCitzen = int.Parse(Session["id"].ToString());
                     complaint.isreaded = false;
