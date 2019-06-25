@@ -14,6 +14,16 @@ namespace project.Controllers
     {
         private dbProject db = new dbProject();
 
+
+
+
+
+
+
+
+
+
+
         // GET: Citzens
         public ActionResult home ()
         {
