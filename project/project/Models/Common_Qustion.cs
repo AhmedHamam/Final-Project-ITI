@@ -10,10 +10,10 @@ namespace project.Models
     {
         public int id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="*")]
         public string Questation { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         public string answer { get; set; }
     }
 }

@@ -2,39 +2,39 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <h2 class="text-center btn-success">المحافظات</h2>
 
-<h2>Index</h2>
+    <p>
+        @Html.ActionLink("إضافة محافظة جديدة", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>
+                اسم المحافظة
+            </th>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isdeleted)
-        </th>
-        <th></th>
-    </tr>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isdeleted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).name)
+                </td>
 
-</table>
+                <td>
+                    @Html.ActionLink("تعديل", "Edit", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("حذف", "Delete", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="col-md-3"></div>

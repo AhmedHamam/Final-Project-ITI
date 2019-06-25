@@ -17,30 +17,14 @@ namespace project.Controllers
         // GET: Governments
         public ActionResult Index()
         {
-            return View(db.Governments.ToList());
+            var govs = (from item in db.Governments.ToList() where item.isdeleted==false select item).ToList();
+            return View( govs );
         }
-
-        // GET: Governments/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Government government = db.Governments.Find(id);
-            if (government == null)
-            {
-                return HttpNotFound();
-            }
-            return View(government);
-        }
-
         // GET: Governments/Create
         public ActionResult Create()
         {
             return View();
         }
-
         // POST: Governments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -57,7 +41,6 @@ namespace project.Controllers
 
             return View(government);
         }
-
         // GET: Governments/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -72,7 +55,6 @@ namespace project.Controllers
             }
             return View(government);
         }
-
         // POST: Governments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -88,7 +70,6 @@ namespace project.Controllers
             }
             return View(government);
         }
-
         // GET: Governments/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -103,14 +84,14 @@ namespace project.Controllers
             }
             return View(government);
         }
-
         // POST: Governments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Government government = db.Governments.Find(id);
-            db.Governments.Remove(government);
+            government.isdeleted = true;
+            db.Entry(government).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
