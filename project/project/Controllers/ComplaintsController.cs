@@ -39,13 +39,17 @@ namespace project.Controllers
         // GET: Complaints/Create
         public ActionResult Create()
         {
-            ViewBag.comCity = new SelectList(db.cities, "id", "name");
-            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName");
-            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name");
-            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title");
-            ViewBag.solveby = new SelectList(db.Officials, "id", "fName");
-            ViewBag.readby = new SelectList(db.Officials, "id", "fName");
-            return View();
+            if (Session["id"] != null)
+            {
+                ViewBag.comCity = new SelectList(db.cities, "id", "name");
+                ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName");
+                ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name");
+                ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title");
+                ViewBag.solveby = new SelectList(db.Officials, "id", "fName");
+                ViewBag.readby = new SelectList(db.Officials, "id", "fName");
+                return View();
+            }else { return RedirectToAction("login", "Citzens"); }
+          
         }
 
         // POST: Complaints/Create
@@ -53,35 +57,66 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint, HttpPostedFileBase comFile1, HttpPostedFileBase comFile2)
+        public ActionResult Create([Bind(Include = "comTitle,comDescription,comFile,comFile2,comType,comCategory,comCity,comEntitybranch,comCitzen")] Complaint complaint, HttpPostedFileBase comFile1, HttpPostedFileBase comFile2)
         {
-            if (ModelState.IsValid)
+            if (Session["id"] != null)
             {
-                complaint.comDate = DateTime.Now;
-                complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
+                if (ModelState.IsValid)
+                {
 
-                string image = System.IO.Path.GetFileName(comFile1.FileName);
-                string myPath = Server.MapPath("~/images/" + image);
-                comFile1.SaveAs(myPath);
-                complaint.comFile = image;
+                    complaint.comCitzen = int.Parse(Session["id"].ToString());
+                    complaint.isreaded = false;
+                    complaint.isreaded = false;
 
-                string image2 = System.IO.Path.GetFileName(comFile2.FileName);
-                string myPath2 = Server.MapPath("~/images/" + image2);
-                comFile2.SaveAs(myPath2);
-                complaint.comFile2 = image2;
+                    complaint.solveDescription = "فعالة";
+                    complaint.comDate = DateTime.Now;
+                    complaint.comNumber = int.Parse(DateTime.Now.Year.ToString());
+                    //+complaint.Citzen.nationailnumber
+                    string image = System.IO.Path.GetFileName(comFile1.FileName);
+                    string myPath = Server.MapPath("~/images/" + image);
+                    comFile1.SaveAs(myPath);
+                    complaint.comFile = image;
 
-                db.Complaints.Add(complaint);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    string image2 = System.IO.Path.GetFileName(comFile2.FileName);
+                    string myPath2 = Server.MapPath("~/images/" + image2);
+                    comFile2.SaveAs(myPath2);
+                    complaint.comFile2 = image2;
+
+                    db.Complaints.Add(complaint);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
+                    ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
+                    ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
+                    ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
+                    ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
+                    ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
+                    return View(complaint);
+                }
+
+
+            }
+            else
+            {
+                return RedirectToAction("login", "Citzens");
             }
 
-            ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
-            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
-            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
-            ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
-            ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
-            return View(complaint);
+        }
+       public ActionResult ComplaintSearch()
+        {
+            if (Session["id"] != null)
+            {
+                int id = int.Parse(Session["id"].ToString());
+                var userComplaints = db.Complaints.Where(c => c.comCitzen == id).ToList();
+                return View(userComplaints);
+            }
+            else
+            {
+                return RedirectToAction("login", "Citzens");
+            }
         }
 
         // GET: Complaints/Edit/5
