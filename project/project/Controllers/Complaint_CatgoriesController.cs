@@ -50,6 +50,7 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+         
                 db.Complaint_Catgories.Add(complaint_Catgories);
                 db.SaveChanges();
                 return RedirectToAction("Index");
