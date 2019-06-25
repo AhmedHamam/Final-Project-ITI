@@ -15,8 +15,17 @@ namespace project.Controllers
         private dbProject db = new dbProject();
 
         // GET: Citzens
-        public ActionResult Index()
+        public ActionResult home ()
         {
+            if (Session["id"] != null)
+            {
+                int id = int.Parse(Session["id"].ToString());
+                var userComplaints = db.Complaints.Where(u => u.comCitzen == id).ToList();
+                return View(userComplaints);
+
+                    }
+            
+
             var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
             return View(citzens.ToList());
         }
@@ -122,7 +131,7 @@ namespace project.Controllers
                 {
                     Session["id"] = user.FirstOrDefault().id;
                    
-                    return Redirect("Index");
+                    return Redirect("home");
                 }
                 else
                 {

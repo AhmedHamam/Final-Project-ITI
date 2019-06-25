@@ -57,9 +57,14 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Complaints.Add(complaint);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (Session["id"] != null)
+                {
+                    complaint.comCitzen = int.Parse(Session["id"].ToString());
+                    db.Complaints.Add(complaint);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
             }
 
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
