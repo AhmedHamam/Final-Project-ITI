@@ -39,13 +39,21 @@ namespace project.Controllers
         // GET: Complaints/Create
         public ActionResult Create()
         {
-            ViewBag.comCity = new SelectList(db.cities, "id", "name");
-            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName");
-            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name");
-            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title");
-            ViewBag.solveby = new SelectList(db.Officials, "id", "fName");
-            ViewBag.readby = new SelectList(db.Officials, "id", "fName");
-            return View();
+            if(Session["id"]!=null)
+            {
+                ViewBag.comCity = new SelectList(db.cities, "id", "name");
+                ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName");
+                ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name");
+                ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title");
+                ViewBag.solveby = new SelectList(db.Officials, "id", "fName");
+                ViewBag.readby = new SelectList(db.Officials, "id", "fName");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Citzens");
+            }
+
         }
 
         // POST: Complaints/Create
@@ -55,47 +63,29 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint, HttpPostedFileBase comFile1, HttpPostedFileBase comFile2)
         {
-            if (ModelState.IsValid)
+
+               if (ModelState.IsValid)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                if (ModelState.IsValid)
-                {
-=======
-                if (Session["id"] != null)
-                {
+                    complaint.comDate = DateTime.Now;
+                    complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
+                    complaint.isreaded = false;
+                    complaint.isreaded = false;
                     complaint.comCitzen = int.Parse(Session["id"].ToString());
+                    string image = System.IO.Path.GetFileName(comFile1.FileName);
+                    string myPath = Server.MapPath("~/images/" + image);
+                    comFile1.SaveAs(myPath);
+                    complaint.comFile = image;
+
+                    string image2 = System.IO.Path.GetFileName(comFile2.FileName);
+                    string myPath2 = Server.MapPath("~/images/" + image2);
+                    comFile2.SaveAs(myPath2);
+                    complaint.comFile2 = image2;
+
                     db.Complaints.Add(complaint);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 
-                complaint.comDate = DateTime.Now;
-                complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
->>>>>>> 226adfd587b1548597fe5faa934dfff940c3b809
-
-                    complaint.comCitzen = int.Parse(Session["id"].ToString());
-                    complaint.isreaded = false;
-                    complaint.isreaded = false;
-=======
-                complaint.comDate = DateTime.Now;
-                complaint.comNumber = int.Parse(DateTime.Now.Year.ToString() + complaint.Citzen.nationailnumber);
->>>>>>> parent of a506839... Complaint search&Fixed
-
-                string image = System.IO.Path.GetFileName(comFile1.FileName);
-                string myPath = Server.MapPath("~/images/" + image);
-                comFile1.SaveAs(myPath);
-                complaint.comFile = image;
-
-                string image2 = System.IO.Path.GetFileName(comFile2.FileName);
-                string myPath2 = Server.MapPath("~/images/" + image2);
-                comFile2.SaveAs(myPath2);
-                complaint.comFile2 = image2;
-
-                db.Complaints.Add(complaint);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
             ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
             ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
@@ -105,7 +95,20 @@ namespace project.Controllers
             ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
             return View(complaint);
         }
-
+        public ActionResult Search()
+        {
+            if (Session["id"] != null)
+            {
+                int id = int.Parse(Session["id"].ToString());
+                var userComplaints = db.Complaints.Where(c => c.comCitzen == id).ToList();
+                return View(userComplaints);
+            }
+            else
+            {
+                return RedirectToAction("login", "Citzens");
+            }
+        }
+    
         // GET: Complaints/Edit/5
         public ActionResult Edit(int? id)
         {
