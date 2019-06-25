@@ -294,6 +294,8 @@
     <Content Include="Views\Citzens\Details.cshtml" />
     <Content Include="Views\Citzens\Edit.cshtml" />
     <Content Include="Views\Citzens\Index.cshtml" />
+    <Content Include="Views\Citzens\logins.cshtml" />
+    <Content Include="Views\Citzens\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

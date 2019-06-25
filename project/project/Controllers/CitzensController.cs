@@ -100,6 +100,42 @@ namespace project.Controllers
             return View(citzen);
         }
 
+
+        public ActionResult login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult login(Citzen login)
+        {
+
+            
+                dbProject db = new dbProject();
+                var user = (from userlist in db.Citzens
+                            where userlist.email == login.email && userlist.password == login.password
+                            select new
+                            {
+                                userlist.id,
+                               
+                            }).ToList();
+                if (user.FirstOrDefault() != null)
+                {
+                    Session["id"] = user.FirstOrDefault().id;
+                   
+                    return Redirect("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login credentials.");
+                }
+            
+            return View(login);
+        }
+
+
+
+
+
         // GET: Citzens/Delete/5
         public ActionResult Delete(int? id)
         {
