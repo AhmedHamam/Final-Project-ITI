@@ -294,6 +294,9 @@
     <Content Include="Views\Governments\Edit.cshtml" />
     <Content Include="Views\Governments\Index.cshtml" />
     <Content Include="Views\Shared\_adminMainLayout.cshtml" />
+    <Content Include="Views\Citzens\home.cshtml" />
+    <Content Include="Views\Citzens\safety.cshtml" />
+    <Content Include="Views\Complaints\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
