@@ -386,4 +386,3 @@ E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.m
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.cache
 D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.csprojAssemblyReference.cache
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csprojAssemblyReference.cache
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache

@@ -297,11 +297,14 @@
     <Content Include="Views\Citzens\logins.cshtml" />
     <Content Include="Views\Citzens\login.cshtml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\Complaints\ComplaintSearch.cshtml" />
 =======
     <Content Include="Views\Citzens\home.cshtml" />
     <Content Include="Views\Citzens\safety.cshtml" />
 >>>>>>> 226adfd587b1548597fe5faa934dfff940c3b809
+=======
+>>>>>>> parent of a506839... Complaint search&Fixed
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
