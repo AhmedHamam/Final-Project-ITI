@@ -53,6 +53,8 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                citzen.reg_date = DateTime.Now;
+
                 db.Citzens.Add(citzen);
                 db.SaveChanges();
                 return RedirectToAction("Index");
