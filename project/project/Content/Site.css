@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.admin
+{
+    padding:6%;
+    margin:4%;
+}

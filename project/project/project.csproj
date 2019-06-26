@@ -268,11 +268,6 @@
     <Content Include="Views\Officials\Details.cshtml" />
     <Content Include="Views\Officials\Edit.cshtml" />
     <Content Include="Views\Officials\Index.cshtml" />
-    <Content Include="Views\OfficialJobs\Create.cshtml" />
-    <Content Include="Views\OfficialJobs\Delete.cshtml" />
-    <Content Include="Views\OfficialJobs\Details.cshtml" />
-    <Content Include="Views\OfficialJobs\Edit.cshtml" />
-    <Content Include="Views\OfficialJobs\Index.cshtml" />
     <Content Include="Views\Citzens\Create.cshtml" />
     <Content Include="Views\Citzens\Delete.cshtml" />
     <Content Include="Views\Citzens\Details.cshtml" />
@@ -298,6 +293,11 @@
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Admins\home.cshtml" />
+    <Content Include="Views\OfficialJobs\Create.cshtml" />
+    <Content Include="Views\OfficialJobs\Delete.cshtml" />
+    <Content Include="Views\OfficialJobs\Details.cshtml" />
+    <Content Include="Views\OfficialJobs\Edit.cshtml" />
+    <Content Include="Views\OfficialJobs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

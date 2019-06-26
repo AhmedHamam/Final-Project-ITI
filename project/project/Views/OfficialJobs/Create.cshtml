@@ -2,51 +2,38 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <h2 class="text-center btn-success">إضافة وظيفة</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>OfficialJob</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
+                <div class="col-md-10">
+                    <h6 class="text-center">اسم الوظيفة</h6>
+                    @Html.EditorFor(model => model.Job, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Job, "", new { @class = "text-danger" })
+                    <br />
+                    <h6 class="text-center">وصف الوظيفة</h6>
+                    @Html.EditorFor(model => model.jobDescriptaion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.jobDescriptaion, "", new { @class = "text-danger" })
+                    <br />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="حفظ" class="btn btn-primary" />
+                    <br /><br />
+                    @Html.ActionLink("العودة الى القائمة السابقة", "Index", null, new { @class = "text-center" })
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Job, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Job, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Job, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.jobDescriptaion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.jobDescriptaion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.jobDescriptaion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    }
+</div>
+<div class="col-md-6">
 </div>
