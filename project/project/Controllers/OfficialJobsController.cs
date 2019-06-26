@@ -17,7 +17,7 @@ namespace project.Controllers
         // GET: OfficialJobs
         public ActionResult Index()
         {
-            return View(db.OfficialJobs.ToList());
+            return View(db.OfficialJobs.Where(oj=>oj.isdeleted==false).ToList());
         }
 
         // GET: OfficialJobs/Details/5
@@ -50,6 +50,7 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                officialJob.isdeleted = false;
                 db.OfficialJobs.Add(officialJob);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +83,7 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                officialJob.isdeleted = false;
                 db.Entry(officialJob).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,7 +112,8 @@ namespace project.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             OfficialJob officialJob = db.OfficialJobs.Find(id);
-            db.OfficialJobs.Remove(officialJob);
+            officialJob.isdeleted = true;
+            db.Entry(officialJob).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -2,39 +2,52 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <h2 class="text-center btn-success">المحافظات</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Job)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.jobDescriptaion)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("إضافة وظيفة جديدة", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>
+                اسم الوظيفة
+            </th>
+            <th>
+                وصف الوظيفة
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Job)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.jobDescriptaion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).Job)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).jobDescriptaion)
+                </td>
+                <td>
+                    @Html.ActionLink("تعديل", "Edit", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("حذف", "Delete", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <br /><br />
+            @Html.ActionLink("العودة الى القائمة السابقة", "home","Admins", null, new { @class = "text-center" })
+        </div>
+    </div>
+</div>
+<div class="col-md-3"></div>
 
-</table>
+

@@ -33,18 +33,18 @@
         <tr>
             <td>@(i + 1)</td>
             <td>
-                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).fName)
-                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).mName)
-                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).lName)
+                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).fName)
+                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).mName)
+                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).lName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).email)
+                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).userName)
+                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).userName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).phone)
+                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).phone)
             </td>
             <td>
                 @Html.ActionLink("تعديل", "Edit", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-primary" }) |
