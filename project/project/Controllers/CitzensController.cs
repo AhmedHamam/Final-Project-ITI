@@ -26,7 +26,11 @@ namespace project.Controllers
 
 
 
+        public ActionResult Index()
+        {
 
+            return View(db.Citzens.Where(c=>c.isdeleated==false).ToList());
+        }
         // GET: Citzens
         public ActionResult home ()
         {

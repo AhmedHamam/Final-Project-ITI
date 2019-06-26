@@ -18,31 +18,39 @@ namespace project.Models
 
         public int id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="*")]
         [StringLength(50)]
         public string fName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         [StringLength(50)]
         public string mName { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="*")]
         [StringLength(50)]
         public string lName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="*")]
+        [EmailAddress]
         [StringLength(50)]
         public string email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         [StringLength(50)]
         public string userName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
+        [DataType(DataType.Password)]
         [StringLength(50)]
         public string password { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "*")]
+        [DataType(DataType.Password)]
+        [StringLength(50)]
+        [Compare("password",ErrorMessage ="password not matched")]
+        [NotMapped]
+        public string confpassword { get; set; }
+        [Required(ErrorMessage = "*")]
+        [RegularExpression("^(01)[0-9]{9}", ErrorMessage = "—ﬁ„ €Ì— ’ÕÌÕ")]
         [StringLength(11)]
         public string phone { get; set; }
 

@@ -19,6 +19,10 @@ namespace project.Controllers
         {
             return View(db.Admins.ToList());
         }
+        public ActionResult home()
+        {
+            return View();
+        }
 
         // GET: Admins/Details/5
         public ActionResult Details(int? id)
@@ -46,7 +50,7 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fName,mName,lName,email,userName,password,phone,isdeleted")] Admin admin)
+        public ActionResult Create( Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +82,7 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,fName,mName,lName,email,userName,password,phone,isdeleted")] Admin admin)
+        public ActionResult Edit(Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +114,7 @@ namespace project.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            admin.isdeleted = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
