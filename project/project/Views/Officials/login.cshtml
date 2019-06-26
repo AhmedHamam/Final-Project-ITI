@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/officialLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html style="">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+
+
+    <form method="post" style="margin-top:5%;">
+
+
+
+
+
+            <div class="card bg-light mb-3" style="width:80%; position:center; ">
+                <article class="card-body">
+                    <h4 class="card-title mt-3 text-center">تسجيل دخول مسئول </h4>
+
+
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="البريد الالكتروني " type="email">
+                    </div> <!-- form-group// -->
+
+
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input name="passWord" class="form-control" placeholder="الرقم السري " type="password">
+                    </div> <!-- form-group// -->
+
+
+
+
+
+
+                    <div class="form-group">
+                        <input type="submit" value="تسجيل الدخول" class="btn btn-primary btn-block" style="background:rgb(37, 163, 153);">
+                    </div> <!-- form-group// -->
+
+                </article>
+            </div> <!-- card.// -->
+
+        </div>
+
+
+
+
+    </form>
+
+</body>
+</html>

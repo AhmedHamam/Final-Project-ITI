@@ -2,167 +2,166 @@
 
 @{
     ViewBag.Title = "تفاصيل شكوى";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/officialLayout.cshtml";
 }
 
 
 
-<div>
+    <div>
 
-    <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    المدينة
-                </th>
-                <th>
-                    الشاكى
-                </th>
-                <th>
-                    تصنيف الشكوى
-                </th>
-                <th>
-                    الخدمة
-                </th>
+      
+        <table class="table table-responsive table-bordered  table-sortable mt-4 text-right">
+            <thead style="background-color:rgb(37, 163, 153)">
+                <tr>
+                    <th>
+                        المدينة
+                    </th>
+                    <th>
+                        الشاكى
+                    </th>
+                    <th>
+                        تصنيف الشكوى
+                    </th>
+                    <th>
+                        الخدمة
+                    </th>
 
-                <th>
-                    الموظف الذى حل الشكوى
-                </th>
+                    <th>
+                        الموظف الذى حل الشكوى
+                    </th>
 
-                <th>
-                    الموظف الذى قرأ الشكوى
-                </th>
-                <th>
-                    رقم الشكوى
-                </th>
+                    <th>
+                        الموظف الذى قرأ الشكوى
+                    </th>
+                    <th>
+                        رقم الشكوى
+                    </th>
 
-                <th>
-                    عنوان الشكوى
-                </th>
-                <th>
-                    مرفقات الشكوى 1
-                </th>
-                <th>
-                    تفاصيل الشكوى
-                </th>
-                <th>
-                    مرفقات الشكوى 2
-                </th>
-                <th>
-                    نوع الشكوى
-                </th>
+                    <th>
+                        عنوان الشكوى
+                    </th>
+                    <th>
+                        مرفقات الشكوى 1
+                    </th>
+                    <th>
+                        تفاصيل الشكوى
+                    </th>
+                    <th>
+                        مرفقات الشكوى 2
+                    </th>
+                    <th>
+                        نوع الشكوى
+                    </th>
 
-                <th>
-                    تاريخ الشكوى
-                </th>
-                <th>
-                    الشكوى قرأت ام لا ؟
-                </th>
-                <th>
-                    الشكوى اتحلت ام لا ؟
-                </th>
+                    <th>
+                        تاريخ الشكوى
+                    </th>
+                    <th>
+                        الشكوى قرأت ام لا ؟
+                    </th>
+                    <th>
+                        الشكوى اتحلت ام لا ؟
+                    </th>
 
-                <th>
-                    تفاصيل الحل
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => model.city.name)
-                </td>
-
-
-
-                <td>
-                    @Html.DisplayFor(model => model.Citzen.fName)
-                </td>
+                    <th>
+                        تفاصيل الحل
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.city.name)
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Citzen.fName)
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.Entity_Branchs.title)
-                </td>
-
-
-                <td>
-                    @Html.DisplayFor(model => model.Official.fName)
-                </td>
-
-
-                <td>
-                    @Html.DisplayFor(model => model.Official1.fName)
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.comNumber)
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Entity_Branchs.title)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.Official.fName)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.Official1.fName)
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.comTitle)
-                </td>
-
-
-                <td>
-                    @Html.DisplayFor(model => model.comDescription)
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.comNumber)
+                    </td>
 
 
 
-                <td>
-                    <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:50%" />
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.comTitle)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.comDescription)
+                    </td>
 
 
 
-                <td>
-                    <img src="~/images/@Html.DisplayFor(model => model.comFile2)" style="width:50%" />
-                </td>
-
-                <td>
-                    @Html.DisplayFor(model => model.comDate)
-                </td>
+                    <td>
+                        <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:50%" />
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.comType)
-                </td>
+                    <td>
+                        <img src="~/images/@Html.DisplayFor(model => model.comFile2)" style="width:50%" />
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.comDate)
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.isreaded)
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.comType)
+                    </td>
 
 
 
-                <td>
-                    @Html.DisplayFor(model => model.isSolved)
-                </td>
+                    <td>
+                        @Html.DisplayFor(model => model.isreaded)
+                    </td>
 
 
-                <td>
-                    @Html.DisplayFor(model => model.solveDescription)
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
+                    <td>
+                        @Html.DisplayFor(model => model.isSolved)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(model => model.solveDescription)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 <p>
-    @Html.ActionLink("تعديل", "Edit", new { id = Model.id }, new { @class = "btn btn-danger" })
     @Html.ActionLink("الرجوع", "Index", null, new { @class = "btn btn-danger" })
 </p>
 <style>
