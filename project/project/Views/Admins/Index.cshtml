@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -12,65 +12,45 @@
 </p>
 <table class="table">
     <tr>
+        <th>#</th>
         <th>
-            @Html.DisplayNameFor(model => model.fName)
+            الاسم
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.mName)
+            الايميل
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lName)
+            اسم المستخدم
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isdeleted)
+            الهاتف
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.userName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isdeleted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        <tr>
+            <td>@(i + 1)</td>
+            <td>
+                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).fName)
+                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).mName)
+                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).lName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).userName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>Model.ElementAtOrDefault(i).phone)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("حذف", "Delete", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
