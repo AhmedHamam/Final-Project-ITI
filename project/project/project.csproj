@@ -184,6 +184,7 @@
     <Compile Include="Models\defaulttext.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\EntityBranchs.cs" />
+    <Compile Include="Models\GMailer.cs" />
     <Compile Include="Models\Government.cs" />
     <Compile Include="Models\Official.cs" />
     <Compile Include="Models\OfficialJob.cs" />
@@ -298,6 +299,8 @@
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Admins\home.cshtml" />
+    <Content Include="Views\Citzens\forget.cshtml" />
+    <Content Include="Views\Citzens\Editpassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

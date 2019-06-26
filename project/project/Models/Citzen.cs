@@ -1,4 +1,4 @@
-namespace project.Models
+﻿namespace project.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,51 +17,58 @@ namespace project.Models
 
         public int id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(50)]
         public string fName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(50)]
         public string lName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(50)]
         public string mName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(14)]
         public string nationailnumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(500)]
         public string nationalNumberImage { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(50)]
         public string gender { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(50)]
         public string userName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(50)]
         public string email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         [StringLength(500)]
+        [DataType(DataType.Password)]
         public string password { get; set; }
-
-        [Required]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "*")]
+        //[Compare("password")]
         [StringLength(500)]
+        [NotMapped]
+        public string confirmPassword { get; set; }
+        [Required(ErrorMessage="*")]
+        [StringLength(500)]
+        
         public string address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(11)]
         public string phone { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(11)]
         public string mobile { get; set; }
 
