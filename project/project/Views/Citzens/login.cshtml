@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
+}
+   
+
+<!DOCTYPE html>
+<html style="">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+<body>
+
+
+
+    <form method="post" style="margin-top:10%; width:360%">
+
+     
+
+        <div class="container mt-4 loginDiv">
+
+
+            <div class="card bg-light" style="width:70%; position:center; margin-right:15%;">
+                <article class="card-body">
+                    <h4 class="card-title mt-3 text-center">تسجيل دخول </h4>
+
+
+                   
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            <input name="email" class="form-control" placeholder="الايميل " type="email">
+                        </div> <!-- form-group// -->
+
+
+
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <input name="password" class="form-control" placeholder="الرقم السري " type="password">
+                        </div> <!-- form-group// -->
+
+
+
+
+
+
+                        <div class="form-group">
+                            <input type="submit" value="تسجيل الدخول" class="btn btn-primary btn-block" style="background:rgb(37, 163, 153);">
+                        </div> <!-- form-group// -->
+                   
+                </article>
+            </div> <!-- card.// -->
+
+        </div>
+
+
+
+
+    </form>
+
+</body>
+</html>

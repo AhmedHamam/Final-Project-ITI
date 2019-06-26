@@ -14,26 +14,40 @@ namespace project.Controllers
     {
         private dbProject db = new dbProject();
 
-        // GET: Citzens
-        public ActionResult Index()
+
+
+
+
+
+        public ActionResult safety()
         {
+            return View();
+        }
+
+
+
+
+        // GET: Citzens
+        public ActionResult home ()
+        {
+            if (Session["id"] != null)
+            {
+                int id = int.Parse(Session["id"].ToString());
+                var userComplaints = db.Complaints.Where(u => u.comCitzen == id).ToList();
+                return View(userComplaints);
+
+                    }
+            
+
             var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
             return View(citzens.ToList());
         }
 
         // GET: Citzens/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Citzen citzen = db.Citzens.Find(id);
-            if (citzen == null)
-            {
-                return HttpNotFound();
-            }
-            return View(citzen);
+          
+            return View();
         }
 
         // GET: Citzens/Create
@@ -53,6 +67,8 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                citzen.reg_date = DateTime.Now;
+
                 db.Citzens.Add(citzen);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -66,6 +82,7 @@ namespace project.Controllers
         // GET: Citzens/Edit/5
         public ActionResult Edit(int? id)
         {
+            id = int.Parse(Session["id"].ToString());
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -87,15 +104,52 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
-            if (ModelState.IsValid)
-            {
+            
                 db.Entry(citzen).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
-            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
-            return View(citzen);
+                return RedirectToAction("home");
+            
+        }
+
+
+        public ActionResult login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult login(Citzen login)
+        {
+
+            
+                dbProject db = new dbProject();
+                var user = (from userlist in db.Citzens
+                            where userlist.email == login.email && userlist.password == login.password
+                            select new
+                            {
+                                userlist.id,
+                               userlist.fName
+                            }).ToList();
+                if (user.FirstOrDefault() != null)
+                {
+                    Session["id"] = user.FirstOrDefault().id;
+                Session["name"] = user.FirstOrDefault().fName;
+                   
+                    return Redirect("home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login credentials.");
+                }
+            
+            return View(login);
+        }
+
+
+
+        public ActionResult logOut()
+        {
+            Session["id"] = null;
+            return RedirectToAction("login");
         }
 
         // GET: Citzens/Delete/5

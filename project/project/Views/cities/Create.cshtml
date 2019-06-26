@@ -2,53 +2,47 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
-
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <h2 class="text-center btn-success">إضافة مدينة</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <h4>city</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            
             <div class="col-md-10">
+                <h6 class="text-center">اسم المدينة</h6>
                 @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+                <br />
+
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.gov_id, "gov_id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <h6 class="text-center">اسم المحافظة</h6>
                 @Html.DropDownList("gov_id", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.gov_id, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.isdeleted, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.isdeleted)
-                    @Html.ValidationMessageFor(model => model.isdeleted, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="حفظ" class="btn btn-primary" />
+                <br /><br />
+                @Html.ActionLink("العودة الى القائمة السابقة", "Index", null, new { @class = "text-center" })
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    }
 </div>
+<div class="col-md-6">
+</div>
+   
+
+      

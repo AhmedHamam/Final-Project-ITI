@@ -18,15 +18,16 @@ namespace project.Models
 
         public int id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="*")]
         [StringLength(500)]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         [StringLength(500)]
         public string address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
+        [RegularExpression("^(01)[0-9]{9}", ErrorMessage = "—ﬁ„ €Ì— ’ÕÌÕ")]
         [StringLength(11)]
         public string phone { get; set; }
 

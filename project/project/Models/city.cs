@@ -17,10 +17,10 @@ namespace project.Models
 
         public int id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="*")]
         [StringLength(500)]
         public string name { get; set; }
-
+        [Required(ErrorMessage = "*")]
         public int gov_id { get; set; }
 
         public bool? isdeleted { get; set; }

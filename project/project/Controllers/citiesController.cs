@@ -13,33 +13,16 @@ namespace project.Controllers
     public class citiesController : Controller
     {
         private dbProject db = new dbProject();
-
         // GET: cities
         public ActionResult Index()
         {
-            var cities = db.cities.Include(c => c.Government);
+            var cities = db.cities.Where(c=>c.isdeleted==false).Include(c => c.Government);
             return View(cities.ToList());
         }
-
-        // GET: cities/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            city city = db.cities.Find(id);
-            if (city == null)
-            {
-                return HttpNotFound();
-            }
-            return View(city);
-        }
-
         // GET: cities/Create
         public ActionResult Create()
         {
-            ViewBag.gov_id = new SelectList(db.Governments, "id", "name");
+            ViewBag.gov_id = new SelectList(db.Governments.Where(g => g.isdeleted == false), "id", "name");
             return View();
         }
 
@@ -52,12 +35,13 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                city.isdeleted = false;
                 db.cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.gov_id = new SelectList(db.Governments, "id", "name", city.gov_id);
+            ViewBag.gov_id = new SelectList(db.Governments.Where(g=>g.isdeleted==false), "id", "name", city.gov_id);
             return View(city);
         }
 
@@ -86,6 +70,7 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                city.isdeleted = false;
                 db.Entry(city).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -108,18 +93,17 @@ namespace project.Controllers
             }
             return View(city);
         }
-
         // POST: cities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             city city = db.cities.Find(id);
-            db.cities.Remove(city);
+            city.isdeleted = true;
+            db.Entry(city).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

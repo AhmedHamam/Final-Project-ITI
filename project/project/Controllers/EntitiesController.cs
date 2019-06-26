@@ -13,29 +13,12 @@ namespace project.Controllers
     public class EntitiesController : Controller
     {
         private dbProject db = new dbProject();
-
         // GET: Entities
         public ActionResult Index()
         {
-            var entities = db.Entities.Include(e => e.Official);
+            var entities = db.Entities.Where(e=>e.is_deleted==false).Include(e => e.Official);
             return View(entities.ToList());
         }
-
-        // GET: Entities/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Entity entity = db.Entities.Find(id);
-            if (entity == null)
-            {
-                return HttpNotFound();
-            }
-            return View(entity);
-        }
-
         // GET: Entities/Create
         public ActionResult Create()
         {
@@ -52,6 +35,7 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                entity.is_deleted = false;
                 db.Entities.Add(entity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,7 +70,9 @@ namespace project.Controllers
         {
             if (ModelState.IsValid)
             {
+                entity.is_deleted = false;
                 db.Entry(entity).State = EntityState.Modified;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -115,7 +101,9 @@ namespace project.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Entity entity = db.Entities.Find(id);
-            db.Entities.Remove(entity);
+
+            entity.is_deleted = true;
+            db.Entry(entity).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

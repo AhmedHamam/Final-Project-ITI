@@ -1,160 +1,159 @@
 ﻿@model project.Models.Complaint
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "ارسال دعوى";
     Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Complaint</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.comNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comNumber, "", new { @class = "text-danger" })
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="main-div" class="form-horizontal" style=" width:170%;">
+                <fieldset style="font-weight:bold;font-size:20px;border:1px solid rgb(37,163,153)">
+                    <legend class="text-center btn btn-danger" style="margin-top:30px;font-weight:bold;font-size:25px;cursor:default;background-color:rgb(37,163,153)">الشكوى</legend>
+
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                        <div class="row form-group" style="margin-top: 15px;">
+                         
+                            <div class="col-md-3">
+                                <label>عنوان الشكوى</label>
+                               
+                            </div>
+                            <div class="col-md-3 text-right">
+                                @Html.EditorFor(model => model.comTitle, new { htmlAttributes = new { @class = "form-control", placeholder = "" } })
+                                @Html.ValidationMessageFor(model => model.comTitle, "", new { @class = "text-danger" })
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row form-group">
+                       
+                            <div class="col-md-3">
+                                <label>تفاصيل الشكوى</label>
+                          
+                            </div>                
+
+                            <div class="col-md-4 text-right">
+                                @Html.TextAreaFor(model => model.comDescription, 7, 45, new { htmlAttributes = new { @class = "form-control" }, @style = "twx:jhk" })
+                                @Html.ValidationMessageFor(model => model.comDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                          
+                            <div class="col-md-3">
+                                <label>مرفقات الشكوى 1 </label>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <input type="file" name="comFile1" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.comFile, "", new { @class = "text-danger" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                  
+                            <div class="col-md-3">
+                                <label>مرفقات الشكوى 2 </label>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <input type="file" name="comFile2" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.comFile2, "", new { @class = "text-danger" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                          
+                            <div class="col-md-3">
+
+                                <label>نوع الشكوى</label>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                @Html.EditorFor(model => model.comType, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.comType, "", new { @class = "text-danger" })
+                               
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+               
+                            <div class="col-md-3">
+                                <label>تصنيف الشكوى</label>
+                            </div>
+                       
+                            <div class="col-md-4 text-right">
+                                @Html.DropDownList("comCategory", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.comCategory, "", new { @class = "text-danger" })
+                              
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+
+                            <div class="col-md-3">
+                              <label> مدينة</label>
+                            </div>
+                        
+                            <div class="col-md-4 text-right">
+                                @Html.DropDownList("comCity", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.comCity, "", new { @class = "text-danger" })
+                            
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                         
+                            <div class="col-md-3">
+                                <label>الخدمة</label>
+                            </div>
+                          
+                            <div class="col-md-4 text-right">
+                                @Html.DropDownList("comEntitybranch", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.comEntitybranch, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom:80px;">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("الغاء", "Index", "", new { @style = "font-size:20px;font-weight:bold;margin-top:10px;background-color:rgb(37,163,153)", @class = "btn btn-success" })
+                                <input type="submit" value="ادخال" class="btn btn-success" style="margin-top:10px;font-weight:bold;font-size:20px" />
+
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-        </div>
+        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comTitle, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comTitle, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comTitle, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<style>
+    input[type="submit"] {
+        background-color: rgb(37,163,153);
+        text-align: center;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comDescription, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    #main-div {
+        margin-top:20px;
+        text-align: center;
+        
+     
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comFile, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comFile, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comFile, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    #header, #footer .footer-top {
+        direction: rtl;
+    }
+</style>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comFile2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comFile2, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comFile2, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comType, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comType, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comCategory, "comCategory", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("comCategory", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.comCategory, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comCity, "comCity", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("comCity", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.comCity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.comEntitybranch, "comEntitybranch", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("comEntitybranch", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.comEntitybranch, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.comCitzen, "comCitzen", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("comCitzen", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.comCitzen, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.isreaded, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.isreaded)
-                    @Html.ValidationMessageFor(model => model.isreaded, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.readby, "readby", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("readby", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.readby, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.solveby, "solveby", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("solveby", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.solveby, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.isSolved, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.isSolved)
-                    @Html.ValidationMessageFor(model => model.isSolved, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.solveDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.solveDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.solveDescription, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

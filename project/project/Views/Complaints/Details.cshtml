@@ -1,147 +1,177 @@
 ﻿@model project.Models.Complaint
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "تفاصيل شكوى";
     Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
-<h2>Details</h2>
+
 
 <div>
-    <h4>Complaint</h4>
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.city.name)
-        </dt>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    المدينة
+                </th>
+                <th>
+                    الشاكى
+                </th>
+                <th>
+                    تصنيف الشكوى
+                </th>
+                <th>
+                    الخدمة
+                </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.city.name)
-        </dd>
+                <th>
+                    الموظف الذى حل الشكوى
+                </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Citzen.fName)
-        </dt>
+                <th>
+                    الموظف الذى قرأ الشكوى
+                </th>
+                <th>
+                    رقم الشكوى
+                </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.Citzen.fName)
-        </dd>
+                <th>
+                    عنوان الشكوى
+                </th>
+                <th>
+                    مرفقات الشكوى 1
+                </th>
+                <th>
+                    تفاصيل الشكوى
+                </th>
+                <th>
+                    مرفقات الشكوى 2
+                </th>
+                <th>
+                    نوع الشكوى
+                </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Complaint_Catgories.Cat_Name)
-        </dt>
+                <th>
+                    تاريخ الشكوى
+                </th>
+                <th>
+                    الشكوى قرأت ام لا ؟
+                </th>
+                <th>
+                    الشكوى اتحلت ام لا ؟
+                </th>
 
-        <dd>
-            @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
-        </dd>
+                <th>
+                    تفاصيل الحل
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.city.name)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Entity_Branchs.title)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Entity_Branchs.title)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Official.fName)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.Citzen.fName)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Official.fName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Official1.fName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Official1.fName)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comNumber)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.comNumber)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comTitle)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.Entity_Branchs.title)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.comTitle)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comDescription)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.Official.fName)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.comDescription)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comFile)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.Official1.fName)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.comFile)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comFile2)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.comFile2)
-        </dd>
+                <td>
+                    @Html.DisplayFor(model => model.comNumber)
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comDate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.comDate)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.comType)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.comTitle)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.comType)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.isreaded)
-        </dt>
+                <td>
+                    @Html.DisplayFor(model => model.comDescription)
+                </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.isreaded)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.isSolved)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.isSolved)
-        </dd>
+                <td>
+                    <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:50%" />
+                </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.solveDescription)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.solveDescription)
-        </dd>
 
-    </dl>
+                <td>
+                    <img src="~/images/@Html.DisplayFor(model => model.comFile2)" style="width:50%" />
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.comDate)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(model => model.comType)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(model => model.isreaded)
+                </td>
+
+
+
+                <td>
+                    @Html.DisplayFor(model => model.isSolved)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(model => model.solveDescription)
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.id }, new { @class = "btn btn-danger" })
+    @Html.ActionLink("الرجوع", "Index", null, new { @class = "btn btn-danger" })
 </p>
+<style>
+    body {
+        text-align: center;
+    }
+
+    .btn {
+        display: inline;
+    }
+</style>
+  

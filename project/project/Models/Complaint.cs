@@ -1,4 +1,4 @@
-namespace project.Models
+﻿namespace project.Models
 {
     using System;
     using System.Collections.Generic;
@@ -13,11 +13,11 @@ namespace project.Models
 
         public long? comNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ادخل عنوان الشكوى")]
         [StringLength(500)]
         public string comTitle { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ادخل تفاصيل الشكوى")]
         public string comDescription { get; set; }
 
         [StringLength(500)]

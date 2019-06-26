@@ -16,10 +16,12 @@ namespace project.Models
 
         public int id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="*")]
         [StringLength(500)]
+        [Display(Name = "«”„ «·„Õ«›Ÿ… :")]
+        
         public string name { get; set; }
-
+       
         public bool isdeleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

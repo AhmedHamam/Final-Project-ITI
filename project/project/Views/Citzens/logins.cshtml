@@ -1,0 +1,65 @@
+﻿
+@model project.Models.Citzen
+
+
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Citzen.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="container mt-4 loginDiv" style=" margin: 95px 0px;">
+
+            <div class="card bg-light" style="width:70%; position:center; margin-right:15%;">
+                <article class="card-body">
+                    <h4 class="card-title mt-3 text-center">تسجيل دخول </h4>
+
+
+                    <form>
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder="الايميل" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                           
+                        </div> <!-- form-group// -->
+
+
+
+
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" , placeholder="الرقم السري"} })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            
+                        </div> <!-- form-group// -->
+
+
+
+
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> تسجيل الدخول  </button>
+                        </div> <!-- form-group// -->
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+
+        </div>
+        </div>
+
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
