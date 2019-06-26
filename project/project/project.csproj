@@ -166,7 +166,7 @@
     <Compile Include="Controllers\ComplaintsController.cs" />
     <Compile Include="Controllers\Complaint_CatgoriesController.cs" />
     <Compile Include="Controllers\EntitiesController.cs" />
-    <Compile Include="Controllers\Entity_BranchsController.cs" />
+    <Compile Include="Controllers\EntityBranchsController.cs" />
     <Compile Include="Controllers\GovernmentsController.cs" />
     <Compile Include="Controllers\OfficialJobsController.cs" />
     <Compile Include="Controllers\OfficialsController.cs" />
@@ -183,7 +183,7 @@
     <Compile Include="Models\dbProject.cs" />
     <Compile Include="Models\defaulttext.cs" />
     <Compile Include="Models\Entity.cs" />
-    <Compile Include="Models\Entity_Branchs.cs" />
+    <Compile Include="Models\EntityBranchs.cs" />
     <Compile Include="Models\Government.cs" />
     <Compile Include="Models\Official.cs" />
     <Compile Include="Models\OfficialJob.cs" />
@@ -267,11 +267,6 @@
     <Content Include="Views\Complaint_Catgories\Details.cshtml" />
     <Content Include="Views\Complaint_Catgories\Edit.cshtml" />
     <Content Include="Views\Complaint_Catgories\Index.cshtml" />
-    <Content Include="Views\Entity_Branchs\Create.cshtml" />
-    <Content Include="Views\Entity_Branchs\Delete.cshtml" />
-    <Content Include="Views\Entity_Branchs\Details.cshtml" />
-    <Content Include="Views\Entity_Branchs\Edit.cshtml" />
-    <Content Include="Views\Entity_Branchs\Index.cshtml" />
     <Content Include="Views\Officials\Create.cshtml" />
     <Content Include="Views\Officials\Delete.cshtml" />
     <Content Include="Views\Officials\Details.cshtml" />
@@ -297,6 +292,10 @@
     <Content Include="Views\Citzens\home.cshtml" />
     <Content Include="Views\Citzens\safety.cshtml" />
     <Content Include="Views\Complaints\Search.cshtml" />
+    <Content Include="Views\EntityBranchs\Create.cshtml" />
+    <Content Include="Views\EntityBranchs\Delete.cshtml" />
+    <Content Include="Views\EntityBranchs\Edit.cshtml" />
+    <Content Include="Views\EntityBranchs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

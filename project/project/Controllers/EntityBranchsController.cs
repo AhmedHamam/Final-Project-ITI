@@ -10,112 +10,98 @@ using project.Models;
 
 namespace project.Controllers
 {
-    public class Entity_BranchsController : Controller
+    public class EntityBranchsController : Controller
     {
         private dbProject db = new dbProject();
 
-        // GET: Entity_Branchs
+        // GET: EntityBranchs
         public ActionResult Index()
         {
-            var entity_Branchs = db.Entity_Branchs.Include(e => e.Entity);
+            var entity_Branchs = db.Entity_Branchs.Where(eb=>eb.is_deleted==false).Include(e => e.Entity);
             return View(entity_Branchs.ToList());
         }
 
-        // GET: Entity_Branchs/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Entity_Branchs entity_Branchs = db.Entity_Branchs.Find(id);
-            if (entity_Branchs == null)
-            {
-                return HttpNotFound();
-            }
-            return View(entity_Branchs);
-        }
-
-        // GET: Entity_Branchs/Create
+        // GET: EntityBranchs/Create
         public ActionResult Create()
         {
             ViewBag.entity_id = new SelectList(db.Entities, "id", "Title");
             return View();
         }
 
-        // POST: Entity_Branchs/Create
+        // POST: EntityBranchs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,title,entity_id,is_deleted")] Entity_Branchs entity_Branchs)
+        public ActionResult Create([Bind(Include = "id,title,entity_id,is_deleted")] EntityBranchs entityBranchs)
         {
             if (ModelState.IsValid)
             {
-                db.Entity_Branchs.Add(entity_Branchs);
+                db.Entity_Branchs.Add(entityBranchs);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entity_Branchs.entity_id);
-            return View(entity_Branchs);
+            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entityBranchs.entity_id);
+            return View(entityBranchs);
         }
 
-        // GET: Entity_Branchs/Edit/5
+        // GET: EntityBranchs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Entity_Branchs entity_Branchs = db.Entity_Branchs.Find(id);
-            if (entity_Branchs == null)
+            EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
+            if (entityBranchs == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entity_Branchs.entity_id);
-            return View(entity_Branchs);
+            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entityBranchs.entity_id);
+            return View(entityBranchs);
         }
 
-        // POST: Entity_Branchs/Edit/5
+        // POST: EntityBranchs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,title,entity_id,is_deleted")] Entity_Branchs entity_Branchs)
+        public ActionResult Edit([Bind(Include = "id,title,entity_id,is_deleted")] EntityBranchs entityBranchs)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(entity_Branchs).State = EntityState.Modified;
+                db.Entry(entityBranchs).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entity_Branchs.entity_id);
-            return View(entity_Branchs);
+            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entityBranchs.entity_id);
+            return View(entityBranchs);
         }
 
-        // GET: Entity_Branchs/Delete/5
+        // GET: EntityBranchs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Entity_Branchs entity_Branchs = db.Entity_Branchs.Find(id);
-            if (entity_Branchs == null)
+            EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
+            if (entityBranchs == null)
             {
                 return HttpNotFound();
             }
-            return View(entity_Branchs);
+            return View(entityBranchs);
         }
 
-        // POST: Entity_Branchs/Delete/5
+        // POST: EntityBranchs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Entity_Branchs entity_Branchs = db.Entity_Branchs.Find(id);
-            db.Entity_Branchs.Remove(entity_Branchs);
+            EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
+            entityBranchs.is_deleted = true;
+            db.Entry(entityBranchs).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

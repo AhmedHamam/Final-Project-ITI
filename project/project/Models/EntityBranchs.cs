@@ -6,18 +6,17 @@ namespace project.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Entity_Branchs
+    public partial class EntityBranchs
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Entity_Branchs()
+        public EntityBranchs()
         {
             Complaints = new HashSet<Complaint>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="*")]
         [StringLength(500)]
         public string title { get; set; }
 

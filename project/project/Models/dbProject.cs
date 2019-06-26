@@ -21,7 +21,7 @@ namespace project.Models
         public virtual DbSet<Complaint_Catgories> Complaint_Catgories { get; set; }
         public virtual DbSet<defaulttext> defaulttexts { get; set; }
         public virtual DbSet<Entity> Entities { get; set; }
-        public virtual DbSet<Entity_Branchs> Entity_Branchs { get; set; }
+        public virtual DbSet<EntityBranchs> Entity_Branchs { get; set; }
         public virtual DbSet<Government> Governments { get; set; }
         public virtual DbSet<OfficialJob> OfficialJobs { get; set; }
         public virtual DbSet<Official> Officials { get; set; }
@@ -65,7 +65,7 @@ namespace project.Models
                 .WithOptional(e => e.Entity)
                 .HasForeignKey(e => e.entityId);
 
-            modelBuilder.Entity<Entity_Branchs>()
+            modelBuilder.Entity<EntityBranchs>()
                 .HasMany(e => e.Complaints)
                 .WithOptional(e => e.Entity_Branchs)
                 .HasForeignKey(e => e.comEntitybranch);

@@ -57,7 +57,7 @@
 
         public virtual Complaint_Catgories Complaint_Catgories { get; set; }
 
-        public virtual Entity_Branchs Entity_Branchs { get; set; }
+        public virtual EntityBranchs Entity_Branchs { get; set; }
 
         public virtual Official Official { get; set; }
 
