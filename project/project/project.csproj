@@ -234,13 +234,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Citzen.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\officialLayout.cshtml" />
-    <Content Include="Views\Admins\Create.cshtml" />
-    <Content Include="Views\Admins\Delete.cshtml" />
-    <Content Include="Views\Admins\Details.cshtml" />
-=======
->>>>>>> parent of 67bde61... Merge branch 'master' of https://github.com/AhmedHamam/Final-Project-ITI
     <Content Include="Views\Shared\_adminLayout.cshtml" />
     <Content Include="Views\cities\Create.cshtml" />
     <Content Include="Views\cities\Delete.cshtml" />
@@ -294,24 +288,20 @@
     <Content Include="Views\EntityBranchs\Delete.cshtml" />
     <Content Include="Views\EntityBranchs\Edit.cshtml" />
     <Content Include="Views\EntityBranchs\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Officials\login.cshtml" />
     <Content Include="Views\Officials\home.cshtml" />
     <Content Include="Views\Officials\DetailsOfComp.cshtml" />
     <Content Include="Views\Officials\SolveOfComp.cshtml" />
-=======
-    <Content Include="Views\Admins\Create.cshtml" />
-    <Content Include="Views\Admins\Delete.cshtml" />
->>>>>>> parent of 67bde61... Merge branch 'master' of https://github.com/AhmedHamam/Final-Project-ITI
-    <Content Include="Views\Admins\Details.cshtml" />
-    <Content Include="Views\Admins\Edit.cshtml" />
-    <Content Include="Views\Admins\Index.cshtml" />
-    <Content Include="Views\Admins\home.cshtml" />
     <Content Include="Views\OfficialJobs\Create.cshtml" />
     <Content Include="Views\OfficialJobs\Delete.cshtml" />
     <Content Include="Views\OfficialJobs\Details.cshtml" />
     <Content Include="Views\OfficialJobs\Edit.cshtml" />
     <Content Include="Views\OfficialJobs\Index.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
