@@ -19,6 +19,10 @@ namespace project.Controllers
         {
             return View(db.Admins.ToList());
         }
+        public ActionResult home()
+        {
+            return View();
+        }
 
         // GET: Admins/Details/5
         public ActionResult Details(int? id)
