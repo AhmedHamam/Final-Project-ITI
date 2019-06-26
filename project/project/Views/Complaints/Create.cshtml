@@ -78,7 +78,7 @@
                                 <label>نوع الشكوى</label>
                             </div>
                             <div class="col-md-4 text-right">
-                                @Html.EditorFor(model => model.comType, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.comType, new { htmlAttributes = new { @class = "form-control",placeholder="فردية ام جماعية؟" } })
                                 @Html.ValidationMessageFor(model => model.comType, "", new { @class = "text-danger" })
                                
                             </div>

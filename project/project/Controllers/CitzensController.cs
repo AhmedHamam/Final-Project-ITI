@@ -40,7 +40,10 @@ namespace project.Controllers
                 var userComplaints = db.Complaints.Where(u => u.comCitzen == id).ToList();
                 return View(userComplaints);
 
-                    }
+            }else
+            {
+
+            }
             
 
             var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);

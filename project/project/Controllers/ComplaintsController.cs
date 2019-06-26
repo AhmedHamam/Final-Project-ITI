@@ -63,13 +63,19 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint, HttpPostedFileBase comFile1, HttpPostedFileBase comFile2)
         {
-
-               if (ModelState.IsValid)
+            if (Session["id"]!=null)
             {
+
+                if (ModelState.IsValid)
+                {
+                    int id = int.Parse(Session["id"].ToString());
                     complaint.comDate = DateTime.Now;
-                    complaint.comNumber = int.Parse(DateTime.Now.Year.ToString()+complaint.comCitzen);
+
+                    string citzenId = Session["id"].ToString();
+                    string comNumber = DateTime.Now.Year.ToString() + citzenId.ToString();
+                    complaint.comNumber = int.Parse(comNumber);
                     complaint.isreaded = false;
-                    complaint.isreaded = false;
+                    complaint.isSolved = false;
                     complaint.comCitzen = int.Parse(Session["id"].ToString());
                     string image = System.IO.Path.GetFileName(comFile1.FileName);
                     string myPath = Server.MapPath("~/images/" + image);
@@ -85,15 +91,18 @@ namespace project.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                
 
-            ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
-            ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
-            ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
-            ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
-            ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
-            ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
-            return View(complaint);
+
+                ViewBag.comCity = new SelectList(db.cities, "id", "name", complaint.comCity);
+                ViewBag.comCitzen = new SelectList(db.Citzens, "id", "fName", complaint.comCitzen);
+                ViewBag.comCategory = new SelectList(db.Complaint_Catgories, "id", "Cat_Name", complaint.comCategory);
+                ViewBag.comEntitybranch = new SelectList(db.Entity_Branchs, "id", "title", complaint.comEntitybranch);
+                ViewBag.solveby = new SelectList(db.Officials, "id", "fName", complaint.solveby);
+                ViewBag.readby = new SelectList(db.Officials, "id", "fName", complaint.readby);
+                return View(complaint);
+            }
+            else { return RedirectToAction("login", "Citzens"); }
+
         }
         public ActionResult Search()
         {
@@ -135,10 +144,20 @@ namespace project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint)
+        public ActionResult Edit([Bind(Include = "id,comNumber,comTitle,comDescription,comFile,comFile2,comDate,comType,comCategory,comCity,comEntitybranch,comCitzen,isreaded,readby,solveby,isSolved,solveDescription")] Complaint complaint,HttpPostedFileBase comFile1,HttpPostedFileBase comFile2)
         {
             if (ModelState.IsValid)
             {
+                string image = System.IO.Path.GetFileName(comFile1.FileName);
+                string myPath = Server.MapPath("~/images/" + image);
+                comFile1.SaveAs(myPath);
+                complaint.comFile = image;
+
+                string image2 = System.IO.Path.GetFileName(comFile2.FileName);
+                string myPath2 = Server.MapPath("~/images/" + image2);
+                comFile2.SaveAs(myPath2);
+                complaint.comFile2 = image2;
+
                 db.Entry(complaint).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
