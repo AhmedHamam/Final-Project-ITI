@@ -22,28 +22,31 @@
         </a>        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        الادارة
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="Create.cshtml">اضافة مسئول جديد</a>
+                        <a class="dropdown-item" href="#"> حظر مستخدم</a>
+                        <a class="dropdown-item" href="#">  حذف مستخدم</a>
+                        <a class="dropdown-item" href="#">  المستخدمين</a>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">تسجيل الخروج</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="~/Officials/home">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Officials/login">تسجيل الدخول</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Officials/home">حل المشكلات</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Officials/logout">تسجيل الخروج</a>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-     
     <div class="container">
         @RenderBody()
     </div>

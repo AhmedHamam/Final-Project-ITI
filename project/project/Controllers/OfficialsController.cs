@@ -14,167 +14,35 @@ namespace project.Controllers
     {
         private dbProject db = new dbProject();
 
-
-        public ActionResult home()
-        {
-            if (Session["id"] != null)
-            {
-                var complaints = db.Complaints.Include(c => c.city).Include(c => c.Citzen).Include(c => c.Complaint_Catgories).Include(c => c.Official).Include(c => c.Official1);
-                return View(complaints.ToList());
-            }
-            else { return RedirectToAction("login"); }
-        }
-
-        public ActionResult DetailsOfComp(int? id)
-        {
-            if (Session["id"] != null)
-            {
-                if (id == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                Complaint complaint = db.Complaints.Find(id);
-                if (complaint == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(complaint);
-            }
-            else { return RedirectToAction("login"); }
-        }
-
-        public ActionResult SolveOfComp(int? id)
-        {
-            if (Session["id"] != null)
-            {
-                ViewBag.id = id;
-                return View();
-            }
-            else { return RedirectToAction("login"); }
-        }
-        [HttpPost]
-        public ActionResult SolveOfComp(int id,string message)
-
-        {
-           
-                var complaint = db.Complaints.FirstOrDefault(c => c.id == id);
-                complaint.solveDescription = message;
-
-                db.SaveChanges();
-                return RedirectToAction("home");
-            
-            
-
-        }
-
-
-        public ActionResult logout()
-        {
-            Session["id"] = null;
-            return RedirectToAction("login");
-        }
-
-
-
-
-
-
-        public ActionResult login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult login(Official login)
-        {
-
-
-            dbProject db = new dbProject();
-            var offical = (from officiallist in db.Officials
-                        where officiallist.email == login.email && officiallist.passWord == login.passWord
-                        select new
-                        {
-                            officiallist.id,
-                            officiallist.fName
-                        }).ToList();
-            if (offical.FirstOrDefault() != null)
-            {
-                Session["id"] = offical.FirstOrDefault().id;
-                Session["name"] = offical.FirstOrDefault().fName;
-
-                return Redirect("home");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Invalid login credentials.");
-            }
-
-            return View(login);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // GET: Officials
         public ActionResult Index()
         {
-            if (Session["id"] != null)
-            {
-                var officials = db.Officials.Include(o => o.Entity).Include(o => o.Official1).Include(o => o.OfficialJob);
-                return View(officials.ToList());
-            }
-            else { return RedirectToAction("login"); }
-           
+            var officials = db.Officials.Include(o => o.Entity).Include(o => o.Official1).Include(o => o.OfficialJob);
+            return View(officials.ToList());
         }
 
         // GET: Officials/Details/5
         public ActionResult Details(int? id)
         {
-            if (Session["id"] != null)
+            if (id == null)
             {
-                if (id == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                Official official = db.Officials.Find(id);
-                if (official == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(official);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else { return RedirectToAction("login"); } 
+            Official official = db.Officials.Find(id);
+            if (official == null)
+            {
+                return HttpNotFound();
+            }
+            return View(official);
         }
 
         // GET: Officials/Create
         public ActionResult Create()
         {
-            if (Session["id"] != null)
-            {
-                ViewBag.entityId = new SelectList(db.Entities, "id", "Title");
-                ViewBag.leaderId = new SelectList(db.Officials, "id", "fName");
-                ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job");
-                return View();
-            }
-            else { return RedirectToAction("login"); }
+            ViewBag.entityId = new SelectList(db.Entities, "id", "Title");
+            ViewBag.leaderId = new SelectList(db.Officials, "id", "fName");
+            ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job");
+            return View();
         }
 
         // POST: Officials/Create
@@ -200,25 +68,19 @@ namespace project.Controllers
         // GET: Officials/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (Session["id"] != null)
+            if (id == null)
             {
-
-
-                if (id == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                Official official = db.Officials.Find(id);
-                if (official == null)
-                {
-                    return HttpNotFound();
-                }
-                ViewBag.entityId = new SelectList(db.Entities, "id", "Title", official.entityId);
-                ViewBag.leaderId = new SelectList(db.Officials, "id", "fName", official.leaderId);
-                ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job", official.job_id);
-                return View(official);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else { return RedirectToAction("login"); }
+            Official official = db.Officials.Find(id);
+            if (official == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.entityId = new SelectList(db.Entities, "id", "Title", official.entityId);
+            ViewBag.leaderId = new SelectList(db.Officials, "id", "fName", official.leaderId);
+            ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job", official.job_id);
+            return View(official);
         }
 
         // POST: Officials/Edit/5
@@ -243,21 +105,17 @@ namespace project.Controllers
         // GET: Officials/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (Session["id"]!=null)
+            Official offi = db.Officials.FirstOrDefault(a => a.id==id);
+            if (id == null)
             {
-                Official offi = db.Officials.FirstOrDefault(a => a.id == id);
-                if (id == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                Official official = db.Officials.Find(id);
-                if (official == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(official);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else { return RedirectToAction("login"); }
+            Official official = db.Officials.Find(id);
+            if (official == null)
+            {
+                return HttpNotFound();
+            }
+            return View(official);
         }
 
         // POST: Officials/Delete/5
