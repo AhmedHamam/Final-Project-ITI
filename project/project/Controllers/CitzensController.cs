@@ -82,6 +82,7 @@ namespace project.Controllers
         // GET: Citzens/Edit/5
         public ActionResult Edit(int? id)
         {
+            id = int.Parse(Session["id"].ToString());
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -103,15 +104,11 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
-            if (ModelState.IsValid)
-            {
+            
                 db.Entry(citzen).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
-            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
-            return View(citzen);
+                return RedirectToAction("home");
+            
         }
 
 
@@ -130,11 +127,12 @@ namespace project.Controllers
                             select new
                             {
                                 userlist.id,
-                               
+                               userlist.fName
                             }).ToList();
                 if (user.FirstOrDefault() != null)
                 {
                     Session["id"] = user.FirstOrDefault().id;
+                Session["name"] = user.FirstOrDefault().fName;
                    
                     return Redirect("home");
                 }
@@ -148,7 +146,11 @@ namespace project.Controllers
 
 
 
-
+        public ActionResult logOut()
+        {
+            Session["id"] = null;
+            return RedirectToAction("login");
+        }
 
         // GET: Citzens/Delete/5
         public ActionResult Delete(int? id)

@@ -380,6 +380,12 @@ G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CoreC
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CopyComplete
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.dll
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.pdb
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.Cache
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
+G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.cache

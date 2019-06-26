@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Citzen.cshtml";
 }
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin: 95px 0px; ">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin: 95px 0px; width:360% ">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img class="d-block w-100" src="~/Content/pic1.png" alt="First slide" style="width:80px ; height:300px;border-radius:3%;">
@@ -61,7 +61,7 @@
 </div>
 
 
-<table class="table">
+<table class="table-bordered table-responsive">
     <thead class="thead-dark text-right">
         <tr>
             <th scope="col">عنوان الشكوي</th>
@@ -71,15 +71,17 @@
         </tr>
     </thead>
     <tbody>
+
+        @foreach (var complaint in Model)
+        {
         <tr>
-            @foreach (var complaint in Model)
-            {
-                <td>@complaint.comTitle</td>
-                <td>@complaint.comDescription</td>
-                <td>@complaint.comNumber</td>
-                <td>@complaint.comDate</td>
-            }
+            <td>@complaint.comTitle</td>
+            <td>@complaint.comDescription</td>
+            <td>@complaint.comNumber</td>
+            <td>@complaint.comDate</td>
         </tr>
-    </tbody>
+                }
+            
+        </tbody>
 </table>
 

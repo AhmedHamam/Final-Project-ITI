@@ -2,105 +2,76 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Citzen.cshtml";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">المسئولين</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Entity.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Official1.fName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OfficialJob.Job)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.passWord)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mobile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isLeader)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isdeleted)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-sm-3 mb-2 col-sm-offset-10 ">
+    @Html.ActionLink(" اضافة مسئول جديد", "Create", "Officials", null, new { @class = "btn btn-info " })
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Entity.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Official1.fName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OfficialJob.Job)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.userName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.passWord)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isLeader)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isdeleted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    <table class="table table-responsive table-bordered  table-sortable mt-4 text-right">
+        <thead style="background-color:rgb(37, 163, 153)">
 
-</table>
+            <tr>
+                <th scope="col">الاسم الاول</th>
+                <th scope="col">الاسم الاوسط</th>
+                <th scope="col">الاسم الاخير</th>
+                <th scope="col">اسم المستخدم</th>
+                <th scope="col">الرقم السري</th>
+                <th scope="col">الايميل</th>
+                <th scope="col">رقم الموبايل</th>
+                <th scope="col">رقم الموبايل</th>
+                <th scope="col">الوظيفه</th>
+                <th scope="col">مدير</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.passWord)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mobile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OfficialJob.Job)
+                    </td>
+                    <td>
+                        @if (item.isLeader == true)
+                        {
+                            <span>مدير</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("تعديل", "Edit", "Officials", new { id = item.id }, new { @class = "btn btn-info m-1 " })
+
+                        @Html.ActionLink("حذف", "Delete", "Officials",new { id = item.id }, new { @class = "btn btn-info m-1 " })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
