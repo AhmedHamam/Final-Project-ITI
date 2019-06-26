@@ -7,11 +7,11 @@
 
 <h2 class="text-center">المسئولين</h2>
 
-<div class="col-sm-3 mb-2 col-sm-offset-11 ">
+<div class="col-sm-3 mb-2 col-sm-offset-10 ">
     @Html.ActionLink(" اضافة مسئول جديد", "Create", "Officials", null, new { @class = "btn btn-info " })
 </div>
 
-    <table class="table table-responsive table-bordered table-hover table-sortable mt-4 text-right">
+    <table class="table table-responsive table-bordered  table-sortable mt-4 text-right">
         <thead style="background-color:rgb(37, 163, 153)">
 
             <tr>
@@ -25,7 +25,6 @@
                 <th scope="col">رقم الموبايل</th>
                 <th scope="col">الوظيفه</th>
                 <th scope="col">مدير</th>
-                <th scope="col">محذوف</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -59,20 +58,18 @@
                         @Html.DisplayFor(modelItem => item.mobile)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.job_id)
+                        @Html.DisplayFor(modelItem => item.OfficialJob.Job)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.isLeader)
+                        @if (item.isLeader == true)
+                        {
+                            <span>مدير</span>
+                        }
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.isdeleted)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", "Officials", new { id = item.id }, new { @class = "btn btn-info m-1 " })
+                        @Html.ActionLink("تعديل", "Edit", "Officials", new { id = item.id }, new { @class = "btn btn-info m-1 " })
 
-                        @Html.ActionLink("Details", "Details", "Officials", new { id = item.id }, new { @class = "btn btn-info m-1  " })
-
-                        @Html.ActionLink("Delete", "Delete", "Officials",new { id = item.id }, new { @class = "btn btn-info m-1 " })
+                        @Html.ActionLink("حذف", "Delete", "Officials",new { id = item.id }, new { @class = "btn btn-info m-1 " })
                     </td>
                 </tr>
             }
