@@ -65,6 +65,7 @@
                                 <label>مرفقات الشكوى 2 </label>
                             </div>
                             <div class="col-md-4 text-right">
+                                
                                 <input type="file" name="comFile2" class="form-control" />
                                 @Html.ValidationMessageFor(model => model.comFile2, "", new { @class = "text-danger" })
                                 
@@ -96,17 +97,40 @@
                               
                             </div>
                         </div>
-
                         <div class="row form-group">
 
                             <div class="col-md-3">
-                              <label> مدينة</label>
+                                <label> المحافظة</label>
+                            </div>
+
+                            <div class="col-md-4 text-right">
+                                @Html.DropDownList("comGov", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.city.Government, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="row form-group">
+
+                            <div class="col-md-3">
+                              <label> المدينة</label>
                             </div>
                         
                             <div class="col-md-4 text-right">
                                 @Html.DropDownList("comCity", null, htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.comCity, "", new { @class = "text-danger" })
                             
+                            </div>
+                        </div>
+                        <div class="row form-group">
+
+                            <div class="col-md-3">
+                                <label>القطاع</label>
+                            </div>
+
+                            <div class="col-md-4 text-right">
+                                @Html.DropDownList("comEntity", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Entity_Branchs.Entity, "", new { @class = "text-danger" })
+
                             </div>
                         </div>
 

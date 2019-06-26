@@ -40,14 +40,13 @@ namespace project.Controllers
                 var userComplaints = db.Complaints.Where(u => u.comCitzen == id).ToList();
                 return View(userComplaints);
 
-            }else
-            {
-
             }
-            
+            else { return RedirectToAction("login"); }
 
-            var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
-            return View(citzens.ToList());
+
+
+            //var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
+            //return View(citzens.ToList());
         }
 
         // GET: Citzens/Details/5
@@ -89,26 +88,30 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Editpassword([Bind(Include ="id,password,confirmpassword")]int id,string oldpassword,string newpassword,string confirmpassword)
         {
-            if (newpassword != confirmpassword)
+            if (Session["id"] != null)
             {
-                ViewData["myInnerHtml"] = "<div id =\"div1\"> <h1> كلمه المرور غير متطابقة </h1> </div>";
-                return View();
-            }
-            else
-            {
-                var citzen = db.Citzens.FirstOrDefault(c => c.id == id);
-                if (citzen.password == oldpassword)
+                if (newpassword != confirmpassword)
                 {
-                    citzen.password = newpassword;
-
-                    db.SaveChanges();
-                    return RedirectToAction("home");
+                    ViewData["myInnerHtml"] = "<div id =\"div1\"> <h1> كلمه المرور غير متطابقة </h1> </div>";
+                    return View();
                 }
-                else { return RedirectToAction("login"); }
+                else
+                {
+                    var citzen = db.Citzens.FirstOrDefault(c => c.id == id);
+                    if (citzen.password == oldpassword)
+                    {
+                        citzen.password = newpassword;
+
+                        db.SaveChanges();
+                        return RedirectToAction("home");
+                    }
+                    else { return RedirectToAction("login"); }
+                }
             }
+            else { return RedirectToAction("login"); }
 
 
-            
+
 
         }
 
@@ -171,10 +174,13 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
-            
+            if (Session["id"] != null)
+            {
                 db.Entry(citzen).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("home");
+            }else { return RedirectToAction("login"); }
+               
             
         }
 
