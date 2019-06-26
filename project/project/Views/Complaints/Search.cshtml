@@ -6,31 +6,34 @@
 }
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="ابحث برقم الشكوى" title="Type in a name">
 <table id="myTable">
+    <tr class="header">
+        <th style="width:40%;">رقم الشكوى</th>
+        <th style="width:40%;"> عنوان الشكوى</th>
+        <th style="width:40%;"> تفاصيل الشكوى</th>
+        <th style="width:40%;">تاريخ الشكوى</th>
+        <th style="width:40%;">الخدمة</th>
+        <th style="width:40%;">نوع الشكوى</th>
+        <th style="width:40%;">حل الشكوى</th>
+        <th style="width:40%;"> اسم الشاكي</th>
+        <th style="width:40%;">مرفقات الشكوى1</th>
+        <th style="width:40%;">مرفقات الشكوى2</th>
+    </tr>
     @foreach (var complaint in Model)
     {
-        <tr class="header">
-            <th style="width:40%;">رقم الشكوى</th>
-            <th style="width:40%;"> عنوان الشكوى</th>
-            <th style="width:40%;"> تفاصيل الشكوى</th>
-            <th style="width:40%;">تاريخ الشكوى</th>
-            <th style="width:40%;">الخدمة</th>
-            <th style="width:40%;">نوع الشكوى</th>
-            <th style="width:40%;">حل الشكوى</th>
-            <th style="width:40%;">مرفقات الشكوى1</th>
-            <th style="width:40%;">مرفقات الشكوى2</th>
-        </tr>
-        <tr>
-            <td>@complaint.comNumber</td>
-            <td>@complaint.comTitle</td>
-            <td>@complaint.comDescription</td>
-            <td>@complaint.comDate</td>
-            <td>@complaint.comEntitybranch</td>
-            <td>@complaint.comType</td>
-            <td>@complaint.solveDescription</td>
-            <td><img src="~/images/@complaint.comFile" /></td>
-            <td><img src="~/images/@complaint.comFile2"/></td>
-           
-        </tr>
+
+<tr>
+    <td>@complaint.comNumber</td>
+    <td>@complaint.comTitle</td>
+    <td>@complaint.comDescription</td>
+    <td>@complaint.comDate</td>
+    <td>@complaint.comEntitybranch</td>
+    <td>@complaint.comType</td>
+    <td>@complaint.solveDescription</td>
+    <td>@complaint.Citzen.fName</td>
+    <td><img src="~/images/@complaint.comFile" /></td>
+    <td><img src="~/images/@complaint.comFile2" /></td>
+
+</tr>
     }
 </table>
 <script>
