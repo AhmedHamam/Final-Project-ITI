@@ -1,35 +1,106 @@
-﻿@@ -1,35 +0,0 @@
-﻿@*@model project.Models.Complaint*@
+﻿@model project.Models.Complaint
 
 @{
-    ViewBag.Title = "SolveOfComp";
+    ViewBag.Title = "تفاصيل شكوى";
     Layout = "~/Views/Shared/officialLayout.cshtml";
 }
 
-<h2 class="text-center">حل المشكلة</h2>
 
-<form method="post">
-    <label hidden name="id">@ViewBag.id</label>
 
-    <div class="row">
+    <div class="bg-light mt-3">
+        <dl class="dl-horizontal">
+            <dt>
+                المدينة
 
-        <div class="col-md-12">
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.city.name)
+            </dd>
 
-            <div class="md-form">
-                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-            </div>
+            <dt>
+                الشاكى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Citzen.fName)
+            </dd>
 
-        </div>
+            <dt>
+                تصنيف الشكوى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Complaint_Catgories.Cat_Name)
+            </dd>
+
+            <dt>
+                الخدمة
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Entity_Branchs.title)
+            </dd>
+
+            <dt>
+                رقم الشكوى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.comNumber)
+            </dd>
+
+            <dt>
+                عنوان الشكوى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.comTitle)
+            </dd>
+
+            <dt>
+                تفاصيل الشكوى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.comDescription)
+            </dd>
+
+            <dt>
+                مرفقات الشكوى 1
+            </dt>
+            <dd>
+                <img src="~/images/@Html.DisplayFor(model => model.comFile)" style="width:40%; height:200px" />
+            </dd>
+
+            <dt>
+                مرفقات الشكوى 2
+            </dt>
+            <dd>
+                <img src="~/images/@Html.DisplayFor(model => model.comFile2)" style="width:40%; height:200px" />
+            </dd>
+
+            <dt>
+                نوع الشكوى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.comType)
+            </dd>
+
+            <dt>
+                تاريخ الشكوى
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.comDate)
+            </dd>
+
+
+        </dl>
+
     </div>
-    <div class="row">
-        <div class="col-md-5"></div>
-        <div class="form-group">
-            <div class="col-sm-3 col-sm-offset-3 mt-3">
-                <input type="submit" value="اضافة" class=" btn-info   text-center ">
+<p>
+    @Html.ActionLink("الرجوع", "home", null, new { @class = "btn btn-danger" })
+</p>
+<style>
+    body {
+        text-align: center;
+    }
 
-            </div>
-        </div>
-    </div>
+    .btn {
+        display: inline;
+    }
+</style>
 
-</form>
-@Html.ActionLink("الرجوع", "home", null, new { @class = "btn btn-info" })
