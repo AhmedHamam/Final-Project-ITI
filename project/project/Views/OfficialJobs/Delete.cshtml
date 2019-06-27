@@ -8,20 +8,16 @@
 <div class="col-md-3"></div>
 <div class="col-md-6">
     <hr />
-    <dl class="dl-horizontal ">
-        <dt>
-            <span>هل تريد حذف وظيفة ؟</span>
-        </dt>
-
-        <dd>
+    <dl class="dl-horizontal" style="font-size:24px;">
+        <dd class="text-right text-danger">
+            <span>هل تريد حذف وظيفة </span>
             @Html.DisplayFor(model => model.Job)
+            <span>؟</span>
         </dd>
     </dl>
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
         <div class="form-actions no-color">
             <input type="submit" value="حذف" class="btn btn-danger" /> |
             @Html.ActionLink("إالغاء", "Index", null, new { @class = "btn btn-primary" })

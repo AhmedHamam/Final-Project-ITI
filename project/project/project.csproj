@@ -295,7 +295,6 @@
     <Content Include="Views\Officials\SolveOfComp.cshtml" />
     <Content Include="Views\OfficialJobs\Create.cshtml" />
     <Content Include="Views\OfficialJobs\Delete.cshtml" />
-    <Content Include="Views\OfficialJobs\Details.cshtml" />
     <Content Include="Views\OfficialJobs\Edit.cshtml" />
     <Content Include="Views\OfficialJobs\Index.cshtml" />
     <Content Include="Views\Admins\Create.cshtml" />
@@ -306,6 +305,7 @@
     <Content Include="Views\Admins\home.cshtml" />
     <Content Include="Views\Citzens\forget.cshtml" />
     <Content Include="Views\Citzens\Editpassword.cshtml" />
+    <Content Include="Views\Admins\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

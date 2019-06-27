@@ -16,14 +16,30 @@ namespace project.Controllers
         // GET: Entities
         public ActionResult Index()
         {
-            var entities = db.Entities.Where(e=>e.is_deleted==false).Include(e => e.Official);
-            return View(entities.ToList());
+            if (Session["admin"] != null)
+            {
+                var entities = db.Entities.Where(e => e.is_deleted == false).Include(e => e.Official);
+                return View(entities.ToList());
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+           
         }
         // GET: Entities/Create
         public ActionResult Create()
         {
-            ViewBag.mangerId = new SelectList(db.Officials, "id", "fName");
-            return View();
+            if (Session["admin"] != null)
+            {
+                ViewBag.mangerId = new SelectList(db.Officials, "id", "fName");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+          
         }
 
         // POST: Entities/Create
@@ -48,17 +64,25 @@ namespace project.Controllers
         // GET: Entities/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Entity entity = db.Entities.Find(id);
+                if (entity == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.mangerId = new SelectList(db.Officials, "id", "fName", entity.mangerId);
+                return View(entity);
             }
-            Entity entity = db.Entities.Find(id);
-            if (entity == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            ViewBag.mangerId = new SelectList(db.Officials, "id", "fName", entity.mangerId);
-            return View(entity);
+           
         }
 
         // POST: Entities/Edit/5
@@ -83,16 +107,24 @@ namespace project.Controllers
         // GET: Entities/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Entity entity = db.Entities.Find(id);
+                if (entity == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(entity);
             }
-            Entity entity = db.Entities.Find(id);
-            if (entity == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(entity);
+            
         }
 
         // POST: Entities/Delete/5

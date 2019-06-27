@@ -17,15 +17,31 @@ namespace project.Controllers
         // GET: EntityBranchs
         public ActionResult Index()
         {
-            var entity_Branchs = db.Entity_Branchs.Where(eb=>eb.is_deleted==false).Include(e => e.Entity);
-            return View(entity_Branchs.ToList());
+            if (Session["admin"] != null)
+            {
+                var entity_Branchs = db.Entity_Branchs.Where(eb => eb.is_deleted == false).Include(e => e.Entity);
+                return View(entity_Branchs.ToList());
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+    
         }
 
         // GET: EntityBranchs/Create
         public ActionResult Create()
         {
-            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title");
-            return View();
+            if (Session["admin"] != null)
+            {
+                ViewBag.entity_id = new SelectList(db.Entities, "id", "Title");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+           
         }
 
         // POST: EntityBranchs/Create
@@ -49,17 +65,25 @@ namespace project.Controllers
         // GET: EntityBranchs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
+                if (entityBranchs == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entityBranchs.entity_id);
+                return View(entityBranchs);
             }
-            EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
-            if (entityBranchs == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            ViewBag.entity_id = new SelectList(db.Entities, "id", "Title", entityBranchs.entity_id);
-            return View(entityBranchs);
+            
         }
 
         // POST: EntityBranchs/Edit/5
@@ -82,16 +106,24 @@ namespace project.Controllers
         // GET: EntityBranchs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
+                if (entityBranchs == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(entityBranchs);
             }
-            EntityBranchs entityBranchs = db.Entity_Branchs.Find(id);
-            if (entityBranchs == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(entityBranchs);
+           
         }
 
         // POST: EntityBranchs/Delete/5

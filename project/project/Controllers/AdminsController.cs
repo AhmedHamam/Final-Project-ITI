@@ -17,11 +17,26 @@ namespace project.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            return View(db.Admins.ToList());
+            if (Session["admin"] != null)
+            {
+                return View(db.Admins.ToList());
+            }
+            else
+            {
+                return RedirectToAction("login");
+            }
         }
         public ActionResult home()
         {
-            return View();
+            if (Session["admin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login");
+            }
+            
         }
 
         // GET: Admins/Details/5
@@ -42,7 +57,14 @@ namespace project.Controllers
         // GET: Admins/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["admin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login");
+            }
         }
 
         // POST: Admins/Create
@@ -65,16 +87,24 @@ namespace project.Controllers
         // GET: Admins/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+           
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Admin admin = db.Admins.Find(id);
+                if (admin == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(admin);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login");
             }
-            return View(admin);
         }
 
         // POST: Admins/Edit/5
@@ -118,6 +148,48 @@ namespace project.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult login(Admin login)
+        {
+
+
+            //dbProject db = new dbProject();
+            var admin = (from adminlist in db.Admins
+                        where adminlist.email == login.email && adminlist.password == login.password && adminlist.isdeleted==false
+                         select new
+                        {
+                            adminlist.id,
+                            adminlist.fName
+                        }).ToList();
+            if (admin.FirstOrDefault() != null)
+            {
+                Session["admin"] = admin.FirstOrDefault().id;
+                Session["name"] = admin.FirstOrDefault().fName;
+
+                return Redirect("home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid login credentials.");
+            }
+
+            return View(login);
+        }
+
+
+
+        public ActionResult logOut()
+        {
+            Session["admin"] = null;
+            Session["name"] = null;
+            return RedirectToAction("login");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

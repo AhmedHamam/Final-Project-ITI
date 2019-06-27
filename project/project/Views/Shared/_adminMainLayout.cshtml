@@ -27,15 +27,36 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:white;">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:white;">تسجيل الخروج<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color:white;">تسجيل الخروج</a>
-                </li>
+                @if (Session["admin"] == null)
+                {
+                    <li class="nav-item active" style="margin:30px">
+                        @Html.ActionLink("الصفحة الرئيسية", "login", "admins", null, new { @style = "margin=5%; color:white;font-size:24px;font-size:24px;" })
+
+                        @*<a class="nav-link" href="#" style="color:white;font-size:24px;">الصفحه الرئيسية<span class="sr-only">(current)</span></a>*@
+                    </li>
+                    <li class="nav-item active" style="margin:30px">
+                        @Html.ActionLink("تسجيل الدخول", "login", "admins", null, new { @style = "margin=5%;color:white;font-size:24px; " })
+
+                        @*<a class="nav-link" href="#" style="color:white;font-size:24px;">تسجيل الخروج<span class="sr-only">(current)</span></a>*@
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item active" style="margin:30px">
+                        @Html.ActionLink("الصفحة الرئيسية", "home", "admins", null, new { @style = "margin=5%;color:white;font-size:24px;" })
+
+                        @*<a class="nav-link" href="#" style="color:white;font-size:24px;">الصفحه الرئيسية<span class="sr-only">(current)</span></a>*@
+                    </li>
+                    <li class="nav-item active" style="margin:30px">
+                        <span style = "margin=5%;color:white;font-size:24px;"> مرحبا بك @Session["name"]</span>
+                    </li>
+
+                    <li class="nav-item active" style="margin:30px">
+                        @Html.ActionLink("تسجيل الخروج", "logout", "admins", null, new { @style = "margin=5%;color:white;font-size:24px; " })
+
+                        @*<a class="nav-link" href="#" style="color:white;font-size:24px;">تسجيل الخروج<span class="sr-only">(current)</span></a>*@
+                    </li>
+                }
             </ul>
         </div>
     </nav>

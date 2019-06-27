@@ -20,7 +20,7 @@ namespace project.Models
         [StringLength(500)]
         public string title { get; set; }
 
-        public int entity_id { get; set; }
+        public int? entity_id { get; set; }
 
         public bool is_deleted { get; set; }
 

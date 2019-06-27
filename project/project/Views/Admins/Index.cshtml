@@ -4,11 +4,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
-
-<h2>Index</h2>
+<h2 class="text-center btn-success">مسئولى النظام</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("إضافة مدينة جديدة", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -54,3 +53,11 @@
     }
 
 </table>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="حفظ" class="btn btn-primary" />
+        <br /><br />
+        @Html.ActionLink("العودة الى القائمة السابقة", "Index", null, new { @class = "text-center" })
+    </div>
+</div>
+
