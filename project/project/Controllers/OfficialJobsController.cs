@@ -17,28 +17,29 @@ namespace project.Controllers
         // GET: OfficialJobs
         public ActionResult Index()
         {
-            return View(db.OfficialJobs.Where(oj=>oj.isdeleted==false).ToList());
-        }
-
-        // GET: OfficialJobs/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View(db.OfficialJobs.Where(oj => oj.isdeleted == false).ToList());
             }
-            OfficialJob officialJob = db.OfficialJobs.Find(id);
-            if (officialJob == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(officialJob);
+            
         }
 
         // GET: OfficialJobs/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["admin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+            
         }
 
         // POST: OfficialJobs/Create
@@ -62,16 +63,24 @@ namespace project.Controllers
         // GET: OfficialJobs/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                OfficialJob officialJob = db.OfficialJobs.Find(id);
+                if (officialJob == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(officialJob);
             }
-            OfficialJob officialJob = db.OfficialJobs.Find(id);
-            if (officialJob == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(officialJob);
+         
         }
 
         // POST: OfficialJobs/Edit/5
@@ -94,16 +103,23 @@ namespace project.Controllers
         // GET: OfficialJobs/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                OfficialJob officialJob = db.OfficialJobs.Find(id);
+                if (officialJob == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(officialJob);
             }
-            OfficialJob officialJob = db.OfficialJobs.Find(id);
-            if (officialJob == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(officialJob);
         }
 
         // POST: OfficialJobs/Delete/5

@@ -16,14 +16,30 @@ namespace project.Controllers
         // GET: cities
         public ActionResult Index()
         {
-            var cities = db.cities.Where(c=>c.isdeleted==false).Include(c => c.Government);
-            return View(cities.ToList());
+            if (Session["admin"] != null)
+            {
+                var cities = db.cities.Where(c => c.isdeleted == false).Include(c => c.Government);
+                return View(cities.ToList());
+            }
+            else
+            {
+                return RedirectToAction("login","Admins");
+            }
+           
         }
         // GET: cities/Create
         public ActionResult Create()
         {
-            ViewBag.gov_id = new SelectList(db.Governments.Where(g => g.isdeleted == false), "id", "name");
-            return View();
+            if (Session["admin"] != null)
+            {
+                ViewBag.gov_id = new SelectList(db.Governments.Where(g => g.isdeleted == false), "id", "name");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+            
         }
 
         // POST: cities/Create
@@ -48,17 +64,25 @@ namespace project.Controllers
         // GET: cities/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                city city = db.cities.Find(id);
+                if (city == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.gov_id = new SelectList(db.Governments, "id", "name", city.gov_id);
+                return View(city);
             }
-            city city = db.cities.Find(id);
-            if (city == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            ViewBag.gov_id = new SelectList(db.Governments, "id", "name", city.gov_id);
-            return View(city);
+            
         }
 
         // POST: cities/Edit/5
@@ -82,16 +106,24 @@ namespace project.Controllers
         // GET: cities/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                city city = db.cities.Find(id);
+                if (city == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(city);
             }
-            city city = db.cities.Find(id);
-            if (city == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(city);
+           
         }
         // POST: cities/Delete/5
         [HttpPost, ActionName("Delete")]

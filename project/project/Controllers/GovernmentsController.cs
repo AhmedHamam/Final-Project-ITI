@@ -17,13 +17,29 @@ namespace project.Controllers
         // GET: Governments
         public ActionResult Index()
         {
-            var govs = (from item in db.Governments.ToList() where item.isdeleted==false select item).ToList();
-            return View( govs );
+            if (Session["admin"] != null)
+            {
+                var govs = (from item in db.Governments.ToList() where item.isdeleted == false select item).ToList();
+                return View(govs);
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+           
         }
         // GET: Governments/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["admin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Admins");
+            }
+            
         }
         // POST: Governments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -44,16 +60,24 @@ namespace project.Controllers
         // GET: Governments/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Government government = db.Governments.Find(id);
+                if (government == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(government);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(government);
+           
         }
         // POST: Governments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -73,16 +97,24 @@ namespace project.Controllers
         // GET: Governments/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Government government = db.Governments.Find(id);
+                if (government == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(government);
             }
-            Government government = db.Governments.Find(id);
-            if (government == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Admins");
             }
-            return View(government);
+           
         }
         // POST: Governments/Delete/5
         [HttpPost, ActionName("Delete")]

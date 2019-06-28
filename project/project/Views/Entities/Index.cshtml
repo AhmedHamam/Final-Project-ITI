@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<project.Models.Entity>
 
 @{
-    ViewBag.Title = "الجهات";
+    ViewBag.Title = "الهيئات";
     Layout = "~/Views/Shared/_adminMainLayout.cshtml";
 }
 <div class="col-md-12">
     <h2 class="text-center btn-success">الجهات والهيئات</h2>
 
     <p>
-        @Html.ActionLink("إضافة جهة حكومية جديدة", "Create", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("إضافة هيئة جديدة", "Create", null, new { @class = "btn btn-primary" })
     </p>
     <table class="table">
         <tr>
@@ -33,28 +33,34 @@
 
         @for (int i = 0; i < Model.Count(); i++)
         {
-        <tr>
-            <td>@(i + 1)</td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).fax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).Official.fName)
-            </td>
-            <td>
-                @Html.ActionLink("تعديل", "Edit", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("حذف", "Delete", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
+            <tr>
+                <td>@(i + 1)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).fax)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ElementAtOrDefault(i).Official.fName)
+                </td>
+                <td>
+                    @Html.ActionLink("تعديل", "Edit", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("حذف", "Delete", new { id = Model.ElementAtOrDefault(i).id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
         }
     </table>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <br /><br />
+        @Html.ActionLink("العودة الى القائمة السابقة", "home", "Admins", null, new { @class = "text-center" })
+    </div>
 </div>

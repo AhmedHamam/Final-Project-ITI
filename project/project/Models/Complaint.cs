@@ -13,23 +13,23 @@
 
         public long? comNumber { get; set; }
 
-        [Required(ErrorMessage = "ادخل عنوان الشكوى")]
+        [Required(ErrorMessage ="*")]
         [StringLength(500)]
         public string comTitle { get; set; }
 
-        [Required(ErrorMessage = "ادخل تفاصيل الشكوى")]
+        [Required(ErrorMessage = "*")]
         public string comDescription { get; set; }
-
+       
         [StringLength(500)]
         public string comFile { get; set; }
-
+      
         [StringLength(500)]
         public string comFile2 { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? comDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         [StringLength(50)]
         public string comType { get; set; }
 

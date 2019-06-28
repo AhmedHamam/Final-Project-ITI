@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/styleaya.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/fontawesome-all.css" rel="stylesheet" />
+
+
+
+    <title> @ViewBag.Title </title>
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light con">
+        <a class="navbar-brand" href="#">
+            <img src="~/images/monofia.png" width="40" height="40" alt="">
+        </a>        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        الادارة
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="Create.cshtml">اضافة مسئول جديد</a>
+                        <a class="dropdown-item" href="#"> حظر مستخدم</a>
+                        <a class="dropdown-item" href="#">  حذف مستخدم</a>
+                        <a class="dropdown-item" href="#">  المستخدمين</a>
+
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">تسجيل الخروج</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="ftco-footer ftco-section" style="padding-top:5%; background:rgb(37, 163, 153); opacity:2;">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h4 class="ftco-heading-2 logo text-right" style="color:white;"><span>اهم ارقام الطوارئ</span> </h4>
+                        <p class="text-right" style="color:black;">
+                            طوارئ المحافظات 114 - النجدة 122 - الكهرباء 121 - المياة 125 - الصرف الصحى 175 - الغاز 129/149 - الصحة 137 - الاسعاف 123 - المطافئ 180 - الامن العام 115 - السياحة 126 - السكة الحديد 147
+                            .
+                        </p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h4 class="ftco-heading-2 logo text-right"><span style="color:white">صدور قرارين بإنشاء منظومة الشكاوى الحكومية الموحدة</span> </h4>
+                        <p class="text-right" style="color:black;">
+                            صدر قرار السيد رئيس الجمهورية رقم 314 لسنة 2017 بشأن إنشاء منظومة الشكاوى الحكومية الموحدة، وقرارالسيد رئيس مجلس الوزراء رقم 1855 لسنة 2017 بتاريخ 17 أغسطس 2017 بشأن منظومة الشكاوى الحكومية الموحدة وإعادة تنظيم مكاتب خدمة المواطنين
+
+                        </p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h4 class="ftco-heading-2 logo text-right"><span style="color:white;"> تواصل معنا - إتصل بنا</span> </h4>
+                        <p class="text-right" style="color:black;">
+                            يمكنكم إرسال جميع الآراء والمقترحات الخاصة بتطوير منظومة الشكاوى الحكومية على البريد الإليكتروني التالى
+                            shakwa@idsc.net.eg
+
+                        </p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        حقوق النشر  &copy;
+                        <script>document.write(new Date().getFullYear());</script> كل الحقوق محفوظه |هذا الموقع صمم  <i class="icon-heart color-danger" aria-hidden="true"></i> بواسطه <a href="https://ITI.com" target="_blank">ItI team</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

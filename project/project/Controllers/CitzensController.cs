@@ -40,11 +40,13 @@ namespace project.Controllers
                 var userComplaints = db.Complaints.Where(u => u.comCitzen == id).ToList();
                 return View(userComplaints);
 
-                    }
-            
+            }
+            else { return RedirectToAction("login"); }
 
-            var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
-            return View(citzens.ToList());
+
+
+            //var citzens = db.Citzens.Include(c => c.Admin).Include(c => c.city);
+            //return View(citzens.ToList());
         }
 
         // GET: Citzens/Details/5
@@ -62,25 +64,92 @@ namespace project.Controllers
             return View();
         }
 
+        public ActionResult Editpassword(int? id)
+        {
+            id = int.Parse(Session["id"].ToString());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Citzen citzen = db.Citzens.Find(id);
+            if (citzen == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
+            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
+            return View(citzen);
+        }
+
+        // POST: Citzens/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editpassword([Bind(Include ="id,password,confirmpassword")]int id,string oldpassword,string newpassword,string confirmpassword)
+        {
+            if (Session["id"] != null)
+            {
+                if (newpassword != confirmpassword)
+                {
+                    ViewData["myInnerHtml"] = "<div id =\"div1\"> <h1> كلمه المرور غير متطابقة </h1> </div>";
+                    return View();
+                }
+                else
+                {
+                    var citzen = db.Citzens.FirstOrDefault(c => c.id == id);
+                    if (citzen.password == oldpassword)
+                    {
+                        citzen.password = newpassword;
+
+                db.Citzens.Add(citzen);
+                db.SaveChanges();
+                return RedirectToAction("home");
+                        db.SaveChanges();
+                        return RedirectToAction("home");
+                    }
+                    else { return RedirectToAction("login"); }
+                }
+            }
+            else { return RedirectToAction("login"); }
+
+
+
+
+        }
+
+
+        public ActionResult forget()
+        {
+            return View();
+        }
+
         // POST: Citzens/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
+        public ActionResult Create([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,confirmPassword,email,password,,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
-            if (ModelState.IsValid)
+           
+           var Acceptedcitzen= db.Citzens.Where(c => c.email == citzen.email && c.password == citzen.password && citzen.accpted == true);
+            if (Acceptedcitzen != null)
             {
-                citzen.reg_date = DateTime.Now;
+                if (ModelState.IsValid)
+                {
+                    citzen.reg_date = DateTime.Now;
 
-                db.Citzens.Add(citzen);
-                db.SaveChanges();
-                return RedirectToAction("home");
-            }
+                    db.Citzens.Add(citzen);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
-            ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
-            return View(citzen);
+                ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
+                ViewBag.cityId = new SelectList(db.cities, "id", "name", citzen.cityId);
+                return View(citzen);
+            }else { return Content("انتظر قبول من الادمن"); }
+ 
+            
         }
 
         // GET: Citzens/Edit/5
@@ -108,10 +177,13 @@ namespace project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,fName,lName,mName,nationailnumber,nationalNumberImage,gender,userName,email,password,address,phone,mobile,reg_date,accept_date,works_on,accpted,isdeleated,blocked,cityId,accptedBy")] Citzen citzen)
         {
-            
+            if (Session["id"] != null)
+            {
                 db.Entry(citzen).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("home");
+            }else { return RedirectToAction("login"); }
+               
             
         }
 

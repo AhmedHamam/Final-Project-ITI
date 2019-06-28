@@ -22,6 +22,7 @@
                     <th scope="col" style="width:20%;">المدينة</th>
                     <th scope="col"> الشاكى</th>
                     <th scope="col">التصنيف </th>
+                    <th scope="col">القطاع </th>
                     <th scope="col">الخدمة</th>
                     <th scope="col">موظف قام بالحل </th>
                     <th scope="col">موظف قام بالقرأ </th>
@@ -56,6 +57,9 @@
                         </td>
                         <td class="container">
                             @Html.DisplayFor(modelItem => item.Complaint_Catgories.Cat_Name)
+                        </td>
+                        <td class="container">
+                            @Html.DisplayFor(modelItem => item.Entity_Branchs.Entity.Title)
                         </td>
                         <td class="container">
                             @Html.DisplayFor(modelItem => item.Entity_Branchs.title)

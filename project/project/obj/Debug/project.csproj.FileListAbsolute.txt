@@ -380,10 +380,10 @@ G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CoreC
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.CopyComplete
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.dll
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.pdb
-E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.Migrations.mina1.resources
 E:\finalproject\Final-Project-ITI\project\project\obj\Debug\project.csproj.GenerateResource.cache
 G:\Finalproject\Final-Project-ITI\project\project\obj\Debug\project.csprojAssemblyReference.cache
 D:\ITI\Final Project\Final-Project-ITI\project\project\bin\roslyn\System.Collections.Immutable.dll
+E:\mina\Final-Project-ITI\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
 D:\ITI\Final Project\Final-Project-ITI\project\project\obj\Debug\project.csprojAssemblyReference.cache
