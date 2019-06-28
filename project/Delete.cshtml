@@ -1,0 +1,87 @@
+﻿
+@model project.Models.Official
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+<h3 class="text-right mt-2">هل انت متاكد من حذف هذا المسئول؟</h3>
+<div>
+  
+    <hr />
+    <table class="table table-responsive table-bordered table-hover table-sortable mt-4 text-right">
+        <thead style="background-color:rgb(37, 163, 153)">
+
+            <tr>
+                <th scope="col">الاسم الاول</th>
+                <th scope="col">الاسم الاوسط</th>
+                <th scope="col">الاسم الاخير</th>
+                <th scope="col">اسم المستخدم</th>
+                <th scope="col">الرقم السري</th>
+                <th scope="col">الايميل</th>
+                <th scope="col">رقم الموبايل</th>
+                <th scope="col">رقم الموبايل</th>
+                <th scope="col">الوظيفه</th>
+                <th scope="col">مدير</th>
+                <th scope="col">محذوف</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(a => a.fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.mName)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.lName)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.passWord)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.job_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.isLeader)
+                </td>
+                <td>
+                    @Html.DisplayFor(a => a.isdeleted)
+                </td>
+                <td>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="حذف" class="btn btn-info" />
+                        </div>
+                    }
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    @Html.ActionLink("الرجوع الي الخلف  ", "Index", "Officials", new { @class = "btn btn-info m-1 " })
+
+
+</div>

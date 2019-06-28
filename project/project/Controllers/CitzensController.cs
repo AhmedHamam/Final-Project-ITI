@@ -75,7 +75,7 @@ namespace project.Controllers
 
                 db.Citzens.Add(citzen);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("home");
             }
 
             ViewBag.accptedBy = new SelectList(db.Admins, "id", "fName", citzen.accptedBy);
