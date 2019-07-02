@@ -68,6 +68,11 @@
             <th scope="col">تفاصيل الشكوي</th>
             <th scope="col">رقم الشكوي </th>
             <th scope="col">تاريخ الشكوي</th>
+            <th scope="col">تفاصيل</th>
+            <th scope="col">تعديل</th>
+            <th scope="col">حذف</th>
+           
+
         </tr>
     </thead>
     <tbody>
@@ -79,6 +84,9 @@
             <td>@complaint.comDescription</td>
             <td>@complaint.comNumber</td>
             <td>@complaint.comDate</td>
+            <td>@Html.ActionLink("تفاصيل","Details","Complaints",new { id=complaint.id},new {@class ="btn btn-success" })</td>
+            <td>@Html.ActionLink("تعديل", "Edit", "Complaints", new { id = complaint.id }, new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("حذف", "Delete", "Complaints", new { id = complaint.id }, new { @class = "btn btn-danger" })</td>
         </tr>
                 }
             

@@ -17,7 +17,7 @@ namespace project.Controllers
 
         public ActionResult home()
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
                 var complaints = db.Complaints.Include(c => c.city).Include(c => c.Citzen).Include(c => c.Complaint_Catgories).Include(c => c.Official).Include(c => c.Official1);
                 return View(complaints.ToList());
@@ -27,7 +27,7 @@ namespace project.Controllers
 
         public ActionResult DetailsOfComp(int? id)
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
                 if (id == null)
                 {
@@ -45,7 +45,7 @@ namespace project.Controllers
 
         public ActionResult SolveOfComp(int? id)
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
                 ViewBag.id = id;
                 return View();
@@ -70,7 +70,7 @@ namespace project.Controllers
 
         public ActionResult logout()
         {
-            Session["id"] = null;
+            Session["official"] = null;
             return RedirectToAction("login");
         }
 
@@ -98,7 +98,7 @@ namespace project.Controllers
                         }).ToList();
             if (offical.FirstOrDefault() != null)
             {
-                Session["id"] = offical.FirstOrDefault().id;
+                Session["official"] = offical.FirstOrDefault().id;
                 Session["name"] = offical.FirstOrDefault().fName;
 
                 return Redirect("home");
@@ -136,7 +136,7 @@ namespace project.Controllers
         // GET: Officials
         public ActionResult Index()
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
                 var officials = db.Officials.Include(o => o.Entity).Include(o => o.Official1).Include(o => o.OfficialJob);
                 return View(officials.ToList());
@@ -148,7 +148,7 @@ namespace project.Controllers
         // GET: Officials/Details/5
         public ActionResult Details(int? id)
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
                 if (id == null)
                 {
@@ -167,11 +167,11 @@ namespace project.Controllers
         // GET: Officials/Create
         public ActionResult Create()
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
-                ViewBag.entityId = new SelectList(db.Entities, "id", "Title");
-                ViewBag.leaderId = new SelectList(db.Officials, "id", "fName");
-                ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job");
+                ViewBag.entityId = new SelectList(db.Entities, "official", "Title");
+                ViewBag.leaderId = new SelectList(db.Officials, "official", "fName");
+                ViewBag.job_id = new SelectList(db.OfficialJobs, "official", "Job");
                 return View();
             }
             else { return RedirectToAction("login"); }
@@ -191,16 +191,16 @@ namespace project.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.entityId = new SelectList(db.Entities, "id", "Title", official.entityId);
-            ViewBag.leaderId = new SelectList(db.Officials, "id", "fName", official.leaderId);
-            ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job", official.job_id);
+            ViewBag.entityId = new SelectList(db.Entities, "official", "Title", official.entityId);
+            ViewBag.leaderId = new SelectList(db.Officials, "official", "fName", official.leaderId);
+            ViewBag.job_id = new SelectList(db.OfficialJobs, "official", "Job", official.job_id);
             return View(official);
         }
 
         // GET: Officials/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (Session["id"] != null)
+            if (Session["official"] != null)
             {
 
 
@@ -213,9 +213,9 @@ namespace project.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.entityId = new SelectList(db.Entities, "id", "Title", official.entityId);
-                ViewBag.leaderId = new SelectList(db.Officials, "id", "fName", official.leaderId);
-                ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job", official.job_id);
+                ViewBag.entityId = new SelectList(db.Entities, "official", "Title", official.entityId);
+                ViewBag.leaderId = new SelectList(db.Officials, "official", "fName", official.leaderId);
+                ViewBag.job_id = new SelectList(db.OfficialJobs, "official", "Job", official.job_id);
                 return View(official);
             }
             else { return RedirectToAction("login"); }
@@ -234,16 +234,16 @@ namespace project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.entityId = new SelectList(db.Entities, "id", "Title", official.entityId);
-            ViewBag.leaderId = new SelectList(db.Officials, "id", "fName", official.leaderId);
-            ViewBag.job_id = new SelectList(db.OfficialJobs, "id", "Job", official.job_id);
+            ViewBag.entityId = new SelectList(db.Entities, "official", "Title", official.entityId);
+            ViewBag.leaderId = new SelectList(db.Officials, "official", "fName", official.leaderId);
+            ViewBag.job_id = new SelectList(db.OfficialJobs, "official", "Job", official.job_id);
             return View(official);
         }
 
         // GET: Officials/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (Session["id"]!=null)
+            if (Session["official"]!=null)
             {
                 Official offi = db.Officials.FirstOrDefault(a => a.id == id);
                 if (id == null)

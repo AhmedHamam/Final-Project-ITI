@@ -17,24 +17,31 @@ namespace project.Controllers
         // GET: Complaints
         public ActionResult Index()
         {
-            
-            var complaints = db.Complaints.Include(c => c.city).Include(c => c.Citzen).Include(c => c.Complaint_Catgories).Include(c => c.Entity_Branchs).Include(c => c.Official).Include(c => c.Official1);
-            return View(complaints.ToList());
+            if (Session["admin"] != null)
+            {
+                var complaints = db.Complaints.Include(c => c.city).Include(c => c.Citzen).Include(c => c.Complaint_Catgories).Include(c => c.Entity_Branchs).Include(c => c.Official).Include(c => c.Official1);
+                return View(complaints.ToList());
+            }else { return RedirectToAction("login", "Admins"); }
         }
 
         // GET: Complaints/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Complaint complaint = db.Complaints.Find(id);
+                if (complaint == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(complaint);
             }
-            Complaint complaint = db.Complaints.Find(id);
-            if (complaint == null)
-            {
-                return HttpNotFound();
-            }
-            return View(complaint);
+            else { return RedirectToAction("login", "Admins"); }
+
         }
 
         // GET: Complaints/Create
@@ -80,7 +87,7 @@ namespace project.Controllers
                     complaint.isreaded = false;
                     complaint.isSolved = false;
                     complaint.comCitzen = int.Parse(Session["id"].ToString());
-                    if (complaint.comFile != null)
+                    if (comFile1 != null)
                     {
                         string image = System.IO.Path.GetFileName(comFile1.FileName);
                         string myPath = Server.MapPath("~/images/" + image);
@@ -88,7 +95,7 @@ namespace project.Controllers
                         complaint.comFile = image;
                     }
 
-                    if (complaint.comFile2 != null)
+                    if (comFile2 != null)
                     {
                         string image2 = System.IO.Path.GetFileName(comFile2.FileName);
                         string myPath2 = Server.MapPath("~/images/" + image2);
@@ -99,7 +106,7 @@ namespace project.Controllers
 
                     db.Complaints.Add(complaint);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("home","Citzens");
                 }
 
                 ViewBag.comGov = new SelectList(db.Governments, "id", "name");

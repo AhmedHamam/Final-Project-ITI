@@ -24,6 +24,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                @if (Session["admin"] != null)
+                {
                 <li class="nav-item active">
                     <a class="nav-link" href="#">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
                 </li>
@@ -32,16 +34,31 @@
                         الادارة
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="Create.cshtml">اضافة مسئول جديد</a>
-                        <a class="dropdown-item" href="#"> حظر مستخدم</a>
-                        <a class="dropdown-item" href="#">  حذف مستخدم</a>
-                        <a class="dropdown-item" href="#">  المستخدمين</a>
+                        <a class="dropdown-item" href="~/Officials/Create">اضافة مسئول جديد</a>
+                        
+                        <a class="dropdown-item" href="~/Officials/index">  عرض المسئولين</a>
 
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">تسجيل الخروج</a>
+                </li>}
+                else {
+                                    <li class="nav-item active">
+                    <a class="nav-link" href="#">الصفحه الرئيسية<span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        الادارة
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="~/Officials/Create">اضافة مسئول جديد</a>
+
+                        <a class="dropdown-item" href="~/Officials/index">  عرض المسئولين</a>
+
+                    </div>
+                </li>
+                }
             </ul>
         </div>
     </nav>
