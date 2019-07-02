@@ -102,6 +102,9 @@ namespace project.Controllers
                     {
                         citzen.password = newpassword;
 
+                db.Citzens.Add(citzen);
+                db.SaveChanges();
+                return RedirectToAction("home");
                         db.SaveChanges();
                         return RedirectToAction("home");
                     }
